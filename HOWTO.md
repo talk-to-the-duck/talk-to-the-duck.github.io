@@ -1,17 +1,32 @@
-https://hbs.razonyang.com/en/posts/getting-started/
-https://www.atlassian.com/git/tutorials/git-submodule
+# How to edit the Talk To The Duck blog
 
-git version 2.25.1
+This site is built with [Hugo](https://gohugo.io/).
+Hugo renders the pages in a server side fashion.
 
+To see how to use the Hugo theme see the [Bootstrap theme reference](https://hbs-cn.razonyang.com/en/)
 
-mkdir -p themes/hugo-theme-bootstrap
+If you don't want the draft pages to be rendered:
+```shell
+hugo server
+```
 
-cd themes/hugo-theme-bootstrap
-
-git init
-
-
-git submodule add https://github.com/razonyang/hugo-theme-bootstrap themes/hugo-theme-bootstrap
-git submodule update --init --recursive
-
+If instead you want the draft pages to be rendered:
+```shell
 hugo server -D
+```
+
+## How to create a post
+```shell
+hugo new posts/first-post.md
+```
+Don't forget to commit.
+
+## How to delete a post
+Search for the content and delete it.
+Be careful with cross-links in the website.
+Don't forget to commit.
+
+# How to use Git modules
+See this [article](https://www.vogella.com/tutorials/GitSubmodules/article.html) by Vogella. 
+
+
