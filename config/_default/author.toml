@@ -1,5 +1,6 @@
 name = "Talk To The Duck"
 # avatar = "images/profile.png" # Avatar image. Default to "images/profile.webp".
+avatar = "images/duck_120x120_square.png" # Avatar image. Default to "images/profile.webp".
 bio = "Explain to the Duck, you will understand."
 # company = 'Company'
 # company = '<a href="https://example.com" target="_blank" rel="noopener noreferrer">Company</a>'
