@@ -1,7 +1,7 @@
-baseURL = "https://example.com"
-title = "Hugo Bootstrap"
+baseURL = "https://talk-to-the-duck.github.io/"
+title = "Talk To The Duck"
 theme = "hugo-theme-bootstrap"
-copyright = "Copyright © 2016-{year} Talk To The Duck. All Rights Reserved."
+copyright = "Copyright © 2021-{year} Talk To The Duck. All Rights Reserved."
 
 # Multilingual mode
 defaultContentLanguage = "en"
