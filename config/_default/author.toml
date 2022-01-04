@@ -1,9 +1,9 @@
-name = "Razon Yang"
+name = "Talk To The Duck"
 # avatar = "images/profile.png" # Avatar image. Default to "images/profile.webp".
-bio = "Gopher, PHPer, Full Stack Engineer."
-company = 'Company'
+bio = "Explain to the Duck, you will understand."
+# company = 'Company'
 # company = '<a href="https://example.com" target="_blank" rel="noopener noreferrer">Company</a>'
-location = "Earth"
+location = "Paris, France"
 # alternatives:
 # location = "<a href='https://www.openstreetmap.org/search?query=Earth'>Earth</a>"
 # location = "<a href='https://www.google.com/maps/search/Earth'>Earth</a>"
@@ -13,8 +13,8 @@ location = "Earth"
   #layout = "compact"
 
 [social]
-  email = "user@domain.tld"
-  facebook = "yourfacebookusername"
-  github = "yourgithubusername"
-  twitter = "yourtwitterusername"
-  linkedin = "yourlinkedinusername"
+#  email = "user@domain.tld"
+#  facebook = "yourfacebookusername"
+#  github = "yourgithubusername"
+#  twitter = "yourtwitterusername"
+#  linkedin = "yourlinkedinusername"
