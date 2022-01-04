@@ -1,3 +1,6 @@
+render = never
+
+
 +++
 title = "FAQs"
 description = "Frequently Asked Questions"
