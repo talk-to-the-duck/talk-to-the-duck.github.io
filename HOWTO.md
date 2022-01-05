@@ -3,6 +3,7 @@
 This site is built with [Hugo](https://gohugo.io/).
 Hugo renders the pages in a server side fashion.
 
+
 To see how to use the Hugo theme see the [Bootstrap theme reference](https://hbs-cn.razonyang.com/en/)
 
 If you don't want the draft pages to be rendered:
