@@ -1,11 +1,23 @@
 [en]
   languageName = "English"
   weight = 1
+  [en.params]
+    dateFormat = "02-01-2006"
+    description = "Talk To The Duck - from developers for developers"
+    keywords = "Developing software professionally, applied software quality"
 
 [fr]
   languageName = "Français"
   weight = 2
   [fr.params]
     dateFormat = "02-01-2006"
-    description = "Un thème de blog extrêmement rapide, réactif et riche en fonctionnalités pour Hugo"
-    keywords = "Hugo, Bootstrap, Thème Blog"
+    description = "Talk To The Duck  - de développeurs pour développeurs"
+    keywords = "Développeur logiciel professionellement, qualité du logiciel appliquée"
+
+[it]
+  languageName = "Italiano"
+  weight = 3
+  [it.params]
+    dateFormat = "02/01/2006"
+    description = "Talk To The Duck  - da sviluppatori a sviluppatori"
+    keywords = "Sviluppare software professionalmente, qualità del software applicata"
