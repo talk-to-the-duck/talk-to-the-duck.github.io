@@ -4,8 +4,8 @@ description = ""
 date = 2022-01-13T19:52:06+01:00
 featured = false
 draft = false
-comment = true
-toc = true
+comment = false
+toc = false
 reward = true
 pinned = false
 categories = [
@@ -28,9 +28,9 @@ Può sembrare strano ma se invece di leggere il codice a ripetizione, lo raccont
 
 Ma cos’è che ci ha spinti a creare un sito che vi incita a parlare ad un’anatra?
 Abbiamo fatto diverse constatazioni:
-Capitiamo spesso su codice non aggiornato rispetto all’articolo che lo spiega
-In molti casi i progetti associati agli articoli sono sprovvisti di test.
-La qualità del codice è un argomento poco conosciuto oppure trascurato a favore di differenti fattori che quasi mai sono giustificabili in termini razionali.
+- Capitiamo spesso su codice non aggiornato rispetto all’articolo che lo spiega
+-In molti casi i progetti associati agli articoli sono sprovvisti di test.
+- La qualità del codice è un argomento poco conosciuto oppure trascurato a favore di differenti fattori che quasi mai sono giustificabili in termini razionali.
 
 L’idea principale di questo sito è quindi quella di presentare degli articoli e delle metodologie cui saranno associati dei progetti con la stessa qualità che ci è richiesta nel nostro lavoro e di mantenerli aggiornati.
 
