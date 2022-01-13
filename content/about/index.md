@@ -9,20 +9,21 @@ postDate = false
 readingTime = false
 +++
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Have you ever gotten stuck while writing a particularly complicated piece of code and figured out what was wrong at the exact moment you asked a colleague for help?
 
-Hugo makes use of a variety of open source projects including:
+Explain your code to a duck (if it's made of rubber, it will always remain handy on your desk) and your ideas will catch on quickly.
 
-* https://github.com/yuin/goldmark
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+It may seem strange but if instead of reading the code over and over, you tell someone about it, your brain often reveals the mystery. The idea of ​​explaining the code to a rubber duck was popularized by the book "The Pragmatic Programmer". The method works. This explains the logo.
 
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
+But, what prompted us to create a site that encourages you to talk to a duck?
+We made several observations:
+- We often come across code that is not updated with respect to the article that explains it
+- In many cases, the projects associated with the articles do not have tests.
+- The quality of the code is a little known or neglected argument in favor of different factors that are almost never justifiable in rational terms.
 
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
+The main idea of this site is therefore to present articles and methodologies which will be associated with projects with the same quality that is required of us in our work and to keep them up-to-date.
 
-Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
+By extension, the idea is also to present articles about our job as developers and maybe even to present some books that we particularly liked.
 
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+The arguments reflect only our opinions and our way of doing but it is always our point of view and we are willing to change them because to progress you need to know how to listen and understand the opinion of others and accept that there are different ways of doing.
+
