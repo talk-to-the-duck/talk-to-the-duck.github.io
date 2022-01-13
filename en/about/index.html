@@ -11,7 +11,7 @@
 <meta name=description content="Hugo, the world's fastest framework for building websites"><meta itemprop=name content="About">
 <meta itemprop=description content="Hugo, the world's fastest framework for building websites"><meta itemprop=datePublished content="2019-02-28T00:00:00+00:00">
 <meta itemprop=dateModified content="2019-02-28T00:00:00+00:00">
-<meta itemprop=wordCount content="149">
+<meta itemprop=wordCount content="292">
 <meta itemprop=keywords content><meta property="og:title" content="About">
 <meta property="og:description" content="Hugo, the world's fastest framework for building websites">
 <meta property="og:type" content="article">
@@ -65,7 +65,7 @@ Talk To The Duck
 <a class="btn btn-sm btn-outline-primary dropdown-toggle" href=# id=languageDropdown role=button data-bs-toggle=dropdown aria-expanded=false>
 English
 </a>
-<ul class="dropdown-menu dropdown-menu-end" aria-labelledby=languageDropdown><li><a class=dropdown-item href=/fr/>Français</a></li></ul>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby=languageDropdown><li><a class=dropdown-item href=/fr/>Français</a></li><li><a class=dropdown-item href=/it/>Italiano</a></li></ul>
 </div>
 </div>
 </form>
@@ -174,6 +174,12 @@ English
 <a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler">
 <i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i>
 </a>
+<div class="post-translations nav-item dropdown dropstart action">
+<a class="nav-link p-0" data-bs-toggle=dropdown href=# role=button aria-haspopup=true aria-expanded=false aria-label="Translations dropdown menu" title=Translations>
+<i class="fas fa-fw fa-language"></i>
+</a>
+<div class=dropdown-menu><a class="dropdown-item post-translation" href=/fr/about/>Français</a><a class="dropdown-item post-translation" href=/it/about/>Italiano</a></div>
+</div>
 <a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright>
 <i class="fas fa-fw fa-copyright"></i>
 </a>
@@ -188,26 +194,19 @@ English
 </div>
 <div class=card-body><div class=post-meta><span class=post-taxonomies></span>
 </div>
-<div class="post-content mb-3"><p>Written in Go, Hugo is an open source static site generator available under the <a href=https://github.com/gohugoio/hugo/blob/master/LICENSE target=_blank rel="noopener noreferrer">Apache Licence 2.0.</a>
-Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.</p>
-<p>Hugo makes use of a variety of open source projects including:</p>
+<div class="post-content mb-3"><p>Have you ever gotten stuck while writing a particularly complicated piece of code and figured out what was wrong at the exact moment you asked a colleague for help?</p>
+<p>Explain your code to a duck (if it&rsquo;s made of rubber, it will always remain handy on your desk) and your ideas will catch on quickly.</p>
+<p>It may seem strange but if instead of reading the code over and over, you tell someone about it, your brain often reveals the mystery. The idea of ​​explaining the code to a rubber duck was popularized by the book &ldquo;The Pragmatic Programmer&rdquo;. The method works. This explains the logo.</p>
+<p>But, what prompted us to create a site that encourages you to talk to a duck?
+We made several observations:</p>
 <ul>
-<li><a href=https://github.com/yuin/goldmark target=_blank rel="noopener noreferrer">https://github.com/yuin/goldmark</a>
-</li>
-<li><a href=https://github.com/alecthomas/chroma target=_blank rel="noopener noreferrer">https://github.com/alecthomas/chroma</a>
-</li>
-<li><a href=https://github.com/muesli/smartcrop target=_blank rel="noopener noreferrer">https://github.com/muesli/smartcrop</a>
-</li>
-<li><a href=https://github.com/spf13/cobra target=_blank rel="noopener noreferrer">https://github.com/spf13/cobra</a>
-</li>
-<li><a href=https://github.com/spf13/viper target=_blank rel="noopener noreferrer">https://github.com/spf13/viper</a>
-</li>
+<li>We often come across code that is not updated with respect to the article that explains it</li>
+<li>In many cases, the projects associated with the articles do not have tests.</li>
+<li>The quality of the code is a little known or neglected argument in favor of different factors that are almost never justifiable in rational terms.</li>
 </ul>
-<p>Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.</p>
-<p>Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.</p>
-<p>Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.</p>
-<p>Learn more and contribute on <a href=https://github.com/gohugoio target=_blank rel="noopener noreferrer">GitHub</a>
-.</p>
+<p>The main idea of this site is therefore to present articles and methodologies which will be associated with projects with the same quality that is required of us in our work and to keep them up-to-date.</p>
+<p>By extension, the idea is also to present articles about our job as developers and maybe even to present some books that we particularly liked.</p>
+<p>The arguments reflect only our opinions and our way of doing but it is always our point of view and we are willing to change them because to progress you need to know how to listen and understand the opinion of others and accept that there are different ways of doing.</p>
 </div><hr><div class=post-copyright id=post-copyright>
 <a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en>
 <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
@@ -225,19 +224,19 @@ CC BY-NC-ND 4.0
 </div>
 <div class=card-body>
 <ul class=post-list><li>
-<a href=/en/contact/>
-</a>
-<span class="float-end post-date">Jan 1, 0001
-</span>
-</li><li>
 <a href=/en/faq/>
 </a>
-<span class="float-end post-date">Jan 1, 0001
+<span class="float-end post-date">01-01-0001
+</span>
+</li><li>
+<a href=/en/contact/>
+</a>
+<span class="float-end post-date">01-01-0001
 </span>
 </li><li>
 <a href=/en/offline/>Offline
 </a>
-<span class="float-end post-date">Jan 1, 0001
+<span class="float-end post-date">01-01-0001
 </span>
 </li></ul>
 </div>
