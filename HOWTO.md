@@ -31,3 +31,12 @@ Don't forget to commit.
 See this [article](https://www.vogella.com/tutorials/GitSubmodules/article.html) by Vogella. 
 
 
+Starting from the version 0.93 of Hugo, this site cannot be built anymore, probably because of a bug introduced in 0.93
+
+docker run --rm -it \
+-v $(pwd):/src \
+-p 1313:1313 \
+klakegg/hugo:0.92.2 \
+server
+
+
