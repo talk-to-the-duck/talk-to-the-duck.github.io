@@ -1,3 +1,9 @@
+[404_title]
+other = "Oops! Page non trouvée."
+
+[404_info]
+other = "Le serveur n'a pas trouvé la ressource demandée."
+
 [about_me]
 other = "À propos"
 
@@ -6,6 +12,18 @@ other = "Alipay"
 
 [archives]
 other = "Archives"
+
+[button_copy_url]
+other = "Copier URL"
+
+[button_reload]
+other = "Reload"
+
+[button_social_share]
+other = "Share"
+
+[button_submit]
+other = "Submit"
 
 [buy_me_a_coffee]
 other = "Buy me a coffee"
@@ -49,6 +67,27 @@ other = "Bleu Turquoise"
 [color_yellow]
 other = "Jaune"
 
+[comments]
+other = "Commentaires"
+
+[contact_name]
+other = "Prénom"
+
+[contact_email]
+other = "Email"
+
+[contact_email_help]
+other = "Nous ne partagerons avec personne votre email ."
+
+[contact_file]
+other = "File"
+
+[contact_subject]
+other = "Suject"
+
+[contact_message]
+other = "Message"
+
 [copyright]
 other = "Copyright"
 
@@ -62,7 +101,10 @@ other = "Taille de la Police"
 other = "Accueil"
 
 [language]
-other = "Langage"
+other = "Language"
+
+[liberapay]
+other = "Liberapay"
 
 [load_more]
 other = "Voir plus"
@@ -70,14 +112,33 @@ other = "Voir plus"
 [mode]
 other = "Mode"
 
+[offline_title]
+other = "Oops! Vous etez hors-ligne."
+
+[offline_info]
+other = "Il semble qu'il y ait un problème avec votre connexion. Merci de verifier l'état de votre connexion."
+
 [pagination_title]
 other = "Page {{ .PageNumber }}"
 
 [palette]
 other = "Palette"
 
+[patreon]
+other = "Patreon"
+
+[paypal]
+other = "Paypal"
+
+[post_count]
+one = "{{ .Count }} articolo au total"
+other = "{{ .Count }} articoli au total"
+
+[post_date]
+other = "created on {{ .createdOn }}{{ with .updatedOn }}, updated on {{ . }}{{ end }}."
+
 [read_more]
-other = "en savoir plus"
+other = "Lire plus"
 
 [reading_time]
 other = "{{ .ReadingTime }} min de lecture"
@@ -111,6 +172,9 @@ other = "Sommaire"
 
 [tags]
 other = "Tags"
+
+[try_again]
+other = "Réessayer"
 
 [wechat]
 other = "WeChat"
