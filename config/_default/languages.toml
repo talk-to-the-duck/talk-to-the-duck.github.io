@@ -11,7 +11,7 @@
   weight = 2
   [fr.params]
     dateFormat = "02-01-2006"
-    description = "Talk To The Duck  - de développeurs pour développeurs"
+    description = "Talk To The Duck - de développeurs pour développeurs"
     keywords = "Développeur logiciel professionellement, qualité du logiciel appliquée"
 
 [it]
@@ -19,5 +19,5 @@
   weight = 3
   [it.params]
     dateFormat = "02/01/2006"
-    description = "Talk To The Duck  - da sviluppatori a sviluppatori"
+    description = "Talk To The Duck - da sviluppatori a sviluppatori"
     keywords = "Sviluppare software professionalmente, qualità del software applicata"
