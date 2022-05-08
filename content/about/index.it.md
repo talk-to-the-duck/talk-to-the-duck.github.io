@@ -20,7 +20,7 @@ series = [
 images = []
 +++
 
-Vi è  mai capitato di bloccarvi mentre scrivete un pezzo di codice particolarmente complicato e di capire cosa non andava nel momento esatto in cui chiedevate aiuto ad un collega?
+Vi è mai capitato di bloccarvi mentre scrivete un pezzo di codice particolarmente complicato e di capire cosa non andava nel momento esatto in cui chiedevate aiuto ad un collega?
 
 Spiegate il vostro codice ad un’anatra (se è di gomma, resterà sempre a portata di mano sulla vostra scrivania) e le vostre idee si chariranno velocemente.
 
