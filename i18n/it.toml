@@ -1,0 +1,141 @@
+[about_me]
+other = "A proposito"
+
+[alipay]
+other = "Alipay"
+
+[archives]
+other = "Archivi"
+
+[buy_me_a_coffee]
+other = "Offrici un caffè"
+
+[categories]
+other = "Categorie"
+
+[color_blue]
+other = "Blu"
+
+[color_blue_gray]
+other = "Blu Grigio"
+
+[color_brown]
+other = "Marrone"
+
+[color_cyan]
+other = "Ciano"
+
+[color_green]
+other = "Verde"
+
+[color_indigo]
+other = "Indigo"
+
+[color_orange]
+other = "Arancione"
+
+[color_pink]
+other = "Rosa"
+
+[color_purple]
+other = "Viola"
+
+[color_red]
+other = "Rosso"
+
+[color_teal]
+other = "Blu Turchese"
+
+[color_yellow]
+other = "Giallo"
+
+[copyright]
+other = "Copyright"
+
+[featured_posts]
+other = "Articoli in evidenza"
+
+[font_size]
+other = "Dimensione dei caratteri"
+
+[home]
+other = "Pagina principale"
+
+[language]
+other = "Lingua"
+
+[liberapay]
+other = "Liberapay"
+
+[load_more]
+other = "Altro"
+
+[mode]
+other = "Modo"
+
+[offline_title]
+other = "Oops! Sei off-line."
+
+[offline_info]
+other = "Sembra che ci sia un problema con la tua connessione."
+
+[pagination_title]
+other = "Page {{ .PageNumber }}"
+
+[palette]
+other = "Palette"
+
+[patreon]
+other = "Patreon"
+
+[paypal]
+other = "Paypal"
+
+[post_count]
+one = "{{ .Count }} articolo in totale"
+other = "{{ .Count }} articoli in totale"
+
+[post_date]
+other = "created on {{ .createdOn }}{{ with .updatedOn }}, updated on {{ . }}{{ end }}."
+
+[read_more]
+other = "Leggi altro"
+
+[reading_time]
+other = "{{ .ReadingTime }} min di lettura"
+
+[recent_posts]
+other = "Articoli Recenti"
+
+[related_posts]
+other = "Articoli correlati"
+
+[search]
+other = "Cercare"
+
+[search_missing_keywords]
+other = "Inserire le parole chiave"
+
+[search_no_results]
+other = "Alcun risultato trovato"
+
+[search_stat]
+other = "{{ .Total }} risultati trovati"
+
+[series]
+other = "Serie"
+
+[settings]
+other = "Impostazioni"
+
+[table_of_contents]
+other = "Sommario"
+
+[tags]
+other = "Tags"
+
+[try_again]
+other = "Riprovare"
+
+[wechat]
+other = "WeChat"
