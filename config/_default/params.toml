@@ -35,6 +35,7 @@ googleAdsense = ""
 # searchBar = false # disable search-bar
 
 # poweredBy = false # Whether to show powered by.
+poweredBy = false # Whether to show powered by.
 
 # readingTime = false # Whether to display the reading time.
 # postDate = false # Whether to display the post date in the post meta section.
