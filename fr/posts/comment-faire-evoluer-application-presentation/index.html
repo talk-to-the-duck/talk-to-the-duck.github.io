@@ -1,0 +1,431 @@
+<!doctype html><html lang=fr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Comment faire évoluer une API pour la rendre plus robuste et maintenable - Presentation - Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
+<link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png>
+<link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png>
+<link rel=icon href=/images/icons/favicon.ico>
+<link rel=manifest href=/fr/manifest.json>
+<meta name=keywords content>
+<meta name=description content><meta itemprop=name content="Comment faire évoluer une API pour la rendre plus robuste et maintenable - Presentation">
+<meta itemprop=description content><meta itemprop=datePublished content="2022-02-15T08:53:16+01:00">
+<meta itemprop=dateModified content="2022-02-15T08:53:16+01:00">
+<meta itemprop=wordCount content="958">
+<meta itemprop=keywords content=","><meta property="og:title" content="Comment faire évoluer une API pour la rendre plus robuste et maintenable - Presentation">
+<meta property="og:description" content>
+<meta property="og:type" content="article">
+<meta property="og:url" content="/fr/posts/comment-faire-evoluer-application-presentation/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-02-15T08:53:16+01:00">
+<meta property="article:modified_time" content="2022-02-15T08:53:16+01:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Comment faire évoluer une API pour la rendre plus robuste et maintenable - Presentation">
+<meta name=twitter:description content>
+<meta name=robots content="index, follow"><link rel=stylesheet href=/css/main.min.bdac26feededc335ec4311c668376189bbfe162d3dc6063df0d592d8d855725c.css integrity="sha256-vawm/u3twzXsQxHGaDdhibv+Fi09xgY98NWS2NhVclw=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head>
+<body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+<div class=container>
+<button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/fr/><img class=logo alt=Logo src=/images/ttd-logo.webp loading=lazy width=136 height=136>
+Talk To The Duck
+</a>
+<div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Share</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class=offcanvas-body>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Comment%20faire%20%c3%a9voluer%20une%20API%20pour%20la%20rendre%20plus%20robuste%20et%20maintenable%20-%20Presentation&url=%2ffr%2fposts%2fcomment-faire-evoluer-application-presentation%2f">
+<i class="fab fa-fw fa-twitter"></i> Twitter
+</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2ffr%2fposts%2fcomment-faire-evoluer-application-presentation%2f">
+<i class="fab fa-fw fa-facebook-f"></i> Facebook
+</a>
+</div>
+</div>
+<button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i>
+</button>
+<div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Réglages</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class="offcanvas-body d-flex flex-column"><section class=setting>
+<form class=row>
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-language"></i> Language</label>
+</div>
+<div class="col-auto ms-auto">
+<div class=dropdown>
+<a class="btn btn-sm btn-outline-primary dropdown-toggle" href=# id=languageDropdown role=button data-bs-toggle=dropdown aria-expanded=false>
+Français
+</a>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby=languageDropdown><li><a class=dropdown-item href=/en/>English</a></li><li><a class=dropdown-item href=/it/>Italiano</a></li></ul>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+</div>
+<div class="col-auto ms-auto">
+<div class="form-check form-switch">
+<input class=form-check-input type=checkbox id=modeSwitcher>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class="font-size-switcher-form row">
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Taille de la Police</label>
+</div>
+<div class="col-auto ms-auto">
+<input type=range class=form-range min=-2 max=2 id=fontSize>
+</div>
+</form>
+</section>
+<section class="setting palettes">
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-palette"></i> Palette</label>
+</div>
+<div class="col-auto ms-auto">
+<a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker>
+<i class="fas fa-eye-dropper"></i>
+</a>
+</div>
+</form>
+<div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Bleu class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gris" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Marron class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Vert class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Rose class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Mauve class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Rouge class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label="Bleu Turquoise" class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Jaune class="btn btn-sm palette" data-palette=yellow>
+</button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+<a role=button class="action action-reload-page">
+<span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+</a>
+<a role=button class="action action-copy-url">
+<span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copier URL
+</a><a class="action action-social-share" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<span class=action-icon><i class="fas fa-2x fa-share-alt"></i></span> Share
+</a></section>
+</div>
+</div>
+<div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent>
+<form class="search-bar my-1" action=/fr/search>
+<div class="input-group input-group-sm">
+<span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search>
+</div>
+</form>
+<ul class="navbar-nav ms-auto"><li class=nav-item>
+<a class=nav-link href=/fr/series/>
+<i class="fas fa-fw fa-columns"></i>Séries
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/fr/archives/>
+<i class="fas fa-fw fa-file-archive"></i>Archives
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/fr/categories/>
+<i class="fas fa-fw fa-folder"></i>Catégories
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/fr/tags/>
+<i class="fas fa-fw fa-tags"></i>Tags
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/>
+</a>
+</li></ul>
+</div>
+</div>
+</nav>
+</header>
+<main role=main class=container>
+<div class="row content">
+<div class=col-lg-8>
+<div class=container><nav class="row card component" aria-label=breadcrumb>
+<div class=card-body>
+<ol class=breadcrumb><li class=breadcrumb-item><a href=/fr/>Accueil</a></li><li class=breadcrumb-item><a href=/fr/posts/>Articles</a></li><li class="breadcrumb-item active">Comment Faire Évoluer Une API Pour La Rendre Plus Robuste Et Maintenable - Presentation</li></ol>
+</div>
+</nav><article class="row card component mb-4 post"><div class=post-panel-wrapper>
+<div class="d-flex flex-column component rounded post-panel">
+<a class="action action-panel-toggler" role=button title="Panel toggler">
+<i class="fas fa-fw fa-chevron-circle-down"></i>
+</a>
+<a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler">
+<i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i>
+</a>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright>
+<i class="fas fa-fw fa-copyright"></i>
+</a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments>
+<i class="fas fa-fw fa-comments"></i>
+</a>
+<a class=action data-bs-toggle=offcanvas href=#offcanvasTOC aria-controls=offcanvasTOC role=button title="Table of contents">
+<i class="fas fa-fw fa-list-alt"></i>
+</a>
+</div>
+</div>
+<div class=card-header>
+<h1 class="card-title post-title">Comment Faire Évoluer Une API Pour La Rendre Plus Robuste Et Maintenable - Presentation
+</h1>
+</div>
+<div class=card-body><div class=post-meta>
+<span class=post-date title="created on 2022-02-15 07:53:16 +0000 UTC.">
+15-02-2022
+</span><span class=post-reading-time>
+5 min de lecture
+</span><span class=post-taxonomies><a href=/fr/categories/qualit%C3%A9/ class="badge rounded-pill post-taxonomy">qualité</a><a href=/fr/series/comment-faire-%C3%A9voluer-une-application-pour-la-rendre-plus-robuste-et-maintenable/ class="badge rounded-pill post-taxonomy">Comment faire évoluer une application pour la rendre plus robuste et maintenable</a></span>
+</div>
+<div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasTOC aria-labelledby=offcanvasTOCLabel>
+<div class=offcanvas-header>
+<h2 class=offcanvas-title id=offcanvasTOCLabel>Sommaire</h5>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class=offcanvas-body>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#fonctionnellement>Fonctionnellement</a></li>
+<li><a href=#techniquement>Techniquement</a></li>
+</ul>
+<ul>
+<li><a href=#des-problèmes-de-documentation>Des problèmes de documentation</a>
+<ul>
+<li><a href=#readme-vide>readme vide</a></li>
+<li><a href=#absence-de-swagger-ou-autre>Absence de swagger (ou autre)</a></li>
+</ul>
+</li>
+<li><a href=#des-problèmes-de-qualité>Des problèmes de qualité</a>
+<ul>
+<li><a href=#absence-de-tests>Absence de tests</a></li>
+<li><a href=#absence-de-paramétrage-et-de-cicd>Absence de paramétrage et de ci(cd)</a></li>
+<li><a href=#absence-doutils-pour-contrôler-la-qualité-du-code>Absence d’outils pour contrôler la qualité du code.</a></li>
+</ul>
+</li>
+<li><a href=#des-problèmes-darchitecture>Des problèmes d&rsquo;architecture</a>
+<ul>
+<li><a href=#utilisation-dune-base-h2>Utilisation d’une base H2</a></li>
+<li><a href=#lutilisation-dune-architecture-en-layers->L’utilisation d’une architecture en layers \</a></li>
+<li><a href=#mélange-des-domaines-métier>Mélange des domaines métier</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div><div class="post-content mb-3"><h1 id=préambule>Préambule<a class="anchor ms-1" href=#préambule><i class="fas fa-link"></i></a></h1>
+<p>Il y a peu on m’a montré une application qui avait été faite assez récemment, mais qui avait l’aspect d’une application il y a dix ou quinze ans.
+Suite à ça j’ai trouvé qu’il serait intéressant d’essayer de faire évoluer une application semblable à celle qui m’a été présentée vers une architecture de qualité.
+Au travers de ce premier article nous présenterons l’application (<a href=https://github.com/talk-to-the-duck/happraisal/tree/v0.0.1 target=_blank rel="noopener noreferrer">ici</a>
+) pour laquelle nous ferons un état des lieux et nous définirons les axes d&rsquo;amélioration que nous mettrons en place dans les prochains articles de cette série.</p>
+<h1 id=présentation-de-lapplication>Présentation de l’application<a class="anchor ms-1" href=#présentation-de-lapplication><i class="fas fa-link"></i></a></h1>
+<h2 id=fonctionnellement>Fonctionnellement<a class="anchor ms-1" href=#fonctionnellement><i class="fas fa-link"></i></a></h2>
+<p>L’API permet de gérer des entretiens entre un manager et ses managés.
+Les règles de gestion sont :
+Un entretien :</p>
+<ul>
+<li>concerne un manager et un salarié.</li>
+<li>possède un formulaire</li>
+</ul>
+<p>Un formulaire :</p>
+<ul>
+<li>possède des questions réponses simples saisissables dans un champ texte.</li>
+<li>peut être associés à une note que seule le manager peut voir</li>
+</ul>
+<p>Un manager</p>
+<ul>
+<li>peut créer un entretien</li>
+<li>peut créer une note visible que par lui</li>
+</ul>
+<h2 id=techniquement>Techniquement<a class="anchor ms-1" href=#techniquement><i class="fas fa-link"></i></a></h2>
+<p>L’application est en java 11, elle a été générée par l&rsquo;initilaizer de Spring (). <br>
+La base de donnée est du H2 (problème que nous fixerons rapidement)</p>
+<h1 id=les-problèmes>Les problèmes<a class="anchor ms-1" href=#les-problèmes><i class="fas fa-link"></i></a></h1>
+<p>En regardant rapidement le code nous pouvons constater plusieurs types de problèmes :</p>
+<ul>
+<li>des problèmes de documentations</li>
+<li>des problèmes de qualités</li>
+<li>des problèmes d’architectures</li>
+</ul>
+<h2 id=des-problèmes-de-documentation>Des problèmes de documentation<a class="anchor ms-1" href=#des-problèmes-de-documentation><i class="fas fa-link"></i></a></h2>
+<h3 id=readme-vide>readme vide<a class="anchor ms-1" href=#readme-vide><i class="fas fa-link"></i></a></h3>
+<p>Par convention le README est le point d’entrée de toute application ; il doit permettre à de nouveaux arrivants de comprendre, de lancer et tester l’application.
+Il devrait donc contenir en plus d’une présentation rapide de l’API</p>
+<ul>
+<li>Les instructions pour compiler le code</li>
+<li>Les instructions pour lancer l&rsquo;application en locale</li>
+<li>Les données permettant de se connecter en local si besoin</li>
+</ul>
+<h3 id=absence-de-swagger-ou-autre>Absence de swagger (ou autre)<a class="anchor ms-1" href=#absence-de-swagger-ou-autre><i class="fas fa-link"></i></a></h3>
+<p>Afin de tester une api facilement il est nécessaire d’avoir un outil permettant de lancer des requêtes cela peut aller de scripts postman à un Swagger complètement intégré.</p>
+<h2 id=des-problèmes-de-qualité>Des problèmes de qualité<a class="anchor ms-1" href=#des-problèmes-de-qualité><i class="fas fa-link"></i></a></h2>
+<h3 id=absence-de-tests>Absence de tests<a class="anchor ms-1" href=#absence-de-tests><i class="fas fa-link"></i></a></h3>
+<p>Le projet ne contient qu’un seul test, celui généré par l’initializer de Spring. Nous sommes d’accord pour dire qu’il est logiquement impossible pour un test d&rsquo;assurer qu&rsquo;aucun bug n’est présent. Il permet de vérifier à minima que l’application fait ce qu’elle doit faire. Dans le cas présent, sans tests, ce minimum n’est pas assuré et toute ré-factorisation est donc déconseillée puisque toute régression ne pourrait être identifiée.
+Pour un projet déjà existant et pour lequel il y a un manque de test il est possible de commencer par des tests de composants afin de couvrir un maximum de code.</p>
+<h3 id=absence-de-paramétrage-et-de-cicd>Absence de paramétrage et de ci(cd)<a class="anchor ms-1" href=#absence-de-paramétrage-et-de-cicd><i class="fas fa-link"></i></a></h3>
+<p>La CI/CD, intégration et déploiement continu, est un élément indispensable au suivi de la fonctionnalité du code. Il permet entre autre :</p>
+<ul>
+<li>de lancer un build du code</li>
+<li>de lancer les tests en distinguant les tests par type</li>
+<li>de lancer des tests visant la qualité du code avec des plugins come Checkstyle ou Spotless</li>
+<li>de vérifier la couverture du code</li>
+<li>de créer des images docker</li>
+<li>de déployer l’api sur un environnement donné</li>
+</ul>
+<p>La CI/CD peut être lancée après un push sur une branche, la création du pull request (ou merge request), le merge sur la branche de référence</p>
+<h3 id=absence-doutils-pour-contrôler-la-qualité-du-code>Absence d’outils pour contrôler la qualité du code.<a class="anchor ms-1" href=#absence-doutils-pour-contrôler-la-qualité-du-code><i class="fas fa-link"></i></a></h3>
+<p>La qualité du code peut se définir par sa lisibilité et le respect des règles de programmations (quelles soient propres à l’entreprise ou définies avec un outil comme SonarQube).
+La revue de code est là pour valider ces points, mais elle peut être facilitée par la mise en place d’outils tels que :</p>
+<ul>
+<li>l’utilisation de plugins (maven ou gradle) comme Checkstyle ou Spotless qui seront lancés lors des builds</li>
+<li>l’utilisation d’un code style (comme google-java-format) dans l’ide pour s’assurer du bon formatage</li>
+<li>L’utilisation d’un plugin comme SonarLint qui permet de vérifier la qualité du code par rapport aux quality gates de l’entreprise</li>
+</ul>
+<h2 id=des-problèmes-darchitecture>Des problèmes d&rsquo;architecture<a class="anchor ms-1" href=#des-problèmes-darchitecture><i class="fas fa-link"></i></a></h2>
+<h3 id=utilisation-dune-base-h2>Utilisation d’une base H2<a class="anchor ms-1" href=#utilisation-dune-base-h2><i class="fas fa-link"></i></a></h3>
+<p>Le premier point est plus un oubli de notre part lors de la création de l’application de base : c’est l’utilisation de la base H2 et non pas l’utilisation d’une base comme Postgresql ou Mysql.
+Il va de soi que l’utilisation d’une base embarquée n’est pas compatible avec l’utilisation d&rsquo;une application (API) en production.</p>
+<h3 id=lutilisation-dune-architecture-en-layers->L’utilisation d’une architecture en layers \<a class="anchor ms-1" href=#lutilisation-dune-architecture-en-layers-><i class="fas fa-link"></i></a></h3>
+<p>L&rsquo;utilisation d&rsquo;une architecture en layers favorise une modélisation à partir de la base de données. Ceci empêche :</p>
+<ul>
+<li>de paralléliser les développements : les entités et les repositories doivent être créés pour que cela fonctionne.</li>
+<li>Le schéma de la base de données sert souvent de base du modèle métier</li>
+</ul>
+<h3 id=mélange-des-domaines-métier>Mélange des domaines métier<a class="anchor ms-1" href=#mélange-des-domaines-métier><i class="fas fa-link"></i></a></h3>
+<p>En regardant le code, il apparaît que les différents métiers : gestion des personnes, gestion des formulaires et gestion des notes sont tous liés.
+Ce mélange des métiers engendre une diminution de la robustesse du code ; plus le nombre de fonctionnalités est grand, plus le nombre de raisons de changer le code est grand et donc plus le risque d’avoir des régressions augmente.
+L’application du principe de &ldquo;responsabilité unique” permettrait déjà une première séparation des classes.</p>
+<h1 id=les-articles-à-venir>Les articles à venir<a class="anchor ms-1" href=#les-articles-à-venir><i class="fas fa-link"></i></a></h1>
+<p>Les points identifiés dans cet article feront l’objet d’une série d’articles qui présenteront la façon de les corriger et nous permettront d’améliorer notre API.</p>
+<p>Les premiers articles porteront entre autres sur :</p>
+<ul>
+<li>La mise en place de tests</li>
+<li>La mise en place d’une architecture hexagonale avec ArchUnit</li>
+<li>La mise en place de SonarQube</li>
+<li>La mise en place de la qualité et la correction du code smell</li>
+</ul>
+<p>Si vous lisez cette phrase, c’est que vous avez lu cet article en entier et je vous en remercie car, c’est mon premier article, si vous avez des remarques sur le contenu, la forme vous pouvez laisser un commentaire&mldr; c’est en échangeant qu’on progresse.</p>
+<p>Écrit par : Emmanuel Quinton
+Revue par : Daniele Cremonini</p></div><hr><div class=post-copyright id=post-copyright>
+<a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en>
+<span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+CC BY-NC-ND 4.0
+</a>
+</div>
+<hr><div class="post-navs d-flex mb-3 justify-content-evenly">
+<div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/fr/about/>About
+</a>
+</div><div class="post-nav post-next">
+<a href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
+</a>
+<i class="fas fa-fw fa-chevron-right"></i>
+</div></div></div>
+</article><section class="related-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Articles en Relations</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/fr/about/>About
+</a>
+<span class="float-end post-date">13-01-2022
+</span>
+</li><li>
+<a href=/fr/contact/>
+</a>
+<span class="float-end post-date">01-01-0001
+</span>
+</li><li>
+<a href=/fr/offline/>Hors Ligne
+</a>
+<span class="float-end post-date">01-01-0001
+</span>
+</li></ul>
+</div>
+</section><div class="card component row post-comments" id=post-comments>
+<div class=card-header>
+<h2 class=card-title>Commentaires</h2>
+</div>
+<div class=card-body></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+<div class=container>
+<section class="card row text-center profile component">
+<div class=card-body>
+<div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Talk To The Duck" src=/images/duck_120x120_square.png loading=lazy width=120 height=120>
+</div>
+<div class="col-12 profile-meta"><div class=profile-name>Talk To The Duck</div><div class=profile-bio>Explain to the Duck, you will understand.</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Paris, France</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/fr/about/>About</a></div><div class=profile-contact><i class="fas fa-fw fa-question-circle"></i><a href=/fr/contact/></a></div></div>
+</div>
+</section>
+<section class="recent-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Articles Récents</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
+</a>
+</li><li>
+<a href=/fr/posts/comment-faire-evoluer-application-presentation/>Comment Faire Évoluer Une API Pour La Rendre Plus Robuste Et Maintenable - Presentation
+</a>
+</li></ul>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/fr/categories>Catégories</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/fr/categories/qualit%C3%A9/ class="badge rounded post-taxonomy" title=qualité>
+qualité
+</a></div>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/fr/series>Séries</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/fr/series/comment-faire-%C3%A9voluer-une-application-pour-la-rendre-plus-robuste-et-maintenable/ class="badge rounded post-taxonomy" title="Comment faire évoluer une application pour la rendre plus robuste et maintenable">
+Comment faire évoluer une application pour la rendre plus robuste et maintenable
+</a><a href=/fr/series/outils-pour-java/ class="badge rounded post-taxonomy" title="Outils pour Java">
+Outils pour Java
+</a></div>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+<a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/><img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png></a><br>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+Copyright © 2021-2022 Talk To The Duck. All Rights Reserved.
+</div>
+</footer>
+<script src=/js/main.min.d1ef5819d5055b58eaa52e77fc1c87e27b1a006bc5169ce78255477ef0bb2281.js integrity="sha256-0e9YGdUFW1jqpS53/ByH4nsaAGvFFpznglVHfvC7IoE=" crossorigin=anonymous defer></script><script src=/js/icons.min.a35670f2f90c398e5ee5c8e509b428fae75aa2746854cee10b60794633076859.js integrity="sha256-o1Zw8vkMOY5e5cjlCbQo+udaonRoVM7hC2B5RjMHaFk=" crossorigin=anonymous defer></script>
+<script>'serviceWorker'in navigator&&window.addEventListener('load',()=>{navigator.serviceWorker.register('/service-worker.js').then(function(a){console.log('Successfully registered service worker',a)}).catch(function(a){console.warn('Error whilst registering service worker',a)})})</script><script src=/js/viewer.min.4dba52a0a790f909408b7385316651299158381686401d50ff1f04dda6476473.js integrity="sha256-TbpSoKeQ+QlAi3OFMWZRKZFYOBaGQB1Q/x8E3aZHZHM=" crossorigin=anonymous defer></script>
+</body>
+</html>
