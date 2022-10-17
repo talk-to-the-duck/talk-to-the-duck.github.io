@@ -3,7 +3,7 @@ title = "Comment faire évoluer une API pour la rendre plus robuste et maintenab
 description = ""
 date = 2022-02-15T08:53:16+01:00
 featured = false
-draft = true
+draft = false
 comment = true
 toc = true
 reward = true
@@ -128,4 +128,4 @@ Les premiers articles porteront entre autres sur :
 Si vous lisez cette phrase, c’est que vous avez lu cet article en entier et je vous en remercie car, c’est mon premier article, si vous avez des remarques sur le contenu, la forme vous pouvez laisser un commentaire... c’est en échangeant qu’on progresse.
 
 Écrit par : Emmanuel Quinton
-Revue par : Danielé Cremonini
+Revue par : Daniele Cremonini

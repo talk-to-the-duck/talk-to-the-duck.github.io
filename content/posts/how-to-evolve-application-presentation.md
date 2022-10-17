@@ -3,7 +3,7 @@ title = "How to evolve an application to make it more robust and maintainable - 
 description = ""
 date = 2022-02-18T08:07:31+01:00
 featured = false
-draft = true
+draft = false
 comment = true
 toc = true
 reward = true
@@ -133,4 +133,4 @@ The first articles will cover, among other things
 If you are reading this sentence, it means that you have read this article in its entirety, and I thank you for that because this is my first article. If you have any remarks on the content or the form, you can leave a comment...it is by exchanging that we progress.
 
 Written by : Emmanuel Quinton
-Review by : Danielé Cremonini
+Review by : Daniele Cremonini
