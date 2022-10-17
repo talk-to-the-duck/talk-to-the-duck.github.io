@@ -33,10 +33,34 @@ See this [article](https://www.vogella.com/tutorials/GitSubmodules/article.html)
 
 Starting from the version 0.93 of Hugo, this site cannot be built anymore, probably because of a bug introduced in 0.93
 
+If you wish to execute Hugo with Docker, run the script below:
+```shell
 docker run --rm -it \
--v $(pwd):/src \
--p 1313:1313 \
-klakegg/hugo:0.92.2 \
-server
+    -v $(pwd):/src \
+    -p 1313:1313 \
+    klakegg/hugo:0.92.2 \
+    server
+```
+
+If you wish to see the draft articles then you can use the command below:
+
+```shell
+docker run --rm -it \
+    -v $(pwd):/src \
+    -p 1313:1313 \
+    klakegg/hugo:0.92.2 \
+    server -D
+```
 
 
+How to publish an article in posts:
+
+hugo new posts/what-is-code-formatting-and-why-does-it-matter.md
+hugo new posts/Qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important.md
+
+To localize the permalink, add the slug to the front matter with the translated permalink.
+
+
+DA QUI
+
+https://gohugo.io/content-management/page-bundles/
