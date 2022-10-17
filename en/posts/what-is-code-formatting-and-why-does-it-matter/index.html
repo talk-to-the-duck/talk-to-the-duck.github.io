@@ -1,0 +1,410 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>What Is Code Formatting and Why Does It Matter - Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
+<link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png>
+<link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png>
+<link rel=icon href=/images/icons/favicon.ico>
+<link rel=manifest href=/en/manifest.json>
+<meta name=keywords content>
+<meta name=description content><meta itemprop=name content="What Is Code Formatting and Why Does It Matter">
+<meta itemprop=description content="Can an AutoFormat Tool Increase Productivity?
+The answer is yes.
+The book “The Pragmatic Programmer” talks about the entropy of the code. Entropy is a physical quantity linked to molecular disorder. This is perhaps the only physical quantity that we can find in software. The larger the disorder, the higher the entropy. The more entropic your software is, the harder it will be to work with it day by day.
+To explain why, I&rsquo;ll give you an example."><meta itemprop=datePublished content="2022-10-12T21:40:00+02:00">
+<meta itemprop=dateModified content="2022-10-12T21:40:00+02:00">
+<meta itemprop=wordCount content="1399">
+<meta itemprop=keywords content=","><meta property="og:title" content="What Is Code Formatting and Why Does It Matter">
+<meta property="og:description" content="Can an AutoFormat Tool Increase Productivity?
+The answer is yes.
+The book “The Pragmatic Programmer” talks about the entropy of the code. Entropy is a physical quantity linked to molecular disorder. This is perhaps the only physical quantity that we can find in software. The larger the disorder, the higher the entropy. The more entropic your software is, the harder it will be to work with it day by day.
+To explain why, I&rsquo;ll give you an example.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/en/posts/what-is-code-formatting-and-why-does-it-matter/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-10-12T21:40:00+02:00">
+<meta property="article:modified_time" content="2022-10-12T21:40:00+02:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="What Is Code Formatting and Why Does It Matter">
+<meta name=twitter:description content="Can an AutoFormat Tool Increase Productivity?
+The answer is yes.
+The book “The Pragmatic Programmer” talks about the entropy of the code. Entropy is a physical quantity linked to molecular disorder. This is perhaps the only physical quantity that we can find in software. The larger the disorder, the higher the entropy. The more entropic your software is, the harder it will be to work with it day by day.
+To explain why, I&rsquo;ll give you an example.">
+<meta name=robots content="index, follow"><link rel=stylesheet href=/css/main.min.39139bef61790586fb8967490b53b254866c0f5fbf1d9ecff297dce3d360a689.css integrity="sha256-OROb72F5BYb7iWdJC1OyVIZsD1+/HZ7P8pfc49Ngpok=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head>
+<body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+<div class=container>
+<button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/en/><img class=logo alt=Logo src=/images/ttd-logo.webp loading=lazy width=136 height=136>
+Talk To The Duck
+</a>
+<div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Share</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class=offcanvas-body>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=What%20Is%20Code%20Formatting%20and%20Why%20Does%20It%20Matter&url=%2fen%2fposts%2fwhat-is-code-formatting-and-why-does-it-matter%2f">
+<i class="fab fa-fw fa-twitter"></i> Twitter
+</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fen%2fposts%2fwhat-is-code-formatting-and-why-does-it-matter%2f">
+<i class="fab fa-fw fa-facebook-f"></i> Facebook
+</a>
+</div>
+</div>
+<button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i>
+</button>
+<div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Settings</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class="offcanvas-body d-flex flex-column"><section class=setting>
+<form class=row>
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-language"></i> Language</label>
+</div>
+<div class="col-auto ms-auto">
+<div class=dropdown>
+<a class="btn btn-sm btn-outline-primary dropdown-toggle" href=# id=languageDropdown role=button data-bs-toggle=dropdown aria-expanded=false>
+English
+</a>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby=languageDropdown><li><a class=dropdown-item href=/fr/>Français</a></li><li><a class=dropdown-item href=/it/>Italiano</a></li></ul>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+</div>
+<div class="col-auto ms-auto">
+<div class="form-check form-switch">
+<input class=form-check-input type=checkbox id=modeSwitcher>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class="font-size-switcher-form row">
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label>
+</div>
+<div class="col-auto ms-auto">
+<input type=range class=form-range min=-2 max=2 id=fontSize>
+</div>
+</form>
+</section>
+<section class="setting palettes">
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-palette"></i> Palette</label>
+</div>
+<div class="col-auto ms-auto">
+<a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker>
+<i class="fas fa-eye-dropper"></i>
+</a>
+</div>
+</form>
+<div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow>
+</button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+<a role=button class="action action-reload-page">
+<span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+</a>
+<a role=button class="action action-copy-url">
+<span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL
+</a><a class="action action-social-share" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<span class=action-icon><i class="fas fa-2x fa-share-alt"></i></span> Share
+</a></section>
+</div>
+</div>
+<div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent>
+<form class="search-bar my-1" action=/en/search>
+<div class="input-group input-group-sm">
+<span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search>
+</div>
+</form>
+<ul class="navbar-nav ms-auto"><li class=nav-item>
+<a class=nav-link href=/en/series/>
+<i class="fas fa-fw fa-columns"></i>Series
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/en/archives/>
+<i class="fas fa-fw fa-file-archive"></i>Archives
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/en/categories/>
+<i class="fas fa-fw fa-folder"></i>Categories
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/en/tags/>
+<i class="fas fa-fw fa-tags"></i>Tags
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/>
+</a>
+</li></ul>
+</div>
+</div>
+</nav>
+</header>
+<main role=main class=container>
+<div class="row content">
+<div class=col-lg-8>
+<div class=container><nav class="row card component" aria-label=breadcrumb>
+<div class=card-body>
+<ol class=breadcrumb><li class=breadcrumb-item><a href=/en/>Home</a></li><li class=breadcrumb-item><a href=/en/posts/>Posts</a></li><li class="breadcrumb-item active">What Is Code Formatting and Why Does It Matter</li></ol>
+</div>
+</nav><article class="row card component mb-4 post"><div class=post-panel-wrapper>
+<div class="d-flex flex-column component rounded post-panel">
+<a class="action action-panel-toggler" role=button title="Panel toggler">
+<i class="fas fa-fw fa-chevron-circle-down"></i>
+</a>
+<a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler">
+<i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i>
+</a>
+<div class="post-translations nav-item dropdown dropstart action">
+<a class="nav-link p-0" data-bs-toggle=dropdown href=# role=button aria-haspopup=true aria-expanded=false aria-label="Translations dropdown menu" title=Translations>
+<i class="fas fa-fw fa-language"></i>
+</a>
+<div class=dropdown-menu><a class="dropdown-item post-translation" href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Français</a><a class="dropdown-item post-translation" href=/it/posts/cosa-e-la-formattazione-del-codice-e-perch%C3%A9-e-importante/>Italiano</a></div>
+</div>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright>
+<i class="fas fa-fw fa-copyright"></i>
+</a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments>
+<i class="fas fa-fw fa-comments"></i>
+</a>
+</div>
+</div>
+<div class=card-header>
+<h1 class="card-title post-title">What Is Code Formatting and Why Does It Matter
+</h1>
+</div>
+<div class=card-body><div class=post-meta>
+<span class=post-date title="created on 2022-10-12 19:40:00 +0000 UTC.">
+12-10-2022
+</span><span class=post-reading-time>
+7 min read
+</span><span class=post-taxonomies><a href=/en/series/tools-for-java/ class="badge rounded-pill post-taxonomy">Tools for Java</a></span>
+</div>
+<div class="post-content mb-3"><p>Can an AutoFormat Tool Increase Productivity?</p>
+<p>The answer is yes.</p>
+<p>The book “The Pragmatic Programmer” talks about the entropy of the code. Entropy is a physical quantity linked to molecular disorder. This is perhaps the only physical quantity that we can find in software. The larger the disorder, the higher the entropy. The more entropic your software is, the harder it will be to work with it day by day.</p>
+<p>To explain why, I&rsquo;ll give you an example.</p>
+<p>When writing an if-then-else in a language like Java where is it better to put parentheses?</p>
+<p>You can say how a), b) or c) or you can invent another intermediate combination of your taste.</p>
+<p>a)</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=k>if</span> <span class=o>(</span><span class=n>condition</span><span class=o>)</span> <span class=o>{</span>
+<span class=ln>2</span>    <span class=c1>// your &#34;then&#34; code here
+</span><span class=ln>3</span><span class=c1></span><span class=o>}</span> <span class=k>else</span> <span class=o>{</span>
+<span class=ln>4</span>    <span class=c1>// your &#34;else&#34; code here
+</span><span class=ln>5</span><span class=c1></span><span class=o>}</span>
+</code></pre></div><p>b)</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=k>if</span> <span class=o>(</span><span class=n>condition</span><span class=o>)</span>
+<span class=ln>2</span><span class=o>{</span>
+<span class=ln>3</span>    <span class=c1>// your &#34;then&#34; code here
+</span><span class=ln>4</span><span class=c1></span><span class=o>}</span>
+<span class=ln>5</span><span class=k>else</span>
+<span class=ln>6</span><span class=o>{</span>
+<span class=ln>7</span>    <span class=c1>// your &#34;else&#34; code here
+</span><span class=ln>8</span><span class=c1></span><span class=o>}</span>
+</code></pre></div><p>c)</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=k>if</span> <span class=o>(</span><span class=n>condition</span><span class=o>)</span> <span class=o>{</span>
+<span class=ln>2</span>    <span class=c1>// your &#34;then&#34; code here
+</span><span class=ln>3</span><span class=c1></span><span class=o>}</span>
+<span class=ln>4</span><span class=k>else</span> <span class=o>{</span>
+<span class=ln>5</span>    <span class=c1>// your &#34;else&#34; code here
+</span><span class=ln>6</span><span class=c1></span><span class=o>}</span>
+</code></pre></div><p>The ways to format the code are numerous: where to put the opening of the brace, whether to use the TAB or the space to indent, whether to add a space after the opening of a round bracket, where to put the comments. Even the writing of the logical conditions can be done in many ways:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=o>(</span><span class=n>a</span><span class=o>==</span><span class=n>b</span><span class=o>)</span>
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=o>(</span><span class=n>a</span> <span class=o>==</span> <span class=n>b</span><span class=o>)</span>
+</code></pre></div><p>or</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=o>(</span> <span class=n>a</span> <span class=o>==</span> <span class=n>b</span> <span class=o>)</span>
+</code></pre></div><p>I have witnessed several heated discussions on which style is &ldquo;better&rdquo; but beyond what can come out of them, what really matters most is consistency.
+Why? Because, depending on how much a person may not like a certain style, after a while they will adjust to it, and the reading of the code will become automatic. The code becomes more intuitive.
+If the formatting of the code is inconsistent, reading the code becomes more strenuous. Fatigue increases the likelihood of making mistakes. It will take time to find these errors and more time to correct them. Ultimately, not formatting your code consistently results in a decline in productivity.</p>
+<p>Keeping your code formatted consistently can be a challenge for even a single developer but in a team, you can rest assured that consistency won&rsquo;t last.
+Developers almost always work as a team. For a team, having a shared rule means increasing overall productivity.</p>
+<p>Try to reach a consensus about the formatting style, and if you can’t reach the consensus, just impose one.</p>
+<p>Even if you encounter some resistance at first, your colleagues will get used to it, will tire less and will be more productive.</p>
+<p>Consistency and the resulting order are even more important than the style of the formatting itself.</p>
+<p>If we have a tool that not only verifies that the rules are respected but also formats the code automatically, we get a second big advantage which is to save time and stress to apply the formatting.</p>
+<p>The definition of a formatting style for a language with an average complex syntax such as that of Java can require dozens of rules and for what has been said above, it is good that these rules are consistent in the various cases that may arise.</p>
+<p>What happens if you decide to apply formatting rules to a project that is made up of several files? Do you have to format all files in one go or is it better to proceed gradually by formatting only a few files at a time?</p>
+<p>If a project has a history of a few days, formatting all the files in one go does not have a big impact on the traceability of changes in the log of the source management system (git for example) but if the files are hundreds with more developers than they work and maybe in asynchronous mode (as usually happens on an open source project) applying the formatting little by little is really a necessity.</p>
+<p>Finally, since it is better not to have to worry every time you tap on the code to format it, it is better to have an automatic activation of the formatting.</p>
+<p>Then you need to create a software tool that reads the code, applies the rules, and make it possible that it runs at every build.</p>
+<p>Do you want to know how we did all these things in our Happraisal application?</p>
+<p>We have chosen a ready-made solution. In the open source world there are some. We chose Spotless because in addition to allowing us to analyze the code and format it, it is also multilingual. Spotless is not limited to Java but also handles C, JavaScript, TypeScript, yaml, JSON, SQL and others.</p>
+<p>The Spotless repository is on GitHub: <a href=https://github.com/diffplug/spotless target=_blank rel="noopener noreferrer">https://github.com/diffplug/spotless</a>
+</p>
+<p>Spotless can be integrated into Maven and Gradle based builds via plugins.</p>
+<p>To use Spotless in Happraisal we imported a plugin into Gradle and further down we included a configuration file via the apply command:</p>
+<p>build.gradle</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-gradle data-lang=gradle><span class=ln>1</span><span class=n>plugins</span> <span class=o>{</span>
+<span class=ln>2</span>    <span class=c1>// other plugins
+</span><span class=ln>3</span><span class=c1></span>    <span class=n>id</span> <span class=s2>&#34;com.diffplug.spotless&#34;</span> <span class=n>version</span> <span class=s2>&#34;6.2.1&#34;</span>
+<span class=ln>4</span><span class=o>}</span>
+<span class=ln>5</span>
+<span class=ln>6</span><span class=c1>// Include the configuration for Spotless
+</span><span class=ln>7</span><span class=c1></span><span class=n>apply</span> <span class=nl>from:</span> <span class=s2>&#34;gradle / spotless.gradle&#34;</span>
+</code></pre></div><p>Our gradle/spotless.gradle consists of three parts.
+The first is ratchetFrom which, if specified, allows you to apply formatting incrementally only to files modified with respect to the specified branch, which in the case of Happraisal to origin/develop because this is the branch towards which merge requests flow. Basically, every time we add code to origin/develop, Spotless forces us not to make the situation worse.
+The parameter specified in ratchetFrom can be something more complicated, to learn more you can consult this file:
+<a href=https://javadoc.io/static/org.eclipse.jgit/org.eclipse.jgit/5.6.1.202002131546-r/org/eclipse/jgit/lib/Repository.html#resolve-java.lang.String- target=_blank rel="noopener noreferrer">https://javadoc.io/static/org.eclipse.jgit/org.eclipse.jgit/5.6.1.202002131546-r/org/eclipse/jgit/lib/Repository.html#resolve-java.lang.String-</a>
+</p>
+<p>Linguistic note: The word <em>ratchet</em> in English means that the rule can be more stringent (or remain unchanged) but cannot become less stringent.</p>
+<p>The second section called “misc” allows you to specify formatting rules for files that can be identified through the extension gradle or md.</p>
+<p>The third section is dedicated to Java.
+In the Java section there is a call to googleJavaFormat which is an application dedicated exclusively to the formatting of Java code.</p>
+<p>Google Java Format can be found on GitHub: <a href=https://github.com/google/google-java-format target=_blank rel="noopener noreferrer">https://github.com/google/google-java-format</a>
+and in the tags you will find all the published versions (for example 1.13).</p>
+<p>If you don&rsquo;t like the formatting style imposed by Google and want to orient yourself on a configurable style then you need to switch to an Eclipse formatter. I refer you to the Spotless website for further information.</p>
+<p>Note that Spotless also allows you to manage headers for software licenses via the licenseHeader command.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-gradle data-lang=gradle><span class=ln> 1</span><span class=n>spotless</span> <span class=o>{</span>
+<span class=ln> 2</span><span class=c1>// optional: limit format enforcement to just the files changed by this feature branch
+</span><span class=ln> 3</span><span class=c1></span><span class=n>ratchet</span> <span class=n>From</span> <span class=s1>&#39;origin/develop&#39;</span>
+<span class=ln> 4</span>
+<span class=ln> 5</span>    <span class=n>format</span> <span class=s1>&#39;misc&#39;</span><span class=o>,</span> <span class=o>{</span>
+<span class=ln> 6</span>        <span class=c1>// define the files to apply `misc` to
+</span><span class=ln> 7</span><span class=c1></span>        <span class=n>target</span> <span class=s1>&#39;* .gradle&#39;</span><span class=o>,</span> <span class=s1>&#39;* .md &#39;</span><span class=o>,</span><span class=s1>&#39; .gitignore &#39;</span>
+<span class=ln> 8</span>
+<span class=ln> 9</span>        <span class=c1>// define the steps to apply to those files
+</span><span class=ln>10</span><span class=c1></span>        <span class=n>trimTrailingWhitespace</span> <span class=o>()</span>
+<span class=ln>11</span>        <span class=n>indentWithSpaces</span> <span class=o>()</span> <span class=c1>// tab or spaces. indentWithSpaces takes an integer argument, the default value is 4
+</span><span class=ln>12</span><span class=c1></span>        <span class=n>endWithNewline</span> <span class=o>()</span>
+<span class=ln>13</span>    <span class=o>}</span>
+<span class=ln>14</span>
+<span class=ln>15</span>    <span class=n>java</span> <span class=o>{</span>
+<span class=ln>16</span>        <span class=c1>// don&#39;t need to set target, it is inferred from Java
+</span><span class=ln>17</span><span class=c1></span>
+<span class=ln>18</span>        <span class=c1>// apply a specific flavor of google-java-format
+</span><span class=ln>19</span><span class=c1></span>        <span class=n>googleJavaFormat</span> <span class=o>(</span><span class=s1>&#39;1.13. 0 &#39;</span><span class=o>).</span> <span class=n>ReflowLongStrings</span> <span class=o>()</span>
+<span class=ln>20</span>        <span class=c1>// make sure every file has the following copyright header.
+</span><span class=ln>21</span><span class=c1></span>        <span class=c1>// optionally, Spotless can set copyright years by digging
+</span><span class=ln>22</span><span class=c1></span>        <span class=c1>// through git history.
+</span><span class=ln>23</span><span class=c1></span>        <span class=n>licenseHeader</span> <span class=s1>&#39;/ * (C) $ YEAR * /&#39;</span>
+<span class=ln>24</span>    <span class=o>}</span>
+<span class=ln>25</span><span class=o>}</span>
+</code></pre></div><h1 id=summary>Summary<a class="anchor ms-1" href=#summary><i class="fas fa-link"></i></a></h1>
+<p>Applying strict rules to code formatting reduces the effort and the stress of developers and increases their productivity.
+It would be better to share a formatting style on a team level but if you don&rsquo;t get there by consensus, it&rsquo;s worth enforcing it because after a while people get used to it.
+Once you&rsquo;ve decided on a style, it&rsquo;s good to have an automated tool to check that the formatting is consistent.
+Having a tool to apply formatting automatically saves time and eliminates a mechanical task.
+Spotless is an open source tool that can be integrated via plugins with Maven and Gradle. Spotless allows you to format your code gradually so you don&rsquo;t have to make a mega commit at the time of its introduction.</p>
+<p>If you are reading this sentence, it’s because you read the whole article. Thank you because this is my first article.
+If you have any comment on this content or on the format, please leave a comment…</p>
+<p>It&rsquo;s by sharing ideas that we progress!</p>
+<ul>
+<li>Author: Daniele Cremonini</li>
+<li>Reviewer: Emmanuel Quinton</li>
+</ul></div><hr><div class=post-copyright id=post-copyright>
+<a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en>
+<span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+CC BY-NC-ND 4.0
+</a>
+</div>
+<hr><div class="post-navs d-flex mb-3 justify-content-evenly">
+<div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/en/about/>About
+</a>
+</div></div></div>
+</article><section class="related-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Related Posts</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/en/about/>About
+</a>
+<span class="float-end post-date">28-02-2019
+</span>
+</li><li>
+<a href=/en/contact/>
+</a>
+<span class="float-end post-date">01-01-0001
+</span>
+</li><li>
+<a href=/en/faq/>
+</a>
+<span class="float-end post-date">01-01-0001
+</span>
+</li><li>
+<a href=/en/offline/>Offline
+</a>
+<span class="float-end post-date">01-01-0001
+</span>
+</li></ul>
+</div>
+</section><div class="card component row post-comments" id=post-comments>
+<div class=card-header>
+<h2 class=card-title>Comments</h2>
+</div>
+<div class=card-body></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+<div class=container>
+<section class="card row text-center profile component">
+<div class=card-body>
+<div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Talk To The Duck" src=/images/duck_120x120_square.png loading=lazy width=120 height=120>
+</div>
+<div class="col-12 profile-meta"><div class=profile-name>Talk To The Duck</div><div class=profile-bio>Explain to the Duck, you will understand.</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Paris, France</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/en/about/>About</a></div><div class=profile-contact><i class="fas fa-fw fa-question-circle"></i><a href=/en/contact/></a></div></div>
+</div>
+</section>
+<section class="recent-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Recent Posts</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/en/posts/what-is-code-formatting-and-why-does-it-matter/>What Is Code Formatting and Why Does It Matter
+</a>
+</li></ul>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/en/series>Series</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/en/series/tools-for-java/ class="badge rounded post-taxonomy" title="Tools for Java">
+Tools for Java
+</a></div>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+<a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/><img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png></a><br>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+Copyright © 2021-2022 Talk To The Duck. All Rights Reserved.
+</div>
+</footer>
+<script src=/js/main.min.d1ef5819d5055b58eaa52e77fc1c87e27b1a006bc5169ce78255477ef0bb2281.js integrity="sha256-0e9YGdUFW1jqpS53/ByH4nsaAGvFFpznglVHfvC7IoE=" crossorigin=anonymous defer></script><script src=/js/icons.min.a35670f2f90c398e5ee5c8e509b428fae75aa2746854cee10b60794633076859.js integrity="sha256-o1Zw8vkMOY5e5cjlCbQo+udaonRoVM7hC2B5RjMHaFk=" crossorigin=anonymous defer></script>
+<script>'serviceWorker'in navigator&&window.addEventListener('load',()=>{navigator.serviceWorker.register('/service-worker.js').then(function(a){console.log('Successfully registered service worker',a)}).catch(function(a){console.warn('Error whilst registering service worker',a)})})</script><script src=/js/viewer.min.4dba52a0a790f909408b7385316651299158381686401d50ff1f04dda6476473.js integrity="sha256-TbpSoKeQ+QlAi3OFMWZRKZFYOBaGQB1Q/x8E3aZHZHM=" crossorigin=anonymous defer></script>
+</body>
+</html>

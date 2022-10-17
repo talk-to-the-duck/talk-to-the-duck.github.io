@@ -1,0 +1,398 @@
+<!doctype html><html lang=fr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Qu'est-ce que la mise en page du code et pourquoi est-ce important - Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
+<link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png>
+<link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png>
+<link rel=icon href=/images/icons/favicon.ico>
+<link rel=manifest href=/fr/manifest.json>
+<meta name=keywords content>
+<meta name=description content><meta itemprop=name content="Qu'est-ce que la mise en page du code et pourquoi est-ce important">
+<meta itemprop=description content="Un outil de mise en forme automatique peut-il augmenter la productivité ?
+La réponse est oui.
+Le livre &ldquo;The Pragmatic Programmer&rdquo; parle de l&rsquo;entropie du code. L&rsquo;entropie est une grandeur physique liée au désordre moléculaire. C&rsquo;est peut-être la seule grandeur physique que l&rsquo;on puisse trouver dans un logiciel. Plus le désordre est important, plus l&rsquo;entropie est élevée. Plus votre logiciel est entropique, plus - jour après jour - il sera difficile de travailler avec."><meta itemprop=datePublished content="2022-10-12T21:40:00+02:00">
+<meta itemprop=dateModified content="2022-10-12T21:40:00+02:00">
+<meta itemprop=wordCount content="1503">
+<meta itemprop=keywords content=","><meta property="og:title" content="Qu'est-ce que la mise en page du code et pourquoi est-ce important">
+<meta property="og:description" content="Un outil de mise en forme automatique peut-il augmenter la productivité ?
+La réponse est oui.
+Le livre &ldquo;The Pragmatic Programmer&rdquo; parle de l&rsquo;entropie du code. L&rsquo;entropie est une grandeur physique liée au désordre moléculaire. C&rsquo;est peut-être la seule grandeur physique que l&rsquo;on puisse trouver dans un logiciel. Plus le désordre est important, plus l&rsquo;entropie est élevée. Plus votre logiciel est entropique, plus - jour après jour - il sera difficile de travailler avec.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-10-12T21:40:00+02:00">
+<meta property="article:modified_time" content="2022-10-12T21:40:00+02:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Qu'est-ce que la mise en page du code et pourquoi est-ce important">
+<meta name=twitter:description content="Un outil de mise en forme automatique peut-il augmenter la productivité ?
+La réponse est oui.
+Le livre &ldquo;The Pragmatic Programmer&rdquo; parle de l&rsquo;entropie du code. L&rsquo;entropie est une grandeur physique liée au désordre moléculaire. C&rsquo;est peut-être la seule grandeur physique que l&rsquo;on puisse trouver dans un logiciel. Plus le désordre est important, plus l&rsquo;entropie est élevée. Plus votre logiciel est entropique, plus - jour après jour - il sera difficile de travailler avec.">
+<meta name=robots content="index, follow"><link rel=stylesheet href=/css/main.min.39139bef61790586fb8967490b53b254866c0f5fbf1d9ecff297dce3d360a689.css integrity="sha256-OROb72F5BYb7iWdJC1OyVIZsD1+/HZ7P8pfc49Ngpok=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head>
+<body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+<div class=container>
+<button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/fr/><img class=logo alt=Logo src=/images/ttd-logo.webp loading=lazy width=136 height=136>
+Talk To The Duck
+</a>
+<div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Share</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class=offcanvas-body>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Qu%27est-ce%20que%20la%20mise%20en%20page%20du%20code%20et%20pourquoi%20est-ce%20important&url=%2ffr%2fposts%2fqu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important%2f">
+<i class="fab fa-fw fa-twitter"></i> Twitter
+</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2ffr%2fposts%2fqu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important%2f">
+<i class="fab fa-fw fa-facebook-f"></i> Facebook
+</a>
+</div>
+</div>
+<button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i>
+</button>
+<div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Réglages</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class="offcanvas-body d-flex flex-column"><section class=setting>
+<form class=row>
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-language"></i> Language</label>
+</div>
+<div class="col-auto ms-auto">
+<div class=dropdown>
+<a class="btn btn-sm btn-outline-primary dropdown-toggle" href=# id=languageDropdown role=button data-bs-toggle=dropdown aria-expanded=false>
+Français
+</a>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby=languageDropdown><li><a class=dropdown-item href=/en/>English</a></li><li><a class=dropdown-item href=/it/>Italiano</a></li></ul>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+</div>
+<div class="col-auto ms-auto">
+<div class="form-check form-switch">
+<input class=form-check-input type=checkbox id=modeSwitcher>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class="font-size-switcher-form row">
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Taille de la Police</label>
+</div>
+<div class="col-auto ms-auto">
+<input type=range class=form-range min=-2 max=2 id=fontSize>
+</div>
+</form>
+</section>
+<section class="setting palettes">
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-palette"></i> Palette</label>
+</div>
+<div class="col-auto ms-auto">
+<a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker>
+<i class="fas fa-eye-dropper"></i>
+</a>
+</div>
+</form>
+<div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Bleu class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gris" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Marron class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Vert class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Rose class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Mauve class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Rouge class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label="Bleu Turquoise" class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Jaune class="btn btn-sm palette" data-palette=yellow>
+</button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+<a role=button class="action action-reload-page">
+<span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+</a>
+<a role=button class="action action-copy-url">
+<span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copier URL
+</a><a class="action action-social-share" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<span class=action-icon><i class="fas fa-2x fa-share-alt"></i></span> Share
+</a></section>
+</div>
+</div>
+<div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent>
+<form class="search-bar my-1" action=/fr/search>
+<div class="input-group input-group-sm">
+<span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search>
+</div>
+</form>
+<ul class="navbar-nav ms-auto"><li class=nav-item>
+<a class=nav-link href=/fr/series/>
+<i class="fas fa-fw fa-columns"></i>Séries
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/fr/archives/>
+<i class="fas fa-fw fa-file-archive"></i>Archives
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/fr/categories/>
+<i class="fas fa-fw fa-folder"></i>Catégories
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/fr/tags/>
+<i class="fas fa-fw fa-tags"></i>Tags
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/>
+</a>
+</li></ul>
+</div>
+</div>
+</nav>
+</header>
+<main role=main class=container>
+<div class="row content">
+<div class=col-lg-8>
+<div class=container><nav class="row card component" aria-label=breadcrumb>
+<div class=card-body>
+<ol class=breadcrumb><li class=breadcrumb-item><a href=/fr/>Accueil</a></li><li class=breadcrumb-item><a href=/fr/posts/>Articles</a></li><li class="breadcrumb-item active">Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important</li></ol>
+</div>
+</nav><article class="row card component mb-4 post"><div class=post-panel-wrapper>
+<div class="d-flex flex-column component rounded post-panel">
+<a class="action action-panel-toggler" role=button title="Panel toggler">
+<i class="fas fa-fw fa-chevron-circle-down"></i>
+</a>
+<a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler">
+<i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i>
+</a>
+<div class="post-translations nav-item dropdown dropstart action">
+<a class="nav-link p-0" data-bs-toggle=dropdown href=# role=button aria-haspopup=true aria-expanded=false aria-label="Translations dropdown menu" title=Translations>
+<i class="fas fa-fw fa-language"></i>
+</a>
+<div class=dropdown-menu><a class="dropdown-item post-translation" href=/en/posts/what-is-code-formatting-and-why-does-it-matter/>English</a><a class="dropdown-item post-translation" href=/it/posts/cosa-e-la-formattazione-del-codice-e-perch%C3%A9-e-importante/>Italiano</a></div>
+</div>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright>
+<i class="fas fa-fw fa-copyright"></i>
+</a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments>
+<i class="fas fa-fw fa-comments"></i>
+</a>
+</div>
+</div>
+<div class=card-header>
+<h1 class="card-title post-title">Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
+</h1>
+</div>
+<div class=card-body><div class=post-meta>
+<span class=post-date title="created on 2022-10-12 19:40:00 +0000 UTC.">
+12-10-2022
+</span><span class=post-reading-time>
+8 min de lecture
+</span><span class=post-taxonomies><a href=/fr/series/outils-pour-java/ class="badge rounded-pill post-taxonomy">Outils pour Java</a></span>
+</div>
+<div class="post-content mb-3"><p>Un outil de mise en forme automatique peut-il augmenter la productivité ?</p>
+<p>La réponse est oui.</p>
+<p>Le livre &ldquo;The Pragmatic Programmer&rdquo; parle de l&rsquo;entropie du code. L&rsquo;entropie est une grandeur physique liée au désordre moléculaire. C&rsquo;est peut-être la seule grandeur physique que l&rsquo;on puisse trouver dans un logiciel. Plus le désordre est important, plus l&rsquo;entropie est élevée. Plus votre logiciel est entropique, plus - jour après jour - il sera difficile de travailler avec.</p>
+<p>Pour expliquer pourquoi, je vais vous donner un exemple.</p>
+<p>Lors de l&rsquo;écriture d&rsquo;un if-then-else dans un langage comme Java, où est-il préférable de mettre des parenthèses ?</p>
+<p>Vous pouvez dire comment a), b) ou c) ou vous pouvez inventer une autre combinaison intermédiaire de votre goût.</p>
+<p>a)</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=k>if</span> <span class=o>(</span><span class=n>condition</span><span class=o>)</span> <span class=o>{</span>
+<span class=ln>2</span>    <span class=c1>// your &#34;then&#34; code here
+</span><span class=ln>3</span><span class=c1></span><span class=o>}</span> <span class=k>else</span> <span class=o>{</span>
+<span class=ln>4</span>    <span class=c1>// your &#34;else&#34; code here
+</span><span class=ln>5</span><span class=c1></span><span class=o>}</span>
+</code></pre></div><p>b)</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=k>if</span> <span class=o>(</span><span class=n>condition</span><span class=o>)</span>
+<span class=ln>2</span><span class=o>{</span>
+<span class=ln>3</span>    <span class=c1>// your &#34;then&#34; code here
+</span><span class=ln>4</span><span class=c1></span><span class=o>}</span>
+<span class=ln>5</span><span class=k>else</span>
+<span class=ln>6</span><span class=o>{</span>
+<span class=ln>7</span>    <span class=c1>// your &#34;else&#34; code here
+</span><span class=ln>8</span><span class=c1></span><span class=o>}</span>
+</code></pre></div><p>c)</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=k>if</span> <span class=o>(</span><span class=n>condition</span><span class=o>)</span> <span class=o>{</span>
+<span class=ln>2</span>    <span class=c1>// your &#34;then&#34; code here
+</span><span class=ln>3</span><span class=c1></span><span class=o>}</span>
+<span class=ln>4</span><span class=k>else</span> <span class=o>{</span>
+<span class=ln>5</span>    <span class=c1>// your &#34;else&#34; code here
+</span><span class=ln>6</span><span class=c1></span><span class=o>}</span>
+</code></pre></div><p>Les façons de mettre en page le code sont nombreuses : où mettre l&rsquo;ouverture de l&rsquo;accolade, si utiliser la tabulation ou l&rsquo;espace pour mettre en retrait, si pour ajouter un espace après l&rsquo;ouverture d&rsquo;un crochet, où mettre les commentaires. Même l&rsquo;écriture des conditions logiques peut se faire de plusieurs façons :</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=o>(</span><span class=n>a</span><span class=o>==</span><span class=n>b</span><span class=o>)</span>
+</code></pre></div><p>ou</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=o>(</span><span class=n>a</span> <span class=o>==</span> <span class=n>b</span><span class=o>)</span>
+</code></pre></div><p>ou</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=o>(</span> <span class=n>a</span> <span class=o>==</span> <span class=n>b</span> <span class=o>)</span>
+</code></pre></div><p>J&rsquo;ai été témoin de diverses discussions animées sur le style qui est &ldquo;meilleur&rdquo; mais au-delà de cela qui peut en sortir, ce qui compte vraiment, c&rsquo;est la cohérence.
+Pourquoi? Parce que, même si une personne peut ne pas aimer un certain style, au bout d&rsquo;un moment elle finit par s&rsquo;y habituer et lorsqu&rsquo;elle s&rsquo;y habitue, la lecture du code devient automatique. Le code devient plus intuitif.
+Si la mise en forme du code est incohérente, la lecture du code devient plus ardue. La fatigue augmente la probabilité de faire des erreurs. Il faudra du temps pour trouver ces erreurs et plus de temps pour les corriger. En fin de compte, ne pas mettre en forme votre code de manière cohérente entraîne une baisse de productivité.</p>
+<p>Garder votre code mis en forme de manière cohérente peut être un défi même pour un seul développeur, mais dans une équipe, vous pouvez être assuré que la cohérence ne durera pas.
+Les développeurs travaillent presque toujours en équipe. Pour une équipe, avoir une règle partagée signifie augmenter la productivité globale. Construisez un consensus autour d&rsquo;un style de mise en forme de code et si vous ne pouvez pas, imposez-le. Même si vous rencontrez une certaine résistance au début, vos collègues s&rsquo;y habitueront, se fatigueront moins et seront plus productifs.</p>
+<p>La cohérence et l&rsquo;ordre qui en résulte sont encore plus importants que le style de la mise en forme elle-même.</p>
+<p>Si on a un outil qui non seulement vérifie que les règles sont respectées mais qui aussi met en forme le code automatiquement, on obtient un deuxième gros avantage qui est de gagner du temps et du stress pour exécuter cette opération.</p>
+<p>La définition d&rsquo;un style de mise en forme pour un langage ayant une syntaxe moyennement complexe comme celle de Java peut nécessiter des dizaines de règles et pour ce qui a été dit plus haut, il est bon que ces règles soient cohérentes dans les différents cas qui peuvent se présenter.</p>
+<p>Que se passe-t-il si vous décidez d&rsquo;appliquer des règles de mise en forme à un projet composé de plusieurs fichiers ? Faut-il mettre en forme tous les fichiers en une seule fois ou vaut-il mieux procéder progressivement en ne mettant traiter que quelques fichiers à la fois ?</p>
+<p>Si un projet a un historique de quelques jours, mettre en forme tous les fichiers en une seule fois n&rsquo;a pas un gros impact sur la traçabilité des changements dans le log du système de gestion source (git par exemple) mais si les fichiers sont plusieurs centaines avec plus développeurs qui travaillent avec et peut-être en mode asynchrone (comme cela se produit généralement sur un projet open source) mettre en forme petit à petit est vraiment une nécessité.</p>
+<p>Enfin, comme il vaut mieux ne pas avoir à s&rsquo;inquiéter à chaque fois que l&rsquo;on tape sur le code pour le mettre en page, il vaut mieux avoir un déclenchement automatique de cette opération.</p>
+<p>Ensuite, vous devez créer l&rsquo;outil logiciel qui lit le code, applique les règles et l&rsquo;exécute sur chaque version.</p>
+<p>Voulez-vous savoir comment nous avons fait toutes ces choses dans notre API Happraisal ?</p>
+<p>Nous avons choisi une solution toute faite. Dans le monde open source, il y en a. Nous avons choisi Spotless car en plus de nous permettre d&rsquo;analyser le code et de le mettre en forme, il est également multi-language. Spotless ne se limite pas à Java mais gère également C, JavaScript, TypeScript, yaml, JSON, SQL et autres.</p>
+<p>Le référentiel Spotless est sur GitHub : <a href=https://github.com/diffplug/spotless target=_blank rel="noopener noreferrer">https://github.com/diffplug/spotless</a>
+</p>
+<p>Spotless peut être intégré dans les versions basées sur Maven et Gradle via des plugins.</p>
+<p>Pour l’utiliser dans Happraisal nous avons importé un plugin dans Gradle et plus bas nous avons inclus un fichier de configuration via la commande apply :</p>
+<p>build.gradle</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-gradle data-lang=gradle><span class=ln>1</span><span class=n>plugins</span> <span class=o>{</span>
+<span class=ln>2</span>    <span class=c1>// other plugins
+</span><span class=ln>3</span><span class=c1></span>    <span class=n>id</span> <span class=s2>&#34;com.diffplug.spotless&#34;</span> <span class=n>version</span> <span class=s2>&#34;6.2.1&#34;</span>
+<span class=ln>4</span><span class=o>}</span>
+<span class=ln>5</span>
+<span class=ln>6</span><span class=c1>// Include the configuration for Spotless
+</span><span class=ln>7</span><span class=c1></span><span class=n>apply</span> <span class=nl>from:</span> <span class=s2>&#34;gradle / spotless.gradle&#34;</span>
+</code></pre></div><p>Notre gradle/spotless.gradle se compose de trois parties.
+Le premier est ratchetFrom qui, s&rsquo;il est spécifié, permet d&rsquo;appliquer la mise en forme de manière incrémentielle uniquement aux fichiers modifiés par rapport à la branche spécifiée qui dans le cas de Happraisal à origin/develop car c&rsquo;est la branche vers laquelle convergent les demandes de fusion. Fondamentalement, chaque fois que nous ajoutons du code à Origin/développons Spotless, cela nous oblige à ne pas aggraver la situation.
+Le paramètre spécifié dans ratchetFrom peut être quelque chose de plus compliqué, pour en savoir plus vous pouvez consulter ce fichier :
+<a href=https://javadoc.io/static/org.eclipse.jgit/org.eclipse.jgit/5.6.1.202002131546-r/org/eclipse/jgit/lib/Repository.html#resolve-java.lang.String- target=_blank rel="noopener noreferrer">https://javadoc.io/static/org.eclipse.jgit/org.eclipse.jgit/5.6.1.202002131546-r/org/eclipse/jgit/lib/Repository.html#resolve-java.lang.String-</a>
+</p>
+<p>Note linguistique : Le mot ratchet en anglais signifie que la règle peut être plus stricte (ou rester inchangée) mais ne peut pas devenir moins stricte.</p>
+<p>La deuxième section appelée &ldquo;misc&rdquo; vous permet de spécifier des règles de mise en forme pour les fichiers qui peuvent être identifiés via l&rsquo;extension gradle ou md.</p>
+<p>La troisième section est dédiée à Java.
+Dans la section Java, il y a un appel à googleJavaFormat qui est une application dédiée exclusivement à la mise en forme du code Java.</p>
+<p>Google Java Format se trouve sur GitHub : <a href=https://github.com/google/google-java-format target=_blank rel="noopener noreferrer">https://github.com/google/google-java-format</a>
+et dans les balises vous trouverez toutes les versions publiées (par exemple 1.13).</p>
+<p>Si vous n&rsquo;aimez pas le style de mise en forme imposé par Google et que vous souhaitez vous orienter sur un style configurable alors vous devez passer à un metteur un forme Eclipse. Je vous renvoie au site Spotless pour plus d&rsquo;informations.</p>
+<p>Notez que Spotless vous permet également de gérer les en-têtes des licences logicielles via la commande licenseHeader.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-gradle data-lang=gradle><span class=ln> 1</span><span class=n>spotless</span> <span class=o>{</span>
+<span class=ln> 2</span><span class=c1>// optional: limit format enforcement to just the files changed by this feature branch
+</span><span class=ln> 3</span><span class=c1></span><span class=n>ratchet</span> <span class=n>From</span> <span class=s1>&#39;origin/develop&#39;</span>
+<span class=ln> 4</span>
+<span class=ln> 5</span>    <span class=n>format</span> <span class=s1>&#39;misc&#39;</span><span class=o>,</span> <span class=o>{</span>
+<span class=ln> 6</span>        <span class=c1>// define the files to apply `misc` to
+</span><span class=ln> 7</span><span class=c1></span>        <span class=n>target</span> <span class=s1>&#39;* .gradle&#39;</span><span class=o>,</span> <span class=s1>&#39;* .md &#39;</span><span class=o>,</span><span class=s1>&#39; .gitignore &#39;</span>
+<span class=ln> 8</span>
+<span class=ln> 9</span>        <span class=c1>// define the steps to apply to those files
+</span><span class=ln>10</span><span class=c1></span>        <span class=n>trimTrailingWhitespace</span> <span class=o>()</span>
+<span class=ln>11</span>        <span class=n>indentWithSpaces</span> <span class=o>()</span> <span class=c1>// tab or spaces. indentWithSpaces takes an integer argument, the default value is 4
+</span><span class=ln>12</span><span class=c1></span>        <span class=n>endWithNewline</span> <span class=o>()</span>
+<span class=ln>13</span>    <span class=o>}</span>
+<span class=ln>14</span>
+<span class=ln>15</span>    <span class=n>java</span> <span class=o>{</span>
+<span class=ln>16</span>        <span class=c1>// don&#39;t need to set target, it is inferred from Java
+</span><span class=ln>17</span><span class=c1></span>
+<span class=ln>18</span>        <span class=c1>// apply a specific flavor of google-java-format
+</span><span class=ln>19</span><span class=c1></span>        <span class=n>googleJavaFormat</span> <span class=o>(</span><span class=s1>&#39;1.13. 0 &#39;</span><span class=o>).</span> <span class=n>ReflowLongStrings</span> <span class=o>()</span>
+<span class=ln>20</span>        <span class=c1>// make sure every file has the following copyright header.
+</span><span class=ln>21</span><span class=c1></span>        <span class=c1>// optionally, Spotless can set copyright years by digging
+</span><span class=ln>22</span><span class=c1></span>        <span class=c1>// through git history.
+</span><span class=ln>23</span><span class=c1></span>        <span class=n>licenseHeader</span> <span class=s1>&#39;/ * (C) $ YEAR * /&#39;</span>
+<span class=ln>24</span>    <span class=o>}</span>
+<span class=ln>25</span><span class=o>}</span>
+</code></pre></div><h1 id=résumé>Résumé<a class="anchor ms-1" href=#résumé><i class="fas fa-link"></i></a></h1>
+<p>L&rsquo;application de règles strictes à la mise en forme du code réduit l&rsquo;effort et le stress des développeurs et augmente leur productivité.
+Il serait préférable de partager un style de mise en forme au niveau de l&rsquo;équipe, mais si vous n&rsquo;y arrivez pas par consensus, cela vaut la peine d’en imposer un, car après un certain temps, les gens s&rsquo;y habituent.
+Une fois que vous avez décidé d&rsquo;un style, il est bon d&rsquo;avoir un outil automatisé pour vérifier que la mise en forme est cohérente.
+Disposer d&rsquo;un outil pour appliquer automatiquement la mise en forme permet de gagner du temps et d&rsquo;éliminer une tâche mécanique.
+Spotless est un outil open source qui peut être intégré via des plugins avec Maven et Gradle. Spotless vous permet de mettre en page votre code progressivement afin de ne pas avoir à faire un méga commit au moment de son introduction.</p>
+<p>Si vous lisez cette phrase c’est que vous avez lu cet article en entier et je vous en remercie car c’est mon premier article, si vous avez des remarques sur le contenu, la forme vous pouvez laisser un commentaire…</p>
+<p>C’est en échangeant qu’on progresse.</p>
+<p>Auteur : Daniele Cremonini
+Relecteur : Emmanuel Quinton</p>
+</div><hr><div class=post-copyright id=post-copyright>
+<a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en>
+<span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+CC BY-NC-ND 4.0
+</a>
+</div>
+<hr><div class="post-navs d-flex mb-3 justify-content-evenly">
+<div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/fr/about/>About
+</a>
+</div></div></div>
+</article><section class="related-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Articles en Relations</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/fr/about/>About
+</a>
+<span class="float-end post-date">13-01-2022
+</span>
+</li><li>
+<a href=/fr/contact/>
+</a>
+<span class="float-end post-date">01-01-0001
+</span>
+</li><li>
+<a href=/fr/offline/>Hors Ligne
+</a>
+<span class="float-end post-date">01-01-0001
+</span>
+</li></ul>
+</div>
+</section><div class="card component row post-comments" id=post-comments>
+<div class=card-header>
+<h2 class=card-title>Commentaires</h2>
+</div>
+<div class=card-body></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+<div class=container>
+<section class="card row text-center profile component">
+<div class=card-body>
+<div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Talk To The Duck" src=/images/duck_120x120_square.png loading=lazy width=120 height=120>
+</div>
+<div class="col-12 profile-meta"><div class=profile-name>Talk To The Duck</div><div class=profile-bio>Explain to the Duck, you will understand.</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Paris, France</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/fr/about/>About</a></div><div class=profile-contact><i class="fas fa-fw fa-question-circle"></i><a href=/fr/contact/></a></div></div>
+</div>
+</section>
+<section class="recent-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Articles Récents</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
+</a>
+</li></ul>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/fr/series>Séries</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/fr/series/outils-pour-java/ class="badge rounded post-taxonomy" title="Outils pour Java">
+Outils pour Java
+</a></div>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+<a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/><img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png></a><br>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+Copyright © 2021-2022 Talk To The Duck. All Rights Reserved.
+</div>
+</footer>
+<script src=/js/main.min.d1ef5819d5055b58eaa52e77fc1c87e27b1a006bc5169ce78255477ef0bb2281.js integrity="sha256-0e9YGdUFW1jqpS53/ByH4nsaAGvFFpznglVHfvC7IoE=" crossorigin=anonymous defer></script><script src=/js/icons.min.a35670f2f90c398e5ee5c8e509b428fae75aa2746854cee10b60794633076859.js integrity="sha256-o1Zw8vkMOY5e5cjlCbQo+udaonRoVM7hC2B5RjMHaFk=" crossorigin=anonymous defer></script>
+<script>'serviceWorker'in navigator&&window.addEventListener('load',()=>{navigator.serviceWorker.register('/service-worker.js').then(function(a){console.log('Successfully registered service worker',a)}).catch(function(a){console.warn('Error whilst registering service worker',a)})})</script><script src=/js/viewer.min.4dba52a0a790f909408b7385316651299158381686401d50ff1f04dda6476473.js integrity="sha256-TbpSoKeQ+QlAi3OFMWZRKZFYOBaGQB1Q/x8E3aZHZHM=" crossorigin=anonymous defer></script>
+</body>
+</html>
