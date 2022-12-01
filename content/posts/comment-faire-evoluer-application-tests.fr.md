@@ -37,7 +37,7 @@ Un test unitaire est un test qui ne vérifie que la méthode d’une classe ou u
 Un test d’intégration est un test qui à pour objectif de vérifier la bonne intégration de certaines parties d’un traitement et non celui-ci dans son ensemble. On concentrera nos tests d’intégration sur les endpoints et les repositories.
 Un test système est un test en boite noir qui va vérifier que l’ensemble du cas d'utilisation fonctionne.
 
-![test_pyramid.png](//posts/how-to-evolve-application/test-pyramid.png "image_tooltip")
+![test_pyramid.png](images/posts/how-to-evolve-application/test-pyramid.png "image_tooltip")
 
 Dans un cas comme celui de notre application, où aucun test n’existe, il est préférable de partir sur un test système pour vérifier rapidement le bon fonctionnement et la non-régression d’une fonctionnalité puis par la suite d’augmenter les tests unitaires et les tests d’intégration.
 
@@ -53,7 +53,7 @@ Ce fichier est appelé par le fichier build.gradle
 
 **Emplacement du fichier unit-test.gradle**
 
-![unit-test-gradle-file-location](/images/unit-test-gradle-file-location.png "image_tooltip")
+![unit-test-gradle-file-location](images/posts/how-to-evolve-application/unit-test-gradle-file-location.png "image_tooltip")
 
 
 **Contenu du fichier unit-test.gradle**
@@ -161,13 +161,13 @@ BDDMockito.when(formRepository.getById(formId)).thenReturn(savedForm);
 
 Pour la mise en place des tests d’intégration, nous allons créer un répertoire au même niveau que les répertoires test et main.
 
-![integration-test-folder.png](/images/integration-test-folder.png "image_tooltip")
+![integration-test-folder.png](images/posts/how-to-evolve-application/integration-test-folder.png "image_tooltip")
 
 La séparation des tests unitaires et des tests d’intégration a l’avantage de nous permettre de distinguer quel type de tests on souhaite exécuter et quand cela aura son utilité lors de la mise en place de la CI/CD
 La configuration se fera comme dans les tests unitaires via un fichier gradle séparé.
 
 **Emplacement du fichier integration-test.gradle**
-![unit-test-gradle-file-location.png](/images/unit-test-gradle-file-location.png "image_tooltip")
+![unit-test-gradle-file-location.png](images/posts/how-to-evolve-application/unit-test-gradle-file-location.png "image_tooltip")
 
 
 **Contenu du fichier integration-test.gradle**
@@ -331,12 +331,12 @@ Pour des méthodes de type find, findAll, findId nous pouvons utiliser l'annotat
 ### Paramétrage du test
 Tout comme pour les tests d’intégration les tests system sont dans un répertoire distinct ; La configuration se trouve dans le fichier system-test.gradle
 
-![system-test-folder.png](/images/system-test-folder.png "image_tooltip")
+![system-test-folder.png](images/posts/how-to-evolve-application/system-test-folder.png "image_tooltip")
 
 
 **Emplacement du fichier system-test.gradle**
 
-![system-test-gradle-file-location.png](/images/system-test-gradle-file-location.png "image_tooltip")
+![system-test-gradle-file-location.png](images/posts/how-to-evolve-application/system-test-gradle-file-location.png "image_tooltip")
 
 
 **Contenu du fichiersystem-test.gradle**
