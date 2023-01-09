@@ -167,6 +167,7 @@ La séparation des tests unitaires et des tests d’intégration a l’avantage 
 La configuration se fera comme dans les tests unitaires via un fichier gradle séparé.
 
 **Emplacement du fichier integration-test.gradle**
+
 ![unit-test-gradle-file-location.png](unit-test-gradle-file-location.png "image_tooltip")
 
 
