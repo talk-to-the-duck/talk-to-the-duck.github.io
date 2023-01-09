@@ -1,0 +1,689 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>How to evolve an application to make it more robust and maintainable - Setting up the test - Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
+<link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png>
+<link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png>
+<link rel=icon href=/images/icons/favicon.ico>
+<link rel=manifest href=/en/manifest.json>
+<meta name=keywords content>
+<meta name=description content><meta itemprop=name content="How to evolve an application to make it more robust and maintainable - Setting up the test">
+<meta itemprop=description content><meta itemprop=datePublished content="2022-02-27T18:18:31+01:00">
+<meta itemprop=dateModified content="2022-02-27T18:18:31+01:00">
+<meta itemprop=wordCount content="1733">
+<meta itemprop=keywords content=","><meta property="og:title" content="How to evolve an application to make it more robust and maintainable - Setting up the test">
+<meta property="og:description" content>
+<meta property="og:type" content="article">
+<meta property="og:url" content="/en/posts/how-to-evolve-application-tests/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-02-27T18:18:31+01:00">
+<meta property="article:modified_time" content="2022-02-27T18:18:31+01:00">
+<meta property="og:see_also" content="/en/posts/how-to-evolve-application-presentation/">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="How to evolve an application to make it more robust and maintainable - Setting up the test">
+<meta name=twitter:description content>
+<meta name=robots content="index, follow"><link rel=stylesheet href=/css/main.min.bdac26feededc335ec4311c668376189bbfe162d3dc6063df0d592d8d855725c.css integrity="sha256-vawm/u3twzXsQxHGaDdhibv+Fi09xgY98NWS2NhVclw=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head>
+<body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+<div class=container>
+<button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/en/><img class=logo alt=Logo src=/images/ttd-logo.webp loading=lazy width=136 height=136>
+Talk To The Duck
+</a>
+<div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Share</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class=offcanvas-body>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=How%20to%20evolve%20an%20application%20to%20make%20it%20more%20robust%20and%20maintainable%20-%20Setting%20up%20the%20test&url=%2fen%2fposts%2fhow-to-evolve-application-tests%2f">
+<i class="fab fa-fw fa-twitter"></i> Twitter
+</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fen%2fposts%2fhow-to-evolve-application-tests%2f">
+<i class="fab fa-fw fa-facebook-f"></i> Facebook
+</a>
+</div>
+</div>
+<button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i>
+</button>
+<div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Settings</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class="offcanvas-body d-flex flex-column"><section class=setting>
+<form class=row>
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-language"></i> Language</label>
+</div>
+<div class="col-auto ms-auto">
+<div class=dropdown>
+<a class="btn btn-sm btn-outline-primary dropdown-toggle" href=# id=languageDropdown role=button data-bs-toggle=dropdown aria-expanded=false>
+English
+</a>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby=languageDropdown><li><a class=dropdown-item href=/fr/>Français</a></li><li><a class=dropdown-item href=/it/>Italiano</a></li></ul>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+</div>
+<div class="col-auto ms-auto">
+<div class="form-check form-switch">
+<input class=form-check-input type=checkbox id=modeSwitcher>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class="font-size-switcher-form row">
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label>
+</div>
+<div class="col-auto ms-auto">
+<input type=range class=form-range min=-2 max=2 id=fontSize>
+</div>
+</form>
+</section>
+<section class="setting palettes">
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-palette"></i> Palette</label>
+</div>
+<div class="col-auto ms-auto">
+<a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker>
+<i class="fas fa-eye-dropper"></i>
+</a>
+</div>
+</form>
+<div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow>
+</button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+<a role=button class="action action-reload-page">
+<span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+</a>
+<a role=button class="action action-copy-url">
+<span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL
+</a><a class="action action-social-share" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<span class=action-icon><i class="fas fa-2x fa-share-alt"></i></span> Share
+</a></section>
+</div>
+</div>
+<div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent>
+<form class="search-bar my-1" action=/en/search>
+<div class="input-group input-group-sm">
+<span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search>
+</div>
+</form>
+<ul class="navbar-nav ms-auto"><li class=nav-item>
+<a class=nav-link href=/en/series/>
+<i class="fas fa-fw fa-columns"></i>Series
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/en/archives/>
+<i class="fas fa-fw fa-file-archive"></i>Archives
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/en/categories/>
+<i class="fas fa-fw fa-folder"></i>Categories
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/en/tags/>
+<i class="fas fa-fw fa-tags"></i>Tags
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/>
+</a>
+</li></ul>
+</div>
+</div>
+</nav>
+</header>
+<main role=main class=container>
+<div class="row content">
+<div class=col-lg-8>
+<div class=container><nav class="row card component" aria-label=breadcrumb>
+<div class=card-body>
+<ol class=breadcrumb><li class=breadcrumb-item><a href=/en/>Home</a></li><li class=breadcrumb-item><a href=/en/posts/>Posts</a></li><li class="breadcrumb-item active">How to Evolve an Application to Make It More Robust and Maintainable - Setting Up the Test</li></ol>
+</div>
+</nav><article class="row card component mb-4 post"><div class=post-panel-wrapper>
+<div class="d-flex flex-column component rounded post-panel">
+<a class="action action-panel-toggler" role=button title="Panel toggler">
+<i class="fas fa-fw fa-chevron-circle-down"></i>
+</a>
+<a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler">
+<i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i>
+</a>
+<div class="post-translations nav-item dropdown dropstart action">
+<a class="nav-link p-0" data-bs-toggle=dropdown href=# role=button aria-haspopup=true aria-expanded=false aria-label="Translations dropdown menu" title=Translations>
+<i class="fas fa-fw fa-language"></i>
+</a>
+<div class=dropdown-menu><a class="dropdown-item post-translation" href=/fr/posts/how-to-evolve-application-tests/>Français</a></div>
+</div>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright>
+<i class="fas fa-fw fa-copyright"></i>
+</a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments>
+<i class="fas fa-fw fa-comments"></i>
+</a>
+<a class=action data-bs-toggle=offcanvas href=#offcanvasTOC aria-controls=offcanvasTOC role=button title="Table of contents">
+<i class="fas fa-fw fa-list-alt"></i>
+</a>
+</div>
+</div>
+<div class=card-header>
+<h1 class="card-title post-title">How to Evolve an Application to Make It More Robust and Maintainable - Setting Up the Test
+</h1>
+</div>
+<div class=card-body><div class=post-meta>
+<span class=post-date title="created on 2022-02-27 17:18:31 +0000 UTC.">
+27-02-2022
+</span><span class=post-reading-time>
+9 min read
+</span><span class=post-taxonomies><a href=/en/categories/quality/ class="badge rounded-pill post-taxonomy">quality</a><a href=/en/categories/test/ class="badge rounded-pill post-taxonomy">test</a><a href=/en/series/how-to-evolve-an-application-to-make-it-more-robust-and-maintainable/ class="badge rounded-pill post-taxonomy">How to evolve an application to make it more robust and maintainable</a></span>
+</div>
+<div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasTOC aria-labelledby=offcanvasTOCLabel>
+<div class=offcanvas-header>
+<h2 class=offcanvas-title id=offcanvasTOCLabel>Table Of Contents</h5>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class=offcanvas-body>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#foreword>Foreword</a></li>
+<li><a href=#definitions-of-the-different-types-of-tests>Definitions of the different types of tests</a></li>
+<li><a href=#unit-testing>Unit testing</a>
+<ul>
+<li><a href=#setting-up-the-test>Setting up the test</a></li>
+<li><a href=#implementation-of-a-test>Implementation of a test</a></li>
+</ul>
+</li>
+<li><a href=#example-of-a-test><strong>Example of a test</strong></a>
+<ul>
+<li><a href=#code-details>Code details</a></li>
+</ul>
+</li>
+<li><a href=#integration-testing>Integration testing</a>
+<ul>
+<li><a href=#setting-up-the-test-1>Setting up the test</a></li>
+<li><a href=#implementation-of-a-test-1>Implementation of a test</a></li>
+<li><a href=#code-details-1>Code details</a></li>
+</ul>
+</li>
+<li><a href=#system-testing>System testing</a>
+<ul>
+<li><a href=#setting-up-the-test-2>Setting up the test</a></li>
+<li><a href=#implementation-of-a-test-2>Implementation of a test</a></li>
+<li><a href=#code-details-2>Code details</a></li>
+</ul>
+</li>
+<li><a href=#summary>Summary</a></li>
+</ul>
+</nav>
+</div>
+</div><div class="post-content mb-3"><h1 id=how-to-evolve-an-application-to-make-it-more-robust-and-maintainable---setting-up-the-test>How to evolve an application to make it more robust and maintainable - Setting up the test<a class="anchor ms-1" href=#how-to-evolve-an-application-to-make-it-more-robust-and-maintainable---setting-up-the-test><i class="fas fa-link"></i></a></h1>
+<h2 id=foreword>Foreword<a class="anchor ms-1" href=#foreword><i class="fas fa-link"></i></a></h2>
+<p>In the introductory article of this series (link) we presented the different problems of our application (add link). The first one I propose to solve in this article is the addition of tests.
+The purpose of adding tests is not only to increasing the code coveragecover the code and pass a quality gate; it is there to validate the business rules and allow refactoring with less risk.
+In this article we will look at how to add tests to an application that does not have any.
+We will discuss unit tests, integration tests and system tests</p>
+<h2 id=definitions-of-the-different-types-of-tests>Definitions of the different types of tests<a class="anchor ms-1" href=#definitions-of-the-different-types-of-tests><i class="fas fa-link"></i></a></h2>
+<p>A unit test is a test that only checks the method of a class or a class. External classes, often called &ldquo;collaborators&rdquo;, that might be called will be mocked. We will place unit tests mainly on services that must contain business code, i.e. code with added value.
+An integration test is a test that aims to verify the correct integration of certain parts of a process and not the process as a whole. We will concentrate our integration tests on endpoints and repositories.
+A system test is a black-box test that verifies that the entire use case works.</p>
+<p><img class=img-fluid alt=test_pyramid.png src=/en/posts/how-to-evolve-application-tests/test-pyramid.png loading=lazy width=500 height=433>
+</p>
+<p>In a case such as that of our application, where no tests exist, it is preferable to start with a system test to quickly verify the correct operation and non-regression of a functionality, and then to increase the unit tests and integration tests.</p>
+<h2 id=unit-testing>Unit testing<a class="anchor ms-1" href=#unit-testing><i class="fas fa-link"></i></a></h2>
+<p>Since our application is in Java we will use as libraries for the tests:
+Junit5, Mockito and AssertJ.</p>
+<h3 id=setting-up-the-test>Setting up the test<a class="anchor ms-1" href=#setting-up-the-test><i class="fas fa-link"></i></a></h3>
+<p>The dependencies are to be added in the build.gradle but for readability reasons I prefer to create a unit-test.gradle file which will contain all the necessary configurations.
+This file is called by the build.gradle file</p>
+<p><strong>Location of the unit-test.gradle file</strong></p>
+<p><img class=img-fluid alt=unit-test-gradle-file-location src=/en/posts/how-to-evolve-application-tests/unit-test-gradle-file-location.png loading=lazy width=297 height=166>
+</p>
+<p><strong>Contents of the unit-test.gradle file</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-groovy data-lang=groovy><span class=ln>1</span><span class=n>dependencies</span> <span class=o>{</span>
+<span class=ln>2</span>
+<span class=ln>3</span>   <span class=n>testImplementation</span> <span class=nl>group:</span> <span class=s1>&#39;org.junit.jupiter&#39;</span><span class=o>,</span> <span class=nl>name:</span> <span class=s1>&#39;junit-jupiter&#39;</span><span class=o>,</span> <span class=nl>version:</span> <span class=s1>&#39;5.8.2&#39;</span>
+<span class=ln>4</span>   <span class=n>testImplementation</span> <span class=nl>group:</span> <span class=s1>&#39;org.mockito&#39;</span><span class=o>,</span> <span class=nl>name:</span> <span class=s1>&#39;mockito-junit-jupiter&#39;</span><span class=o>,</span> <span class=nl>version:</span> <span class=s1>&#39;4.2.0&#39;</span>
+<span class=ln>5</span>   <span class=n>testImplementation</span> <span class=nl>group:</span> <span class=s1>&#39;org.assertj&#39;</span><span class=o>,</span> <span class=nl>name:</span> <span class=s1>&#39;assertj-core&#39;</span><span class=o>,</span> <span class=nl>version:</span> <span class=s1>&#39;3.21.0&#39;</span>
+<span class=ln>6</span>   <span class=n>testImplementation</span> <span class=nl>group:</span> <span class=s1>&#39;org.mockito&#39;</span><span class=o>,</span> <span class=nl>name:</span> <span class=s1>&#39;mockito-core&#39;</span><span class=o>,</span> <span class=nl>version:</span> <span class=s1>&#39;4.2.0&#39;</span>
+<span class=ln>7</span><span class=o>}</span>
+<span class=ln>8</span>
+</code></pre></div><p><strong>In the build.gradle file</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-groovy data-lang=groovy><span class=ln>1</span><span class=n>apply</span> <span class=nl>from:</span> <span class=s2>&#34;gradle/unit-test.gradle&#34;</span>
+</code></pre></div><h3 id=implementation-of-a-test>Implementation of a test<a class="anchor ms-1" href=#implementation-of-a-test><i class="fas fa-link"></i></a></h3>
+<p>The rules for writing a unit test :</p>
+<ul>
+<li>Each test must be created in the test directory</li>
+<li>Each test class is in the same package as the class it tests</li>
+<li>The names of the test methods are in snack_case ( (cf <a href=https://en.wikipedia.org/wiki/Snake_case target=_blank rel="noopener noreferrer">https://en.wikipedia.org/wiki/Snake_case</a>
+)</li>
+<li>The number of things tested should be limited, ideally to 1.</li>
+</ul>
+<h2 id=example-of-a-test>Example of a test<a class="anchor ms-1" href=#example-of-a-test><i class="fas fa-link"></i></a></h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln> 1</span>
+<span class=ln> 2</span>@Test
+<span class=ln> 3</span>void should_add_question_to_form() {
+<span class=ln> 4</span> // given
+<span class=ln> 5</span> var formId = UUID.fromString(&#34;18b8f2e2-f41c-4ca4-a007-c328390cd099&#34;);
+<span class=ln> 6</span> var savedForm = new Form();
+<span class=ln> 7</span> var existingQuestion = new QuestionAnswer(formId, &#34;What is your first name&#34;, null, savedForm);
+<span class=ln> 8</span> var questions = new HashSet&lt;QuestionAnswer&gt;();
+<span class=ln> 9</span> questions.add(existingQuestion);
+<span class=ln>10</span> savedForm.setQuestions(questions);
+<span class=ln>11</span> savedForm.setId(formId);
+<span class=ln>12</span>
+<span class=ln>13</span> BDDMockito.when(formRepository.getById(formId)).thenReturn(savedForm);
+<span class=ln>14</span>
+<span class=ln>15</span> var questionToSave =
+<span class=ln>16</span>     new QuestionAnswer(null, &#34;What is your objectives for the next year&#34;, null, null);
+<span class=ln>17</span>
+<span class=ln>18</span> // when
+<span class=ln>19</span> formService.createQuestion(formId, questionToSave);
+<span class=ln>20</span>
+<span class=ln>21</span> // then
+<span class=ln>22</span> var questionAnswerArgumentCaptor = ArgumentCaptor.forClass(QuestionAnswer.class);
+<span class=ln>23</span>
+<span class=ln>24</span> BDDMockito.then(questionAnswerRepository).should().save(questionAnswerArgumentCaptor.capture());
+<span class=ln>25</span> var actualQuestions = questionAnswerArgumentCaptor.getValue();
+<span class=ln>26</span> BDDSoftAssertions.thenSoftly(
+<span class=ln>27</span>     softly -&gt; {
+<span class=ln>28</span>       softly.then(actualQuestions).isNotNull();
+<span class=ln>29</span>       softly.then(actualQuestions)
+<span class=ln>30</span>               .extracting(&#34;form.questions&#34;, Assertions.as(InstanceOfAssertFactories.COLLECTION))
+<span class=ln>31</span>               .hasSize(2);
+<span class=ln>32</span>     });
+<span class=ln>33</span>}
+<span class=ln>34</span>
+</code></pre></div><h3 id=code-details>Code details<a class="anchor ms-1" href=#code-details><i class="fas fa-link"></i></a></h3>
+<p>The most important points are</p>
+<ul>
+<li>The use of mocks to simulate the behaviour of methods of other classes that are called</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=n>BDDMockito</span><span class=o>.</span><span class=na>when</span><span class=o>(</span><span class=n>formRepository</span><span class=o>.</span><span class=na>getById</span><span class=o>(</span><span class=n>formId</span><span class=o>)).</span><span class=na>thenReturn</span><span class=o>(</span><span class=n>savedForm</span><span class=o>);</span>
+<span class=ln>2</span>
+</code></pre></div><ul>
+<li>The use of ArgumentCaptor to catch and then validate the form passed to the save method of the repository</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span> <span class=n>var</span> <span class=n>questionAnswerArgumentCaptor</span> <span class=o>=</span> <span class=n>ArgumentCaptor</span><span class=o>.</span><span class=na>forClass</span><span class=o>(</span><span class=n>QuestionAnswer</span><span class=o>.</span><span class=na>class</span><span class=o>);</span>
+<span class=ln>2</span>
+<span class=ln>3</span> <span class=n>BDDMockito</span><span class=o>.</span><span class=na>then</span><span class=o>(</span><span class=n>questionAnswerRepository</span><span class=o>).</span><span class=na>should</span><span class=o>().</span><span class=na>save</span><span class=o>(</span><span class=n>questionAnswerArgumentCaptor</span><span class=o>.</span><span class=na>capture</span><span class=o>());</span>
+<span class=ln>4</span>     <span class=n>var</span> <span class=n>actualQuestions</span> <span class=o>=</span> <span class=n>questionAnswerArgumentCaptor</span><span class=o>.</span><span class=na>getValue</span><span class=o>();</span>
+<span class=ln>5</span>
+</code></pre></div><ul>
+<li>The use of SoftAssertions to be able to check several things. Unlike validation via the Assertions class, which will raise an error on the first error, SoftAssertions will test all conditions and raise errors afterwards.</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span> <span class=n>BDDSoftAssertions</span><span class=o>.</span><span class=na>thenSoftly</span><span class=o>(</span>
+<span class=ln>2</span>     <span class=n>softly</span> <span class=o>-&gt;</span> <span class=o>{</span>
+<span class=ln>3</span>       <span class=n>softly</span><span class=o>.</span><span class=na>then</span><span class=o>(</span><span class=n>actualQuestions</span><span class=o>).</span><span class=na>isNotNull</span><span class=o>();</span>
+<span class=ln>4</span>       <span class=n>softly</span><span class=o>.</span><span class=na>then</span><span class=o>(</span><span class=n>actualQuestions</span><span class=o>)</span>
+<span class=ln>5</span>               <span class=o>.</span><span class=na>extracting</span><span class=o>(</span><span class=s>&#34;form.questions&#34;</span><span class=o>,</span> <span class=n>Assertions</span><span class=o>.</span><span class=na>as</span><span class=o>(</span><span class=n>InstanceOfAssertFactories</span><span class=o>.</span><span class=na>COLLECTION</span><span class=o>))</span>
+<span class=ln>6</span>               <span class=o>.</span><span class=na>hasSize</span><span class=o>(</span><span class=n>2</span><span class=o>);</span>
+<span class=ln>7</span>     <span class=o>});</span>
+</code></pre></div><h2 id=integration-testing>Integration testing<a class="anchor ms-1" href=#integration-testing><i class="fas fa-link"></i></a></h2>
+<h3 id=setting-up-the-test-1>Setting up the test<a class="anchor ms-1" href=#setting-up-the-test-1><i class="fas fa-link"></i></a></h3>
+<p>To set up the integration tests we will create a directory at the same level as the test and main directories.</p>
+<p><img class=img-fluid alt=integration-test-folder.png src=/en/posts/how-to-evolve-application-tests/integration-test-folder.png loading=lazy width=238 height=78>
+</p>
+<p>The separation of unit tests and integration tests has the advantage of allowing us to distinguish which type of tests we want to run and when; this will be useful when setting up the CI/CD.
+The configuration will be done in the same way as for unit tests via a separate gradle file.</p>
+<p><strong>Location of the integration-test.gradle file</strong></p>
+<p><img class=img-fluid alt=unit-test-gradle-file-location.png src=/en/posts/how-to-evolve-application-tests/unit-test-gradle-file-location.png loading=lazy width=297 height=166>
+</p>
+<p><strong>Content of the integration-test.gradle file</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-groovy data-lang=groovy><span class=ln> 1</span><span class=n>sourceSets</span> <span class=o>{</span>
+<span class=ln> 2</span>    <span class=n>integrationTest</span> <span class=o>{</span>
+<span class=ln> 3</span>        <span class=n>java</span> <span class=o>{</span>
+<span class=ln> 4</span>            <span class=n>compileClasspath</span> <span class=o>+=</span> <span class=n>sourceSets</span><span class=o>.</span><span class=na>main</span><span class=o>.</span><span class=na>output</span>
+<span class=ln> 5</span>            <span class=n>runtimeClasspath</span> <span class=o>+=</span> <span class=n>sourceSets</span><span class=o>.</span><span class=na>main</span><span class=o>.</span><span class=na>output</span>
+<span class=ln> 6</span>            <span class=n>srcDir</span> <span class=nf>file</span><span class=o>(</span><span class=s1>&#39;src/integration-test/java&#39;</span><span class=o>)</span>
+<span class=ln> 7</span>        <span class=o>}</span>
+<span class=ln> 8</span>        <span class=n>resources</span><span class=o>.</span><span class=na>srcDir</span> <span class=nf>file</span><span class=o>(</span><span class=s1>&#39;src/integration-test/resources&#39;</span><span class=o>)</span>
+<span class=ln> 9</span>    <span class=o>}</span>
+<span class=ln>10</span><span class=o>}</span>
+<span class=ln>11</span>
+<span class=ln>12</span><span class=n>configurations</span> <span class=o>{</span>
+<span class=ln>13</span>    <span class=n>integrationTestImplementation</span><span class=o>.</span><span class=na>extendsFrom</span> <span class=n>implementation</span>
+<span class=ln>14</span>    <span class=n>integrationTestRuntimeOnly</span><span class=o>.</span><span class=na>extendsFrom</span> <span class=n>runtimeOnly</span>
+<span class=ln>15</span><span class=o>}</span>
+<span class=ln>16</span>
+<span class=ln>17</span><span class=n>dependencies</span> <span class=o>{</span>
+<span class=ln>18</span>    <span class=n>integrationTestImplementation</span> <span class=nl>group:</span> <span class=s1>&#39;org.springframework.boot&#39;</span><span class=o>,</span> <span class=nl>name:</span> <span class=s1>&#39;spring-boot-starter-test&#39;</span>
+<span class=ln>19</span>    <span class=n>integrationTestImplementation</span> <span class=nl>group:</span> <span class=s1>&#39;org.mockito&#39;</span><span class=o>,</span> <span class=nl>name:</span> <span class=s1>&#39;mockito-core&#39;</span><span class=o>,</span> <span class=nl>version:</span> <span class=s1>&#39;4.2.0&#39;</span>
+<span class=ln>20</span>    <span class=n>integrationTestImplementation</span> <span class=nl>group:</span> <span class=s1>&#39;org.mockito&#39;</span><span class=o>,</span> <span class=nl>name:</span> <span class=s1>&#39;mockito-inline&#39;</span><span class=o>,</span> <span class=nl>version:</span> <span class=s1>&#39;4.2.0&#39;</span>
+<span class=ln>21</span><span class=o>}</span>
+<span class=ln>22</span>
+<span class=ln>23</span><span class=n>tasks</span><span class=o>.</span><span class=na>register</span><span class=o>(</span><span class=s1>&#39;integrationTest&#39;</span><span class=o>,</span> <span class=n>Test</span><span class=o>)</span> <span class=o>{</span>
+<span class=ln>24</span>    <span class=n>description</span> <span class=o>=</span> <span class=s1>&#39;Runs integration tests.&#39;</span>
+<span class=ln>25</span>    <span class=n>group</span> <span class=o>=</span> <span class=s1>&#39;verification&#39;</span>
+<span class=ln>26</span>
+<span class=ln>27</span>    <span class=n>testClassesDirs</span> <span class=o>=</span> <span class=n>sourceSets</span><span class=o>.</span><span class=na>integrationTest</span><span class=o>.</span><span class=na>output</span><span class=o>.</span><span class=na>classesDirs</span>
+<span class=ln>28</span>    <span class=n>classpath</span> <span class=o>=</span> <span class=n>sourceSets</span><span class=o>.</span><span class=na>integrationTest</span><span class=o>.</span><span class=na>runtimeClasspath</span>
+<span class=ln>29</span>    <span class=n>shouldRunAfter</span> <span class=n>test</span>
+<span class=ln>30</span>    <span class=nf>useJUnitPlatform</span><span class=o>()</span>
+<span class=ln>31</span><span class=o>}</span>
+<span class=ln>32</span>
+<span class=ln>33</span><span class=n>check</span><span class=o>.</span><span class=na>dependsOn</span> <span class=n>integrationTest</span>
+</code></pre></div><p><strong>Dans le fichier build.gradle</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln>1</span>apply from: &#34;gradle/unit-test.gradle&#34;
+<span class=ln>2</span>apply from: &#34;gradle/integration-test.gradle&#34;
+<span class=ln>3</span>
+</code></pre></div><h3 id=implementation-of-a-test-1>Implementation of a test<a class="anchor ms-1" href=#implementation-of-a-test-1><i class="fas fa-link"></i></a></h3>
+<p>As the integration tests takeare longer, we will limit them to controllers and repositories; services, as we have seen above, are tested by unit tests.
+At the level of controllers, the objectives will be to verify that the endpoints respond correctly, i.e. we will verify :</p>
+<ul>
+<li>the validity status returned.</li>
+<li>error feedback due to invalid parameters or in the body of the request</li>
+</ul>
+<p>The services called in the controllers will be mocked, and the calls to the service methods can be validated.
+This way of testing makes us understand why it is necessary to limit the business code in the controllers.
+At the repository level, we will check the validity of the requests, concentrating initially on the most complex requests.</p>
+<p><strong>Example of a controller integration test</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln> 1</span><span class=nd>@WebMvcTest</span><span class=o>(</span><span class=n>controllers</span> <span class=o>=</span> <span class=n>InterviewController</span><span class=o>.</span><span class=na>class</span><span class=o>)</span>
+<span class=ln> 2</span><span class=kd>public</span> <span class=kd>class</span> <span class=nc>InterviewControllerITest</span> <span class=o>{</span>
+<span class=ln> 3</span>
+<span class=ln> 4</span> <span class=nd>@Autowired</span> <span class=n>Jackson2ObjectMapperBuilder</span> <span class=n>mapperBuilder</span><span class=o>;</span>
+<span class=ln> 5</span>
+<span class=ln> 6</span> <span class=nd>@Autowired</span> <span class=kd>private</span> <span class=n>MockMvc</span> <span class=n>mockMvc</span><span class=o>;</span>
+<span class=ln> 7</span>
+<span class=ln> 8</span> <span class=nd>@MockBean</span> <span class=kd>private</span> <span class=n>InterviewService</span> <span class=n>interviewService</span><span class=o>;</span>
+<span class=ln> 9</span>
+<span class=ln>10</span> <span class=nd>@Test</span>
+<span class=ln>11</span> <span class=nd>@DisplayName</span><span class=o>(</span><span class=s>&#34;Should get all interviews&#34;</span><span class=o>)</span>
+<span class=ln>12</span> <span class=kt>void</span> <span class=nf>should_get_persons</span><span class=o>()</span> <span class=kd>throws</span> <span class=n>Exception</span> <span class=o>{</span>
+<span class=ln>13</span>   <span class=c1>// when
+</span><span class=ln>14</span><span class=c1></span>   <span class=n>mockMvc</span>
+<span class=ln>15</span>       <span class=o>.</span><span class=na>perform</span><span class=o>(</span>
+<span class=ln>16</span>           <span class=n>MockMvcRequestBuilders</span><span class=o>.</span><span class=na>get</span><span class=o>(</span><span class=s>&#34;/interviews&#34;</span><span class=o>)</span>
+<span class=ln>17</span>               <span class=o>.</span><span class=na>contentType</span><span class=o>(</span><span class=n>MediaType</span><span class=o>.</span><span class=na>APPLICATION_JSON</span><span class=o>)</span>
+<span class=ln>18</span>               <span class=o>.</span><span class=na>accept</span><span class=o>(</span><span class=n>MediaType</span><span class=o>.</span><span class=na>APPLICATION_JSON</span><span class=o>))</span>
+<span class=ln>19</span>       <span class=o>.</span><span class=na>andExpect</span><span class=o>(</span><span class=n>MockMvcResultMatchers</span><span class=o>.</span><span class=na>status</span><span class=o>().</span><span class=na>isOk</span><span class=o>());</span>
+<span class=ln>20</span>
+<span class=ln>21</span>   <span class=c1>// then
+</span><span class=ln>22</span><span class=c1></span>   <span class=n>BDDMockito</span><span class=o>.</span><span class=na>then</span><span class=o>(</span><span class=n>interviewService</span><span class=o>).</span><span class=na>should</span><span class=o>().</span><span class=na>findAll</span><span class=o>();</span>
+<span class=ln>23</span> <span class=o>}</span>
+<span class=ln>24</span>
+<span class=ln>25</span>
+</code></pre></div><p><strong>Example of a repository integration test</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln> 1</span>
+<span class=ln> 2</span><span class=nd>@DataJpaTest</span>
+<span class=ln> 3</span><span class=nd>@ActiveProfiles</span><span class=o>(</span><span class=s>&#34;it&#34;</span><span class=o>)</span>
+<span class=ln> 4</span><span class=kd>public</span> <span class=kd>class</span> <span class=nc>FormRepositoryITest</span> <span class=o>{</span>
+<span class=ln> 5</span>   <span class=nd>@Autowired</span>
+<span class=ln> 6</span>   <span class=kd>private</span> <span class=n>FormRepository</span> <span class=n>formRepository</span><span class=o>;</span>
+<span class=ln> 7</span>
+<span class=ln> 8</span>   <span class=nd>@Test</span>
+<span class=ln> 9</span>   <span class=kt>void</span> <span class=nf>should_create_form</span><span class=o>()</span> <span class=o>{</span>
+<span class=ln>10</span>       <span class=c1>// given
+</span><span class=ln>11</span><span class=c1></span>       <span class=n>var</span> <span class=n>questionAnswer</span> <span class=o>=</span> <span class=k>new</span> <span class=n>QuestionAnswer</span><span class=o>(</span><span class=kc>null</span><span class=o>,</span> <span class=s>&#34;What do you think about your work this year&#34;</span><span class=o>,</span> <span class=kc>null</span><span class=o>,</span> <span class=kc>null</span><span class=o>);</span>
+<span class=ln>12</span>       <span class=n>var</span> <span class=n>formToSave</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Form</span><span class=o>(</span><span class=kc>null</span><span class=o>,</span> <span class=n>Set</span><span class=o>.</span><span class=na>of</span><span class=o>(</span><span class=n>questionAnswer</span><span class=o>));</span>
+<span class=ln>13</span>
+<span class=ln>14</span>       <span class=c1>// when
+</span><span class=ln>15</span><span class=c1></span>       <span class=n>var</span> <span class=n>actualForm</span> <span class=o>=</span> <span class=n>formRepository</span><span class=o>.</span><span class=na>save</span><span class=o>(</span><span class=n>formToSave</span><span class=o>);</span>
+<span class=ln>16</span>
+<span class=ln>17</span>       <span class=c1>// then
+</span><span class=ln>18</span><span class=c1></span>       <span class=n>var</span> <span class=n>idNotNull</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Condition</span><span class=o>&lt;</span><span class=n>Form</span><span class=o>&gt;((</span><span class=n>Form</span> <span class=n>form</span><span class=o>)</span> <span class=o>-&gt;</span> <span class=n>form</span><span class=o>.</span><span class=na>getId</span><span class=o>()</span> <span class=o>!=</span> <span class=kc>null</span><span class=o>,</span> <span class=s>&#34;form id not null&#34;</span><span class=o>);</span>
+<span class=ln>19</span>       <span class=n>var</span> <span class=n>asOneQuestion</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Condition</span><span class=o>&lt;</span><span class=n>Form</span><span class=o>&gt;((</span><span class=n>Form</span> <span class=n>form</span><span class=o>)</span> <span class=o>-&gt;</span> <span class=n>form</span><span class=o>.</span><span class=na>getQuestions</span><span class=o>().</span><span class=na>size</span><span class=o>()</span> <span class=o>==</span> <span class=n>1</span><span class=o>,</span> <span class=s>&#34;form has only one question&#34;</span><span class=o>);</span>
+<span class=ln>20</span>       <span class=n>BDDAssertions</span><span class=o>.</span><span class=na>then</span><span class=o>(</span><span class=n>actualForm</span><span class=o>)</span>
+<span class=ln>21</span>               <span class=o>.</span><span class=na>as</span><span class=o>(</span><span class=s>&#34;Check if a new form has been saved.&#34;</span><span class=o>)</span>
+<span class=ln>22</span>               <span class=o>.</span><span class=na>has</span><span class=o>(</span><span class=n>idNotNull</span><span class=o>)</span>
+<span class=ln>23</span>               <span class=o>.</span><span class=na>has</span><span class=o>(</span><span class=n>asOneQuestion</span><span class=o>);</span>
+<span class=ln>24</span>   <span class=o>}</span>
+<span class=ln>25</span>
+<span class=ln>26</span>
+</code></pre></div><h3 id=code-details-1>Code details<a class="anchor ms-1" href=#code-details-1><i class="fas fa-link"></i></a></h3>
+<h4 id=end-point-testing>end-point testing<a class="anchor ms-1" href=#end-point-testing><i class="fas fa-link"></i></a></h4>
+<p>For endpoint tests we annotate the test classes with @WebMvcTest, which allows us to load a minimal environment in order to test only the controller defined in the annotation.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=nd>@WebMvcTest</span><span class=o>(</span><span class=n>controllers</span> <span class=o>=</span> <span class=n>InterviewController</span><span class=o>.</span><span class=na>class</span><span class=o>)</span>
+</code></pre></div><p>The spring MockMvc class allows endpoint testing without loading the entire application context.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span>   <span class=n>mockMvc</span>
+<span class=ln>2</span>       <span class=o>.</span><span class=na>perform</span><span class=o>(</span>
+<span class=ln>3</span>           <span class=n>MockMvcRequestBuilders</span><span class=o>.</span><span class=na>get</span><span class=o>(</span><span class=s>&#34;/interviews&#34;</span><span class=o>)</span>
+<span class=ln>4</span>               <span class=o>.</span><span class=na>contentType</span><span class=o>(</span><span class=n>MediaType</span><span class=o>.</span><span class=na>APPLICATION_JSON</span><span class=o>)</span>
+<span class=ln>5</span>               <span class=o>.</span><span class=na>accept</span><span class=o>(</span><span class=n>MediaType</span><span class=o>.</span><span class=na>APPLICATION_JSON</span><span class=o>))</span>
+<span class=ln>6</span>       <span class=o>.</span><span class=na>andExpect</span><span class=o>(</span><span class=n>MockMvcResultMatchers</span><span class=o>.</span><span class=na>status</span><span class=o>().</span><span class=na>isOk</span><span class=o>());</span>
+</code></pre></div><p>In order to test only the endpoint (return code, returned object &mldr;) we mock the service which is called with the @MockBean annotation of Sspring</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span> <span class=nd>@MockBean</span> <span class=kd>private</span> <span class=n>InterviewService</span> <span class=n>interviewService</span><span class=o>;</span>
+</code></pre></div><h4 id=repositories-testing>Repositories testing<a class="anchor ms-1" href=#repositories-testing><i class="fas fa-link"></i></a></h4>
+<p>Integration tests between a repository and the database are done with the @DataJpaTest annotation <code> </code>
+When testing the registration of an object, it is possible to check the generated identifier of the object in return
+For methods like find, findAll, findId we can use the @Sql annotation to populate the database before testing. This is useful when the database at startup is empty. Here I have not done this but it is quite possible to start the tests with a pre-initialised database.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=nd>@Sql</span><span class=o>(</span><span class=n>scripts</span> <span class=o>=</span> <span class=o>{</span><span class=s>&#34;/sql_scripts/initialize_form.sql&#34;</span><span class=o>}</span> <span class=o>)</span>
+</code></pre></div><h2 id=system-testing>System testing<a class="anchor ms-1" href=#system-testing><i class="fas fa-link"></i></a></h2>
+<h3 id=setting-up-the-test-2>Setting up the test<a class="anchor ms-1" href=#setting-up-the-test-2><i class="fas fa-link"></i></a></h3>
+<p>As with the integration tests, the system tests are in a separate directory; the configuration is in the file system-test.gradle.</p>
+<p><img class=img-fluid alt=system-test-folder.png src=/en/posts/how-to-evolve-application-tests/system-test-folder.png loading=lazy width=265 height=103>
+</p>
+<p><strong>Location of the system-test.gradle file</strong></p>
+<p><img class=img-fluid alt=system-test-gradle-file-location.png src=/en/posts/how-to-evolve-application-tests/system-test-gradle-file-location.png loading=lazy width=335 height=118>
+</p>
+<p><strong>Contents of the system-test.gradle file</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-groovy data-lang=groovy><span class=ln> 1</span><span class=n>sourceSets</span> <span class=o>{</span>
+<span class=ln> 2</span>   <span class=n>systemTest</span> <span class=o>{</span>
+<span class=ln> 3</span>       <span class=n>java</span> <span class=o>{</span>
+<span class=ln> 4</span>           <span class=n>compileClasspath</span> <span class=o>+=</span> <span class=n>sourceSets</span><span class=o>.</span><span class=na>main</span><span class=o>.</span><span class=na>output</span>
+<span class=ln> 5</span>           <span class=n>runtimeClasspath</span> <span class=o>+=</span> <span class=n>sourceSets</span><span class=o>.</span><span class=na>main</span><span class=o>.</span><span class=na>output</span>
+<span class=ln> 6</span>           <span class=n>srcDir</span> <span class=nf>file</span><span class=o>(</span><span class=s1>&#39;src/system-test/java&#39;</span><span class=o>)</span>
+<span class=ln> 7</span>       <span class=o>}</span>
+<span class=ln> 8</span>       <span class=n>resources</span><span class=o>.</span><span class=na>srcDir</span> <span class=nf>file</span><span class=o>(</span><span class=s1>&#39;src/system-test/resources&#39;</span><span class=o>)</span>
+<span class=ln> 9</span>   <span class=o>}</span>
+<span class=ln>10</span><span class=o>}</span>
+<span class=ln>11</span>
+<span class=ln>12</span><span class=n>configurations</span> <span class=o>{</span>
+<span class=ln>13</span>   <span class=n>systemTestImplementation</span><span class=o>.</span><span class=na>extendsFrom</span> <span class=n>implementation</span>
+<span class=ln>14</span>   <span class=n>systemTestRuntimeOnly</span><span class=o>.</span><span class=na>extendsFrom</span> <span class=n>runtimeOnly</span>
+<span class=ln>15</span><span class=o>}</span>
+<span class=ln>16</span>
+<span class=ln>17</span><span class=n>dependencies</span> <span class=o>{</span>
+<span class=ln>18</span>   <span class=n>systemTestImplementation</span> <span class=nl>group:</span> <span class=s1>&#39;org.springframework.boot&#39;</span><span class=o>,</span> <span class=nl>name:</span> <span class=s1>&#39;spring-boot-starter-test&#39;</span>
+<span class=ln>19</span>   <span class=n>systemTestImplementation</span> <span class=nl>group:</span> <span class=s1>&#39;io.rest-assured&#39;</span><span class=o>,</span> <span class=nl>name:</span> <span class=s1>&#39;rest-assured&#39;</span><span class=o>,</span> <span class=nl>version:</span> <span class=s1>&#39;4.4.0&#39;</span>
+<span class=ln>20</span>   <span class=n>systemTestImplementation</span> <span class=nl>group:</span> <span class=s1>&#39;org.mockito&#39;</span><span class=o>,</span> <span class=nl>name:</span> <span class=s1>&#39;mockito-core&#39;</span><span class=o>,</span> <span class=nl>version:</span> <span class=s1>&#39;4.2.0&#39;</span>
+<span class=ln>21</span>   <span class=n>systemTestImplementation</span> <span class=nl>group:</span> <span class=s1>&#39;org.mockito&#39;</span><span class=o>,</span> <span class=nl>name:</span> <span class=s1>&#39;mockito-inline&#39;</span><span class=o>,</span> <span class=nl>version:</span> <span class=s1>&#39;4.2.0&#39;</span>
+<span class=ln>22</span>
+<span class=ln>23</span>
+<span class=ln>24</span><span class=o>}</span>
+<span class=ln>25</span>
+</code></pre></div><p><strong>In the build.gradle file</strong></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-groovy data-lang=groovy><span class=ln>1</span>
+<span class=ln>2</span><span class=n>apply</span> <span class=nl>from:</span> <span class=s2>&#34;gradle/unit-test.gradle&#34;</span>
+<span class=ln>3</span><span class=n>apply</span> <span class=nl>from:</span> <span class=s2>&#34;gradle/integration-test.gradle&#34;</span>
+<span class=ln>4</span><span class=n>apply</span> <span class=nl>from:</span> <span class=s2>&#34;gradle/system-test.gradle&#34;</span>
+<span class=ln>5</span>
+<span class=ln>6</span><span class=n>systemTest</span> <span class=o>{</span>
+<span class=ln>7</span>  <span class=n>shouldRunAfter</span> <span class=n>integrationTest</span>
+<span class=ln>8</span><span class=o>}</span>
+<span class=ln>9</span>
+</code></pre></div><h3 id=implementation-of-a-test-2>Implementation of a test<a class="anchor ms-1" href=#implementation-of-a-test-2><i class="fas fa-link"></i></a></h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln> 1</span>
+<span class=ln> 2</span><span class=nd>@SpringBootTest</span><span class=o>(</span><span class=n>webEnvironment</span> <span class=o>=</span> <span class=n>SpringBootTest</span><span class=o>.</span><span class=na>WebEnvironment</span><span class=o>.</span><span class=na>RANDOM_PORT</span><span class=o>)</span>
+<span class=ln> 3</span><span class=kd>class</span> <span class=nc>PostInterviewTest</span> <span class=o>{</span>
+<span class=ln> 4</span> <span class=nd>@Autowired</span> <span class=n>Jackson2ObjectMapperBuilder</span> <span class=n>mapperBuilder</span><span class=o>;</span>
+<span class=ln> 5</span>
+<span class=ln> 6</span> <span class=nd>@LocalServerPort</span>
+<span class=ln> 7</span>
+<span class=ln> 8</span> <span class=kd>private</span> <span class=n>Integer</span> <span class=n>port</span><span class=o>;</span>
+<span class=ln> 9</span>
+<span class=ln>10</span> <span class=nd>@BeforeAll</span>
+<span class=ln>11</span> <span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>setup</span><span class=o>()</span> <span class=o>{</span>
+<span class=ln>12</span>   <span class=n>RestAssured</span><span class=o>.</span><span class=na>baseURI</span> <span class=o>=</span> <span class=s>&#34;http://localhost&#34;</span><span class=o>;</span>
+<span class=ln>13</span> <span class=o>}</span>
+<span class=ln>14</span> <span class=nd>@Test</span>
+<span class=ln>15</span> <span class=nd>@Sql</span><span class=o>(</span><span class=n>scripts</span> <span class=o>=</span> <span class=s>&#34;/sql_scripts/init_database.sql&#34;</span><span class=o>)</span>
+<span class=ln>16</span> <span class=kt>void</span> <span class=nf>should_create_interview</span><span class=o>()</span> <span class=kd>throws</span> <span class=n>JsonProcessingException</span> <span class=o>{</span>
+<span class=ln>17</span>   <span class=n>var</span> <span class=n>manager</span> <span class=o>=</span>
+<span class=ln>18</span>       <span class=k>new</span> <span class=n>Person</span><span class=o>(</span><span class=n>UUID</span><span class=o>.</span><span class=na>fromString</span><span class=o>(</span><span class=s>&#34;8a37adbc-0c29-491a-8b6f-f10a4219fb91&#34;</span><span class=o>),</span> <span class=kc>null</span><span class=o>,</span> <span class=kc>null</span><span class=o>,</span> <span class=kc>true</span><span class=o>);</span>
+<span class=ln>19</span>   <span class=n>var</span> <span class=n>employee</span> <span class=o>=</span>
+<span class=ln>20</span>       <span class=k>new</span> <span class=n>Person</span><span class=o>(</span><span class=n>UUID</span><span class=o>.</span><span class=na>fromString</span><span class=o>(</span><span class=s>&#34;3556c835-3bcd-420e-bb6e-a8b7c0bb139d&#34;</span><span class=o>),</span> <span class=kc>null</span><span class=o>,</span> <span class=kc>null</span><span class=o>,</span> <span class=kc>false</span><span class=o>);</span>
+<span class=ln>21</span>   <span class=n>var</span> <span class=n>form</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Form</span><span class=o>(</span><span class=n>UUID</span><span class=o>.</span><span class=na>fromString</span><span class=o>(</span><span class=s>&#34;df9b2aad-d32e-469e-b434-be71a5531a35&#34;</span><span class=o>),</span> <span class=k>new</span> <span class=n>HashSet</span><span class=o>&lt;&gt;());</span>
+<span class=ln>22</span>   <span class=n>var</span> <span class=n>interview</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Interview</span><span class=o>(</span><span class=kc>null</span><span class=o>,</span> <span class=n>Instant</span><span class=o>.</span><span class=na>now</span><span class=o>(),</span> <span class=n>manager</span><span class=o>,</span> <span class=n>employee</span><span class=o>,</span> <span class=n>form</span><span class=o>);</span>
+<span class=ln>23</span>
+<span class=ln>24</span>   <span class=n>RestAssured</span><span class=o>.</span><span class=na>given</span><span class=o>()</span>
+<span class=ln>25</span>           <span class=o>.</span><span class=na>header</span><span class=o>(</span><span class=s>&#34;Content-type&#34;</span><span class=o>,</span> <span class=s>&#34;application/json&#34;</span><span class=o>)</span>
+<span class=ln>26</span>           <span class=o>.</span><span class=na>and</span><span class=o>()</span>
+<span class=ln>27</span>           <span class=o>.</span><span class=na>port</span><span class=o>(</span><span class=n>port</span><span class=o>)</span>
+<span class=ln>28</span>       <span class=o>.</span><span class=na>body</span><span class=o>(</span><span class=n>mapperBuilder</span><span class=o>.</span><span class=na>build</span><span class=o>().</span><span class=na>writeValueAsString</span><span class=o>(</span><span class=n>interview</span><span class=o>))</span>
+<span class=ln>29</span>       <span class=o>.</span><span class=na>when</span><span class=o>()</span>
+<span class=ln>30</span>           <span class=o>.</span><span class=na>post</span><span class=o>(</span><span class=s>&#34;/interviews&#34;</span><span class=o>)</span>
+<span class=ln>31</span>       <span class=o>.</span><span class=na>then</span><span class=o>()</span>
+<span class=ln>32</span>           <span class=o>.</span><span class=na>statusCode</span><span class=o>(</span><span class=n>HttpStatus</span><span class=o>.</span><span class=na>SC_CREATED</span><span class=o>);</span>
+<span class=ln>33</span> <span class=o>}</span>
+<span class=ln>34</span><span class=o>}</span>
+<span class=ln>35</span>
+</code></pre></div><h3 id=code-details-2>Code details<a class="anchor ms-1" href=#code-details-2><i class="fas fa-link"></i></a></h3>
+<p>The points to note in this test are:</p>
+<ul>
+<li>The use of the SpringBootTest annotation to load the entire spring context.</li>
+<li>The use of RestAssured to test endpoints.</li>
+</ul>
+<h2 id=summary>Summary<a class="anchor ms-1" href=#summary><i class="fas fa-link"></i></a></h2>
+<ul>
+<li>There are three types of test bases: unit tests which test a method and only the content of the method, integration tests which validate the correct integration between two layers (endpoint calls, repository/database connections) and finally system tests which validate the correct operation of a functionality.</li>
+<li>For an existing API without tests, it is possible to start by setting up system tests on the most critical endpoints and then gradually adding integration and unit tests.</li>
+<li>For a new API it is best to start with unit testing and progress to system testing</li>
+</ul>
+<p>If you have any comments on the content, the form you can leave a comment&mldr;it is by exchanging that we progress.</p>
+<p>Author : Emmanuel Quinton
+Reviewer : Daniele Cremonini</p></div><hr><div class=post-copyright id=post-copyright>
+<a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en>
+<span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+CC BY-NC-ND 4.0
+</a>
+</div>
+<hr><div class="post-navs d-flex mb-3 justify-content-evenly">
+<div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/en/posts/how-to-evolve-application-presentation/>How to Evolve an Application to Make It More Robust and Maintainable - Presentation
+</a>
+</div><div class="post-nav post-next">
+<a href=/en/posts/what-is-code-formatting-and-why-does-it-matter/>What Is Code Formatting and Why Does It Matter
+</a>
+<i class="fas fa-fw fa-chevron-right"></i>
+</div></div></div>
+</article><section class="related-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Related Posts</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/en/posts/how-to-evolve-application-presentation/>How to Evolve an Application to Make It More Robust and Maintainable - Presentation
+</a>
+<span class="float-end post-date">18-02-2022
+</span>
+</li><li>
+<a href=/en/about/>About
+</a>
+<span class="float-end post-date">28-02-2019
+</span>
+</li><li>
+<a href=/en/contact/>
+</a>
+<span class="float-end post-date">01-01-0001
+</span>
+</li><li>
+<a href=/en/faq/>
+</a>
+<span class="float-end post-date">01-01-0001
+</span>
+</li><li>
+<a href=/en/offline/>Offline
+</a>
+<span class="float-end post-date">01-01-0001
+</span>
+</li></ul>
+</div>
+</section><div class="card component row post-comments" id=post-comments>
+<div class=card-header>
+<h2 class=card-title>Comments</h2>
+</div>
+<div class=card-body></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+<div class=container>
+<section class="card row text-center profile component">
+<div class=card-body>
+<div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Talk To The Duck" src=/images/duck_120x120_square.png loading=lazy width=120 height=120>
+</div>
+<div class="col-12 profile-meta"><div class=profile-name>Talk To The Duck</div><div class=profile-bio>Explain to the Duck, you will understand.</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Paris, France</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/en/about/>About</a></div><div class=profile-contact><i class="fas fa-fw fa-question-circle"></i><a href=/en/contact/></a></div></div>
+</div>
+</section>
+<section class="recent-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Recent Posts</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/en/posts/what-is-code-formatting-and-why-does-it-matter/>What Is Code Formatting and Why Does It Matter
+</a>
+</li><li>
+<a href=/en/posts/how-to-evolve-application-tests/>How to Evolve an Application to Make It More Robust and Maintainable - Setting Up the Test
+</a>
+</li><li>
+<a href=/en/posts/how-to-evolve-application-presentation/>How to Evolve an Application to Make It More Robust and Maintainable - Presentation
+</a>
+</li></ul>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/en/categories>Categories</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/en/categories/quality/ class="badge rounded post-taxonomy" title=quality>
+quality
+</a><a href=/en/categories/test/ class="badge rounded post-taxonomy" title=test>
+test
+</a></div>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/en/series>Series</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/en/series/how-to-evolve-an-application-to-make-it-more-robust-and-maintainable/ class="badge rounded post-taxonomy" title="How to evolve an application to make it more robust and maintainable">
+How to evolve an application to make it more robust and maintainable
+</a><a href=/en/series/tools-for-java/ class="badge rounded post-taxonomy" title="Tools for Java">
+Tools for Java
+</a></div>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+<a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/><img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png></a><br>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+Copyright © 2021-2023 Talk To The Duck. All Rights Reserved.
+</div>
+</footer>
+<script src=/js/main.min.d1ef5819d5055b58eaa52e77fc1c87e27b1a006bc5169ce78255477ef0bb2281.js integrity="sha256-0e9YGdUFW1jqpS53/ByH4nsaAGvFFpznglVHfvC7IoE=" crossorigin=anonymous defer></script><script src=/js/icons.min.a35670f2f90c398e5ee5c8e509b428fae75aa2746854cee10b60794633076859.js integrity="sha256-o1Zw8vkMOY5e5cjlCbQo+udaonRoVM7hC2B5RjMHaFk=" crossorigin=anonymous defer></script>
+<script>'serviceWorker'in navigator&&window.addEventListener('load',()=>{navigator.serviceWorker.register('/service-worker.js').then(function(a){console.log('Successfully registered service worker',a)}).catch(function(a){console.warn('Error whilst registering service worker',a)})})</script><script src=/js/viewer.min.4dba52a0a790f909408b7385316651299158381686401d50ff1f04dda6476473.js integrity="sha256-TbpSoKeQ+QlAi3OFMWZRKZFYOBaGQB1Q/x8E3aZHZHM=" crossorigin=anonymous defer></script>
+</body>
+</html>
