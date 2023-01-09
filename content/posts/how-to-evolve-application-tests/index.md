@@ -37,7 +37,7 @@ A unit test is a test that only checks the method of a class or a class. Externa
 An integration test is a test that aims to verify the correct integration of certain parts of a process and not the process as a whole. We will concentrate our integration tests on endpoints and repositories.
 A system test is a black-box test that verifies that the entire use case works.
 
-![test_pyramid.png](images/posts/how-to-evolve-application/test-pyramid.png "image_tooltip")
+![test_pyramid.png](test-pyramid.png "image_tooltip")
 
 
 In a case such as that of our application, where no tests exist, it is preferable to start with a system test to quickly verify the correct operation and non-regression of a functionality, and then to increase the unit tests and integration tests.
@@ -54,7 +54,7 @@ This file is called by the build.gradle file
 
 **Location of the unit-test.gradle file**
 
-![unit-test-gradle-file-location](images/posts/how-to-evolve-application/unit-test-gradle-file-location.png "image_tooltip")
+![unit-test-gradle-file-location](unit-test-gradle-file-location.png "image_tooltip")
 
 
 **Contents of the unit-test.gradle file**
@@ -162,13 +162,14 @@ BDDMockito.when(formRepository.getById(formId)).thenReturn(savedForm);
 
 To set up the integration tests we will create a directory at the same level as the test and main directories.
 
-![integration-test-folder.png](images/posts/how-to-evolve-application/integration-test-folder.png "image_tooltip")
+![integration-test-folder.png](integration-test-folder.png "image_tooltip")
 
 The separation of unit tests and integration tests has the advantage of allowing us to distinguish which type of tests we want to run and when; this will be useful when setting up the CI/CD.
 The configuration will be done in the same way as for unit tests via a separate gradle file.
 
 **Location of the integration-test.gradle file**
-![unit-test-gradle-file-location.png](images/posts/how-to-evolve-application/unit-test-gradle-file-location.png "image_tooltip")
+
+![unit-test-gradle-file-location.png](unit-test-gradle-file-location.png "image_tooltip")
 
 
 **Content of the integration-test.gradle file**
@@ -332,12 +333,12 @@ For methods like find, findAll, findId we can use the @Sql annotation to populat
 ### Setting up the test
 As with the integration tests, the system tests are in a separate directory; the configuration is in the file system-test.gradle.
 
-![system-test-folder.png](images/posts/how-to-evolve-application/system-test-folder.png "image_tooltip")
+![system-test-folder.png](system-test-folder.png "image_tooltip")
 
 
 **Location of the system-test.gradle file**
 
-![system-test-gradle-file-location.png](images/posts/how-to-evolve-application/system-test-gradle-file-location.png "image_tooltip")
+![system-test-gradle-file-location.png](system-test-gradle-file-location.png "image_tooltip")
 
 
 **Contents of the system-test.gradle file**
@@ -436,5 +437,5 @@ The points to note in this test are:
 
 If you have any comments on the content, the form you can leave a comment...it is by exchanging that we progress.
 
-Written by : Emmanuel Quinton
-Review by : Daniele Cremonini
+Author : Emmanuel Quinton
+Reviewer : Daniele Cremonini
