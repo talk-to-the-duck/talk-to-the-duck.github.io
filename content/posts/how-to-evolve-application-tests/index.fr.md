@@ -1,7 +1,11 @@
 +++
 title = "Comment faire évoluer une application pour la rendre plus robuste et maintenable - Mise en place de tests"
 description = ""
-date = 2022-02-21T08:10:45+01:00
+type = "posts"
+date = 2023-01-15
+url = "posts/comment-faire-evoluer-application-tests"
+aliases = ['/comment-faire-evoluer-application-tests/']
+
 featured = false
 draft = false
 comment = true
