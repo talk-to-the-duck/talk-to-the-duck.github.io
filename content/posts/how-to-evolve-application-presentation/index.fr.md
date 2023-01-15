@@ -1,7 +1,9 @@
 +++
 title = "Comment faire évoluer une API pour la rendre plus robuste et maintenable - Presentation"
 description = ""
-date = 2022-02-15T08:53:16+01:00
+type = "posts"
+date = 2023-01-15
+url = "posts/comment-faire-evoluer-application-presentation"
 featured = false
 draft = false
 comment = true
