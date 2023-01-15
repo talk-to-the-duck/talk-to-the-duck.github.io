@@ -1,9 +1,9 @@
 +++
 title = "Comment faire évoluer une API pour la rendre plus robuste et maintenable - Presentation"
+slug  = "comment-faire-evoluer-application-presentation"
 description = ""
 type = "posts"
 date = 2023-01-15
-url = "posts/comment-faire-evoluer-application-presentation"
 featured = false
 draft = false
 comment = true
