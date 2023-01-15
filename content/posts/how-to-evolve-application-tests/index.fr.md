@@ -1,10 +1,9 @@
 +++
 title = "Comment faire évoluer une application pour la rendre plus robuste et maintenable - Mise en place de tests"
+slug = "comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-Mise-en-place-de-tests"
 description = ""
 type = "posts"
 date = 2023-01-15
-url = "posts/comment-faire-evoluer-application-tests"
-aliases = ['/comment-faire-evoluer-application-tests/']
 
 featured = false
 draft = false
