@@ -9,15 +9,15 @@
 <link rel=manifest href=/fr/manifest.json>
 <meta name=keywords content>
 <meta name=description content><meta itemprop=name content="Comment faire évoluer une application pour la rendre plus robuste et maintenable - Mise en place de tests">
-<meta itemprop=description content><meta itemprop=datePublished content="2022-02-21T08:10:45+01:00">
-<meta itemprop=dateModified content="2022-02-21T08:10:45+01:00">
+<meta itemprop=description content><meta itemprop=datePublished content="2023-01-15T00:00:00+00:00">
+<meta itemprop=dateModified content="2023-01-15T00:00:00+00:00">
 <meta itemprop=wordCount content="1788">
 <meta itemprop=keywords content=","><meta property="og:title" content="Comment faire évoluer une application pour la rendre plus robuste et maintenable - Mise en place de tests">
 <meta property="og:description" content>
 <meta property="og:type" content="article">
-<meta property="og:url" content="/fr/posts/how-to-evolve-application-tests/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2022-02-21T08:10:45+01:00">
-<meta property="article:modified_time" content="2022-02-21T08:10:45+01:00">
+<meta property="og:url" content="/fr/posts/comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-01-15T00:00:00+00:00">
+<meta property="article:modified_time" content="2023-01-15T00:00:00+00:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Comment faire évoluer une application pour la rendre plus robuste et maintenable - Mise en place de tests">
 <meta name=twitter:description content>
@@ -37,10 +37,10 @@ Talk To The Duck
 </button>
 </div>
 <div class=offcanvas-body>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Comment%20faire%20%c3%a9voluer%20une%20application%20pour%20la%20rendre%20plus%20robuste%20et%20maintenable%20-%20Mise%20en%20place%20de%20tests&url=%2ffr%2fposts%2fhow-to-evolve-application-tests%2f">
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Comment%20faire%20%c3%a9voluer%20une%20application%20pour%20la%20rendre%20plus%20robuste%20et%20maintenable%20-%20Mise%20en%20place%20de%20tests&url=%2ffr%2fposts%2fcomment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests%2f">
 <i class="fab fa-fw fa-twitter"></i> Twitter
 </a>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2ffr%2fposts%2fhow-to-evolve-application-tests%2f">
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2ffr%2fposts%2fcomment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests%2f">
 <i class="fab fa-fw fa-facebook-f"></i> Facebook
 </a>
 </div>
@@ -196,8 +196,8 @@ Français
 </h1>
 </div>
 <div class=card-body><div class=post-meta>
-<span class=post-date title="created on 2022-02-21 07:10:45 +0000 UTC.">
-21-02-2022
+<span class=post-date title="created on 2023-01-15 00:00:00 +0000 UTC.">
+15-01-2023
 </span><span class=post-reading-time>
 9 min de lecture
 </span><span class=post-taxonomies><a href=/fr/categories/qualit%C3%A9/ class="badge rounded-pill post-taxonomy">qualité</a><a href=/fr/categories/test/ class="badge rounded-pill post-taxonomy">test</a><a href=/fr/series/comment-faire-%C3%A9voluer-une-application-pour-la-rendre-plus-robuste-et-maintenable/ class="badge rounded-pill post-taxonomy">Comment faire évoluer une application pour la rendre plus robuste et maintenable</a></span>
@@ -250,7 +250,7 @@ On abordera les tests unitaires, les tests d’intégrations et les tests de sys
 <p>Un test unitaire est un test qui ne vérifie que la méthode d’une classe ou une classe. Les classes externes, souvent appelées “collaborateurs”, qui pourraient être appelées seront mockées. Nous placerons des tests unitaires essentiellement sur les services qui doivent contenir le code métier, c&rsquo;est-à-dire le code avec de la valeur ajoutée.
 Un test d’intégration est un test qui à pour objectif de vérifier la bonne intégration de certaines parties d’un traitement et non celui-ci dans son ensemble. On concentrera nos tests d’intégration sur les endpoints et les repositories.
 Un test système est un test en boite noir qui va vérifier que l’ensemble du cas d&rsquo;utilisation fonctionne.</p>
-<p><img class=img-fluid alt=test_pyramid4.png src=/fr/posts/how-to-evolve-application-tests/test-pyramid.png loading=lazy width=500 height=433>
+<p><img class=img-fluid alt=test_pyramid4.png src=/fr/posts/comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests/test-pyramid.png loading=lazy width=500 height=433>
 </p>
 <p>Dans un cas comme celui de notre application, où aucun test n’existe, il est préférable de partir sur un test système pour vérifier rapidement le bon fonctionnement et la non-régression d’une fonctionnalité puis par la suite d’augmenter les tests unitaires et les tests d’intégration.</p>
 <h2 id=tests-unitaires>Tests unitaires<a class="anchor ms-1" href=#tests-unitaires><i class="fas fa-link"></i></a></h2>
@@ -260,7 +260,7 @@ Junit5, Mockito et AssertJ.</p>
 <p>Les dépendances sont à ajouter dans le build.gradle mais pour des raisons de lisibilité, je préfère créer un fichier unit-test.gradle qui contiendra toutes les configurations nécessaires.
 Ce fichier est appelé par le fichier build.gradle</p>
 <p><strong>Emplacement du fichier unit-test.gradle</strong></p>
-<p><img class=img-fluid alt=unit-test-gradle-file-location src=/fr/posts/how-to-evolve-application-tests/unit-test-gradle-file-location.png loading=lazy width=297 height=166>
+<p><img class=img-fluid alt=unit-test-gradle-file-location src=/fr/posts/comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests/unit-test-gradle-file-location.png loading=lazy width=297 height=166>
 </p>
 <p><strong>Contenu du fichier unit-test.gradle</strong></p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-groovy data-lang=groovy><span class=ln>1</span><span class=n>dependencies</span> <span class=o>{</span>
@@ -345,12 +345,12 @@ Ce fichier est appelé par le fichier build.gradle</p>
 </code></pre></div><h2 id=tests-dintégrations>Tests d’intégrations<a class="anchor ms-1" href=#tests-dintégrations><i class="fas fa-link"></i></a></h2>
 <h3 id=paramétrage-du-test-1>Paramétrage du test<a class="anchor ms-1" href=#paramétrage-du-test-1><i class="fas fa-link"></i></a></h3>
 <p>Pour la mise en place des tests d’intégration, nous allons créer un répertoire au même niveau que les répertoires test et main.</p>
-<p><img class=img-fluid alt=integration-test-folder.png src=/fr/posts/how-to-evolve-application-tests/integration-test-folder.png loading=lazy width=238 height=78>
+<p><img class=img-fluid alt=integration-test-folder.png src=/fr/posts/comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests/integration-test-folder.png loading=lazy width=238 height=78>
 </p>
 <p>La séparation des tests unitaires et des tests d’intégration a l’avantage de nous permettre de distinguer quel type de tests on souhaite exécuter et quand cela aura son utilité lors de la mise en place de la CI/CD
 La configuration se fera comme dans les tests unitaires via un fichier gradle séparé.</p>
 <p><strong>Emplacement du fichier integration-test.gradle</strong></p>
-<p><img class=img-fluid alt=unit-test-gradle-file-location.png src=/fr/posts/how-to-evolve-application-tests/unit-test-gradle-file-location.png loading=lazy width=297 height=166>
+<p><img class=img-fluid alt=unit-test-gradle-file-location.png src=/fr/posts/comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests/unit-test-gradle-file-location.png loading=lazy width=297 height=166>
 </p>
 <p><strong>Contenu du fichier integration-test.gradle</strong></p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-groovy data-lang=groovy><span class=ln> 1</span><span class=n>sourceSets</span> <span class=o>{</span>
@@ -475,10 +475,10 @@ Pour des méthodes de type find, findAll, findId nous pouvons utiliser l&rsquo;a
 </code></pre></div><h2 id=tests-system>Tests system<a class="anchor ms-1" href=#tests-system><i class="fas fa-link"></i></a></h2>
 <h3 id=paramétrage-du-test-2>Paramétrage du test<a class="anchor ms-1" href=#paramétrage-du-test-2><i class="fas fa-link"></i></a></h3>
 <p>Tout comme pour les tests d’intégration les tests system sont dans un répertoire distinct ; La configuration se trouve dans le fichier system-test.gradle</p>
-<p><img class=img-fluid alt=system-test-folder.png src=/fr/posts/how-to-evolve-application-tests/system-test-folder.png loading=lazy width=265 height=103>
+<p><img class=img-fluid alt=system-test-folder.png src=/fr/posts/comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests/system-test-folder.png loading=lazy width=265 height=103>
 </p>
 <p><strong>Emplacement du fichier system-test.gradle</strong></p>
-<p><img class=img-fluid alt=system-test-gradle-file-location.png src=/fr/posts/how-to-evolve-application-tests/system-test-gradle-file-location.png loading=lazy width=335 height=118>
+<p><img class=img-fluid alt=system-test-gradle-file-location.png src=/fr/posts/comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests/system-test-gradle-file-location.png loading=lazy width=335 height=118>
 </p>
 <p><strong>Contenu du fichiersystem-test.gradle</strong></p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-groovy data-lang=groovy><span class=ln> 1</span><span class=n>sourceSets</span> <span class=o>{</span>
@@ -574,12 +574,8 @@ CC BY-NC-ND 4.0
 </div>
 <hr><div class="post-navs d-flex mb-3 justify-content-evenly">
 <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
-<a href=/fr/posts/comment-faire-evoluer-application-presentation/>Comment Faire Évoluer Une API Pour La Rendre Plus Robuste Et Maintenable - Presentation
-</a>
-</div><div class="post-nav post-next">
 <a href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
 </a>
-<i class="fas fa-fw fa-chevron-right"></i>
 </div></div></div>
 </article><section class="related-posts row card component">
 <div class=card-header>
@@ -587,6 +583,11 @@ CC BY-NC-ND 4.0
 </div>
 <div class=card-body>
 <ul class=post-list><li>
+<a href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
+</a>
+<span class="float-end post-date">12-10-2022
+</span>
+</li><li>
 <a href=/fr/posts/comment-faire-evoluer-application-presentation/>Comment Faire Évoluer Une API Pour La Rendre Plus Robuste Et Maintenable - Presentation
 </a>
 <span class="float-end post-date">15-02-2022
@@ -629,10 +630,10 @@ CC BY-NC-ND 4.0
 </div>
 <div class=card-body>
 <ul class=post-list><li>
-<a href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
+<a href=/fr/posts/comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests/>Comment Faire Évoluer Une Application Pour La Rendre Plus Robuste Et Maintenable - Mise en Place De Tests
 </a>
 </li><li>
-<a href=/fr/posts/how-to-evolve-application-tests/>Comment Faire Évoluer Une Application Pour La Rendre Plus Robuste Et Maintenable - Mise en Place De Tests
+<a href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
 </a>
 </li><li>
 <a href=/fr/posts/comment-faire-evoluer-application-presentation/>Comment Faire Évoluer Une API Pour La Rendre Plus Robuste Et Maintenable - Presentation
