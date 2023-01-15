@@ -1,5 +1,6 @@
 +++
 title = "Comment faire évoluer une application pour la rendre plus robuste et maintenable - Mise en place de tests"
+slug = "comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-Mise-en-place-de-tests"
 description = ""
 date = 2022-02-21T08:10:45+01:00
 featured = false
