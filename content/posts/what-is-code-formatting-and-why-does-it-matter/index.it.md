@@ -1,6 +1,6 @@
 +++
 title = "Cos’è la formattazione del codice e perché è importante?"
-slug = "cosa-e-la-formattazione-del-codice-e-perché-e-importante"
+slug = "cosa-e-la-formattazione-del-codice-e-perche-e-importante"
 description = ""
 date = 2022-10-12T21:40:00+02:00
 featured = false
