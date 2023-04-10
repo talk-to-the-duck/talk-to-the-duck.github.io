@@ -25,20 +25,20 @@ images = []
 
 ## Foreword
 
-In the last article we detailed the tests added to our project. 
+In the last article we described the tests added to our project. 
 These tests are useful to check our development locally as we use TDD. But they are also useful to check if there are regressions.
-In this post we will : 
+In this post we will: 
 
-* define what is the CICD
-* How to add the CICD settings in our project
+* define what the CICD is
+* How to add the CICD settings to our project
 
 ## What is the CICD
 
-The CICD defines Continuous Integration Continuous Delivery. 
-The CICDCD  is Continuous Integration Continuous Delivery Continuous Deployment
+The acronym CICD stands for Continuous Integration Continuous Delivery.
+The acronym CICDCD stands for Continuous Integration Continuous Delivery Continuous Deployment
 
-When we talk on CICD ( or CICDCD) we often also referred to as the CICD pipelines.
-CICD pipeline defines a process where certain steps are executed one after the other, all with the aim of verifying the application before delivering it and deploying it.
+When we talk about CICD (or CICDCD) we often also refer to the pipelines.
+A CICD pipeline defines a process where certain steps are executed one after the other, all with the aim of building, and verifying the application before delivering it and deploying it.
 
 
 ## What CICD tools
@@ -49,11 +49,11 @@ There are some tools to execute CICD; we can quote:
 * GitHub Action
 * Jenkins
 
-For open sources projects as our, it's easier to use a CICD tools integrated to a web hosting and software development management service as GitLab or GitHub.
-It's why we'll prefer use GitLab, CircleCi or GitHub Action.
-tools as Jenkins need to deploy another service. 
+For open sources projects as our, it's easier to use a CICD tool integrated into a web hosting and software development management service such as GitLab or GitHub.
+It's why We prefer to use GitLab, CircleCi or GitHub Actions.
+tools as Jenkins need a separate deployment, management and hardware resources.
 
-In this post we will detail these solutions but only two will be implemented: 
+In this post we will detail these solutions but we will implement only two of them: 
 
 * CircleCI
 * GitHub Action
@@ -66,44 +66,44 @@ In this post we will detail these solutions but only two will be implemented:
 
 Through our first pipeline we want to validate :
 
-* compile the code
-* validation of the code formatting
-* the non-regression of the code through the execution of test
+* build the application
+* check if the code is formatted
+* verify the non-regression of the code through the execution of test
 
 
-Also we want the pipeline to be run on every commit on develop branch and ci branch (with prefix ci_).
-We could add other kind of branches : feature(feat_), fixes (fix_), documentation (doc_)
+Also we want the pipeline to be run on every commit to the develop and the ci branches (with prefix ci_).
+We could add other kind of branches: feature(feat_), fixes (fix_), documentation (doc_)
 
 ### Implementation with CircleCI
 
 #### First connection
 
-CircleCI is an CICD platform which has a free proposal; 
-To be able to use CircleCI we need : 
+CircleCI is a CICD platform which has a free proposal; 
+To be able to use CircleCI we need to: 
 * Create an account
 
   ![circleci-create-user.png](circleci-create-user.png)
 
-* set up your code
+* Set up our code
 
   ![img.png](img.png)
 
-* Create settings
+* Configure
 
-There are tree possibilities to links your project with your future CI:
+There are tree possibilities to link your project with your future CI:
 
 ![circleci-create-settings.png](circleci-create-settings.png)
 
 
 
-#### Creation of job
+#### Creation of a job
 
-CircleCI defines "jobs" which are executables tasks; each job can  be divided in steps
-In early version of our CI we want to:
+CircleCI defines "jobs" which are executables tasks; each job can  be divided into steps
+In the first version of our CI we want to:
 * build the jar file
 * run the unit tests
 * run the integration tests
-* run the system testThe s
+* run the system test
 
 
 ````
@@ -240,31 +240,31 @@ requires:
 
 
 
-### Implementation with GitHub Action
+### Implementation with GitHub Actions
 
 #### Terminology
 
-Workflow: In the official documentation a workflow is defined as: "A workflow is a configurable automated process that will execute one or more jobs.
+A Workflow: In the official documentation a workflow is defined as  "a configurable automated process that will execute one or more jobs.
 It is set up via a yaml file
 https://docs.github.com/fr/actions/using-workflows/about-workflows
 
-action: "Actions are individual tasks that you can combine to create jobs and customize your workflow."
+Action: "Actions are individual tasks that you can combine to create jobs and customize your workflow."
 https://docs.github.com/fr/actions/creating-actions/about-custom-actions
 
-####  first connection
+####  First connection
 
-GitHub Action is the integrated continuous integration tool of GitHUb.
-It is accessible from the Action button in a toolbar
+GitHub Actions is the CI tool of GitHUb.
+This CI is accessible from the Action button in a toolbar
 ![github_action_menu.png](github_action_menu.png)
 
-At first access, GithUb Action displays a workflow proposal according to your project.
+During the first access, GithUb Actions displays a workflow proposal according to your project.
 In our case we have selected the java with gradle workflow.
 
 ![github_action_gradle.png](github_action_gradle.png)
 
-Once selected our workflow, we are redirected on the editor proposing us a default file.
-It is possible to modify it and save it on a specific branch; In order to easily test the CICD without having to push on develop, it is possible to
-define the name of the working branch dna sla part push.
+Once we have selected our workflow, we are redirected to the editor proposing us a default file.
+It is possible to modify it and save it on a specific branch; In order to easily test the CICD without having to push on develop.
+It is possible to define the name of the working branch in the part push.
 
 ![github_action_gradle_file.png](github_action_gradle_file.png)
 
@@ -281,15 +281,15 @@ on:
 ````
 
 
-To implement the 3 steps, defined above, we need to create the jobs:
+To implement the 3 steps defined above, we need to create the jobs:
 
-* assemble: to compile the code and créer le jar.
+* assemble: to compile the code and create the jar.
 * spotless: to check the format of new code.
 * unit-tests: to execute the unit tests.
 * integration-tests: to execute the integration tests.
 * system-tests: to execute the system tests.
 
-the code below show an exemple to create a job
+the code below shows an exemple to create a job
 
 
 ````yml
@@ -308,26 +308,26 @@ jobs:
 ````
 
 
-In the above code :
+In the code above:
 
 * we create the assemble job which is based on ubuntu-latest
-* we use two actions to check the code and configure Java
-* we run the gradle assemble job
+* we use two actions to check the code and configure the Java compiler.
+* we run the gradle assemble job.
 
 
 
 
 ## Summary
-The first objective of this article was to test 3 cicd engines (GitLab, CircleCi and GitHub Action), implementing the same CI.
-While trying to implement the cicd on these engines, I quickly encountered some limitations for the first two:
+The first objective of this article was to test three cicd engines (GitLab, CircleCi and GitHub Actions), implementing similar pipelines.
+While trying to implement the cicd on these engines, we quickly encountered some limitations for the first two CICD:
 
-* on GitLab you can't push the result of the cicd to GitHub
-* on CircleCi the total size limit of the artefacts and their retention time were not compatible with our objectives.
+* on GitLab you can't push the result of the CICD to GitHub
+* on CircleCi maximum available space for the artefacts and their retention time were not compatible with our objectives.
   https://app.circleci.com/settings/plan/github/talk-to-the-duck/overview?return-to=https%3A%2F%2Fapp.circleci.com%2Fprojects%2Fproject-dashboard%2Fgithub%2Ftalk-to-the-duck%2F
 In this case, only the GitHub action is completely useful.
 
 
-As a conclusion I think that to set up a free CICD, it is preferable to use a CI integrated with its version manager such as GItHub Action for GitHub or GitLab CICD for GitLab.
+As a conclusion I think that to set up a free CICD, it is preferable to use a CI integrated with its version manager such as GItHub Actions for GitHub or GitLab CICD for GitLab.
 
 
 
