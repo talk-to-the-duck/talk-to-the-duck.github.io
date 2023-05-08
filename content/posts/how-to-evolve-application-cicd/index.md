@@ -50,8 +50,10 @@ There are some tools to execute CICD; we can quote:
 * Jenkins
 
 For open sources projects as our, it's easier to use a CICD tool integrated into a web hosting and software development management service such as GitLab or GitHub.
-It's why We prefer to use GitLab, CircleCi or GitHub Actions.
+It's why we prefer to use GitLab, CircleCi or GitHub Actions
 tools as Jenkins need a separate deployment, management and hardware resources.
+
+We also want to use a free service, it is why we don't use a Gitlab CI; because we can't no longer push the report from Gitlab to Github withe the free plan.
 
 In this post we will detail these solutions but we will implement only two of them: 
 
@@ -71,14 +73,14 @@ Through our first pipeline we want to validate :
 * verify the non-regression of the code through the execution of test
 
 
-Also we want the pipeline to be run on every commit to the develop and the ci branches (with prefix ci_).
+Also we want the pipeline to be run on every commit to the develop branch and the ci branches (with prefix ci_).
 We could add other kind of branches: feature(feat_), fixes (fix_), documentation (doc_)
 
 ### Implementation with CircleCI
 
 #### First connection
 
-CircleCI is a CICD platform which has a free proposal; 
+CircleCI is a CICD platform which has a free plan; 
 To be able to use CircleCI we need to: 
 * Create an account
 
@@ -99,7 +101,7 @@ There are tree possibilities to link your project with your future CI:
 #### Creation of a job
 
 CircleCI defines "jobs" which are executables tasks; each job can  be divided into steps
-In the first version of our CI we want to:
+In the first version of our CI (cf. code below) we want to:
 * build the jar file
 * run the unit tests
 * run the integration tests
@@ -245,11 +247,9 @@ requires:
 #### Terminology
 
 A Workflow: In the official documentation a workflow is defined as  "a configurable automated process that will execute one or more jobs.
-It is set up via a yaml file
-https://docs.github.com/fr/actions/using-workflows/about-workflows
+It is set up via a yaml file. cf. https://docs.github.com/fr/actions/using-workflows/about-workflows
 
-Action: "Actions are individual tasks that you can combine to create jobs and customize your workflow."
-https://docs.github.com/fr/actions/creating-actions/about-custom-actions
+Action: "Actions are individual tasks that you can combine to create jobs and customize your workflow." cf. https://docs.github.com/fr/actions/creating-actions/about-custom-actions
 
 ####  First connection
 
@@ -289,7 +289,7 @@ To implement the 3 steps defined above, we need to create the jobs:
 * integration-tests: to execute the integration tests.
 * system-tests: to execute the system tests.
 
-the code below shows an exemple to create a job
+the code below shows an exemple of how to create a job
 
 
 ````yml
@@ -321,7 +321,7 @@ In the code above:
 The first objective of this article was to test three cicd engines (GitLab, CircleCi and GitHub Actions), implementing similar pipelines.
 While trying to implement the cicd on these engines, we quickly encountered some limitations for the first two CICD:
 
-* on GitLab you can't push the result of the CICD to GitHub
+* pushing the report of the Gitlab CI to GitHub is not possible.
 * on CircleCi maximum available space for the artefacts and their retention time were not compatible with our objectives.
   https://app.circleci.com/settings/plan/github/talk-to-the-duck/overview?return-to=https%3A%2F%2Fapp.circleci.com%2Fprojects%2Fproject-dashboard%2Fgithub%2Ftalk-to-the-duck%2F
 In this case, only the GitHub action is completely useful.
@@ -330,7 +330,5 @@ In this case, only the GitHub action is completely useful.
 As a conclusion I think that to set up a free CICD, it is preferable to use a CI integrated with its version manager such as GItHub Actions for GitHub or GitLab CICD for GitLab.
 
 
-
-If you have any comments on the content, the form you can leave a comment...it is by exchanging that we progress.
-
+If you have any remarks on the content or the form, you can leave a comment…it is by exchanging that we progress.
 
