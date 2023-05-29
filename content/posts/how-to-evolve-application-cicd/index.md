@@ -289,7 +289,7 @@ To implement the 3 steps defined above, we need to create the jobs:
 * integration-tests: to execute the integration tests.
 * system-tests: to execute the system tests.
 
-the code below shows an exemple of how to create a job
+the code below shows an example of how to create a job
 
 
 ````yml
@@ -318,11 +318,11 @@ In the code above:
 
 
 ## Summary
-The first objective of this article was to test three cicd engines (GitLab, CircleCi and GitHub Actions), implementing similar pipelines.
-While trying to implement the cicd on these engines, we quickly encountered some limitations for the first two CICD:
+The first objective of this article was to test three CICD engines (GitLab, CircleCi and GitHub Actions), implementing similar pipelines.
+While trying to implement the CICD on these engines, we quickly encountered some limitations for the first two CICD:
 
 * pushing the report of the Gitlab CI to GitHub is not possible.
-* on CircleCi maximum available space for the artefacts and their retention time were not compatible with our objectives.
+* on CircleCi the maximum available space for the artefacts and their retention time were not compatible with our objectives.
   https://app.circleci.com/settings/plan/github/talk-to-the-duck/overview?return-to=https%3A%2F%2Fapp.circleci.com%2Fprojects%2Fproject-dashboard%2Fgithub%2Ftalk-to-the-duck%2F
 In this case, only the GitHub action is completely useful.
 
