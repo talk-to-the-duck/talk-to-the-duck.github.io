@@ -52,6 +52,13 @@ docker run --rm -it \
     server -D
 ```
 
+```shell
+docker run --rm -it \
+    -v $(pwd):/src \
+    -p 1313:1313 \
+    klakegg/hugo:0.111.3-ext-ubuntu-onbuild \
+    server -D --disableFastRender --ignoreCache --noHTTPCache
+```
 
 How to publish an article in posts:
 
