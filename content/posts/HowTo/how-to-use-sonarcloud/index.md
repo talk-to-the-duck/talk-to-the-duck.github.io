@@ -60,7 +60,7 @@ The quality profile is the association of rules with a severity for a given lang
 ### quality profil
 
 The quality profile, is a for a language, some rules, each associated to a severity. 
-To access to different existing profiles, go to ayour authorization and in 'Quality Profile" tab.
+To access to different existing profiles, go to your authorization and in 'Quality Profile' tab.
 ![sonarcloud-quality-profiles.png](sonarcloud-quality-profiles.png)
 
 To create a new profil, the simplier way, is copying an existing profil.
@@ -75,7 +75,7 @@ A new Quality Gate can be created copying and updating an existing quality gate,
 
 ![sonarcloud-quality-gates.png](sonarcloud-quality-gates.png)
 
-In your CICD if your job, running sonarqube, can't fails then the pipeline will failed if the quality gate is not respected.
+In your CICD if your job, running sonarqube, can't fail then the pipeline will failed if the quality gate is not respected.
 
 
 ## Run first analyze

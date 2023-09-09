@@ -31,17 +31,17 @@ In this article we'll continue to improve the quality of our project using Sonar
 
 
 ## What is Sonarcloud or Sonarqube
-[index.md](..%2FHowTo%2Fhow-to-use-sonarcloud%2Findex.md)
+More information could be found in this [post](../howto/how-to-use-sonarcloud/)
 
 
 ## Integration in java project with Gradle
 
-### Déclare  plugin
+### Declare  plugin
 * Add plugin
 
 ````groovy 
 plugins {
-id("org.sonarqube") version "4.1.0.3113"
+    id("org.sonarqube") version "4.1.0.3113"
 }
 
 ````
@@ -83,56 +83,58 @@ In project with multi-module each module must execute sonar task.
 ## Tools around Sonar
 ### Sonar API
 
-Sonar provides some apis to manage project, quality profile, quality gate and others. 
+Sonar provides some APIs to manage project, quality profile, quality gate and others. 
 
-Details can be find [here](https://next.sonarqube.com/sonarqube/web_api/)
-You can use tools like postman or curl to use these apis, but the first thing that you must do is to create a token.
+You can find more details [here](https://next.sonarqube.com/sonarqube/web_api/).
+Before you can call these APIs, you can use http capable tools such as Postman or curl, you have to to create a token.
 
-To create a token, after you login  go to your profil and in the security tab and create a token.
+To create a token, login then go to your profile, then in the security tab and create a token.
 
-For some apis you must create a token with administrator authorizations like 
+For some APIs such as
 * /api/qualitygates/select
 * /api/projects/search
 
+ you have to create a token with administrator authorizations.
 
 
 ### Sonarlint
 Sonarlint is a tool that can be used to analyze your code. 
 
 #### Configuration 
-* Add plugin sonarlint in IntelliJ
-* Go to Sonarlint settings in Tools/Sonarlint menu
+* Add a SonarLint plugin to IntelliJ
+* Open the SonarLint settings in Tools/SonarLint menu
  ![sonarlint-settings.png](sonarlint-settings.png)
 
-* Add  a SonarCloud or Sonarqube connection.  We select Sonarcloud
+*  For this article we chose sonarcloud
 ![sonarlint-create-connexion.png](sonarlint-create-connexion.png)
 
-* Click on the link to connect to Sonarcloud service
+* Click on _the online service_ link to connect to Sonarcloud service
 
 ![sonarlint-sonarcloud-login.png](sonarlint-sonarcloud-login.png)
 
-* Set token or create one from the link
+* Set the token or, if you don't have one yet, create one from the link
 ![sonarlint-sonarcloud-connexion-token.png](sonarlint-sonarcloud-connexion-token.png)
 
 * Select your organization
 ![sonarlint-sonarcloud-organization-choice.png](sonarlint-sonarcloud-organization-choice.png)
 
-* Select notification configuration
+* Check the _Receive notifications from SonarCloud_ option
 ![sonarlint-sonarcloud-configuration-notification.png](sonarlint-sonarcloud-configuration-notification.png)
 
 * Approve the creation 
 ![sonarlint-sonarcloud-success.png](sonarlint-sonarcloud-success.png)
-* bind the project with the connexion
+
+* Bind the project with the connection
 ![sonarlint-bind-project-with-connexion.png](sonarlint-bind-project-with-connexion.png)
 
-#### use
+####  How to use SonarLint
 In intelliJ there is a sonarlint window
 ![intellij-sonarlint-window.png](intellij-sonarlint-window.png)
 
 In this window: 
 
-* form current file tab you can analyze the file selected and displayed in IntelliJ
-* From report tab you can analyse changed files or all project file
+* form the _Current File_ tab, you can analyze the file selected and displayed in IntelliJ
+* From the _Report_ tab, you can analyse just the changed files or all the files in the project.
 
 
 
