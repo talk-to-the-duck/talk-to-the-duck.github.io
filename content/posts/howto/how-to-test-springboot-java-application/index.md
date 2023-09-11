@@ -117,7 +117,7 @@ En plus de celles présentes au niveau des tests unitaires. On peut ajouter
 - SpringbootTest
 
 
-### Description d'une classe de test unitaire type
+### Description d'un test d'integration type
 #### Les controllers
 Dans les classes de controllers, on testera :
 - le cas passant : l'endpoint est-il bien fonctionnel
