@@ -25,7 +25,7 @@ This is the first article about APIs, HTTP APIs and Open API.
 
 I will start placing a common ground about what a generic API is, and why an API is important. Because an API is a complex artifact, it’s important to show its most important features.
 
-Then, I will focus on HTTP APIs and how to be represented them, and then I will explain why instead of creating your own way of documenting an API, you want to use a standard way of representing HTTP REST APIs which is called Open API.
+Then, I will focus on HTTP APIs and how to be represented them, and then I will explain why instead of creating your own way of documenting an API, you want to use a standard way of representing HTTP APIs which is called Open API.
 
 <!--more-->
 
@@ -35,7 +35,7 @@ This is the first article about APIs and Open API.
 
 I will start placing a common ground about what an API is, and why an API is important. Because an API is a complex artifact, it’s important to show its most important features.
 
-Then, an API has to be represented, and I will explain why instead of creating your own way of documenting it, you want to use a standard way of representing a REST API which is called Open API.
+Then, an API has to be represented, and I will explain why instead of creating your own way of documenting it, you want to use a standard way of representing a http API which is called Open API.
 
 
 
@@ -72,8 +72,13 @@ _An API is a software intermediary that allows two applications to talk to each 
 
 Redhat says:
 _An API is a set of definitions and protocols for building and integrating application software._
-All the definitions agree on communicating between two pieces of software, and for a communication to become reality, computers need a protocol which is a set of well defined rules.
-Two applications that want to communicate have to establish a common language. Adhering to an API is the same thing as signing a contract: the clearer the contract, the better. Today, the most popular APIs are REST and SOAP.
+All the definitions agree on communicating between two pieces of software, and for a communication to become reality, computers need a protocol which is a set of well-defined rules.
+Two applications that want to communicate have to establish a common language. Adhering to an API is the same thing as signing a contract: the clearer the contract, the better.
+
+Today, the most popular APIs are REST and SOAP but you might be interested to the power of GraphQL as well.
+
+If you are into Event-Driven Architectures (EDA) you should have a look at AsyncAPI.
+AsyncAPI is an open source initiative that seeks to improve to make working with EDAs as easy as working with REST APIs.
 
 # Why should we care about API?
 
@@ -102,7 +107,7 @@ In no special order, an API should be:
 
 # How to represent an API?
 Nothing prevents you from creating your own API format, but you don’t want to do that because you want an API to make it possible and easy for two systems to communicate with each other.
-Communicating is hard: systems are heterogeneous, parameters and payloads have to be passed back and forth, security is a big concern. There are a massive number of possible representations of an API. Expressing all of this neatly requires a well-defined formalism, and it’s definitely a challenge. Thus, before embarking on the creation of a language to represent an API, you want to check if a standard exists.
+Communicating is hard: systems are heterogeneous, parameters and payloads have to be passed back and forth, security is a big concern. There is a massive number of possible representations of an API. Expressing neatly all the aspects of an API requires a well-defined formalism, and it’s definitely a challenge. Thus, before embarking on the creation of a language to represent an API, you want to check if a standard exists.
 
 As a matter of fact, for HTTP APIs such a standard exists, its name is Open API Specification.
 
@@ -110,11 +115,21 @@ What is the OpenAPI Specification? From the official site:
 
 “The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to HTTP APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection.”
 
-The OpenAPI Specification is not limited to represent an HTTP API, but also has a well established ecosystem.
-Software tools can be used to translate an OpenAPI definition into browable documentation, to generate code for the client side and the server side in many programming languages. Automatic tests can be generated as well.
+Please note that OpenAPI covers http APIs in general, and it also includes support for REST APIs.
 
-Depending on the functional needs you are facing, and the technical environment you are working on, you have an array of choice of API standards. Some of today's most widely used API protocols other than REST are SOAP, and MQTT. Open API covers REST APIs only.
+The OpenAPI Specification is not limited to represent an HTTP API, but also has a well established ecosystem.
+Software tools can be used to translate an OpenAPI definition into browsable documentation, to generate code for the client side and the server side in many programming languages. Automatic tests can be generated as well.
+
+Depending on the functional needs you are facing, and the technical environment you are working on, you have an array of choices of API standards. Some of today's most widely used API protocols other than REST are SOAP and MQTT. OpenAPI covers http APIs in general, and it also includes support for REST APIs.
+OpenAPI is not the only way to model http APIs, RAML and API Blueprint are some alternatives.
 
 # Conclusion
-In this introductory article, I wrote some basic concepts about communication between software components.
-To make such communication possible, an API has to be created. A good API must have that span from security to consistency. After this conceptual section, I introduced the problem of how to represent an API and suggested that for HTTP APIs, a standard such as OpenAPI is a good choice.
+In this introductory article, I outlined some basic concepts about communication between software components.
+To make such communication possible, an API has to be created. A good API should have some features such as security, interoperability and consistency. After this conceptual section, I introduced the problem of how to represent an API and suggested that for HTTP APIs, a standard such as OpenAPI is a good choice. _RAML_ and _API Blueprint_ exist too but are less known.
+
+In the next article, I will dive into many more details about OpenAPI.
+
+If you have any comments on the content, the form you can leave a comment... it is by exchanging that we progress.
+
+Author: Daniele Cremonini
+Reviewer: Emmanuel Quinton
