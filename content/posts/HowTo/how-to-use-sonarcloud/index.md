@@ -22,7 +22,9 @@ images = []
 
 <!--more-->
 ## Foreword
-Sonarcloud same Sonarcube ; free for public project
+
+SonarCloud is a cloud-based code analysis service designed to detect coding issues  (cf. [SonarCloud presentation](https://docs.sonarcloud.io/))
+SonarCloud is free for public projects.
 
 ## Create an Organization
 
@@ -40,12 +42,13 @@ In SonarCloud an account is called "authorization". To create one follow the ste
 
 <img src="sonarcloud-permission.png" alt="sonarcloud-permission" width="600px"/>
 
-Once the authorization given , you will be redirect to page project of your organization and if you have a public projects these display here
+Once the authorization given , you will be redirected to page project of your organization and if you have a public projects these display here
 
 
 
 ## Sonar's concept
-it defines concepts like :
+
+It defines concepts like :
 * projects
 * quality profil
 * quality gate
@@ -63,24 +66,42 @@ The quality profile, is a for a language, some rules, each associated to a sever
 To access to different existing profiles, go to your authorization and in 'Quality Profile' tab.
 ![sonarcloud-quality-profiles.png](sonarcloud-quality-profiles.png)
 
-To create a new profil, the simplier way, is copying an existing profil.
+To create a new profil, the simpler way, is copying an existing profil.
 
 
 ### quality gate
 A quality gate is a definition of the minimal quality attended by the new code and/or by the existing code.
 The quality gate is said to fail when one of parameters is not respected.
 
-All quality gates are listed in 'Quality Gates" tab. 
+All quality gates are listed in 'Quality Gates' tab. 
 A new Quality Gate can be created copying and updating an existing quality gate, or create from crash via the 'Create' button 
 
 ![sonarcloud-quality-gates.png](sonarcloud-quality-gates.png)
 
-In your CICD if your job, running sonarqube, can't fail then the pipeline will failed if the quality gate is not respected.
+In your CICD if your job, running sonarqube, can't fail then the pipeline will be failed if the quality gate is not respected.
 
 
 ## Run first analyze
 
+Once the project has been created, SonarCloud offers to launch the first analysis via different ways.
+
 ![sonarcloud-analyze-project.png](sonarcloud-analyze-project.png)
+
+
+For the GitHub public project, we can use GitHub actions. If you want to use an external tool like Gradle you can select _With other CI tools_'
+
+You can find the different ways to analyze your project from the _Administration/Analysis method_ menu
+
+
+
+
+
+
+## Summary
+In this post we learnt:
+* the SonarCloud concepts.
+* how to create an organization.
+* execute the first analyze.
 
 
 If you have any remarks on the content or the form, you can leave a comment…it is by exchanging that we progress.
