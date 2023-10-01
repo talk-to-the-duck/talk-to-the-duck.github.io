@@ -129,7 +129,7 @@ To make such communication possible, an API has to be created. A good API should
 
 In the next article, I will dive into many more details about OpenAPI.
 
-If you have any comments on the content, the form you can leave a comment... it is by exchanging that we progress.
+If you have any comments on the content, you can leave a comment using the form... it is by exchanging that we progress.
 
 Author: Daniele Cremonini
 Reviewer: Emmanuel Quinton
