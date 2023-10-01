@@ -83,3 +83,4 @@ In your CICD if your job, running sonarqube, can't fail then the pipeline will f
 ![sonarcloud-analyze-project.png](sonarcloud-analyze-project.png)
 
 
+If you have any remarks on the content or the form, you can leave a comment…it is by exchanging that we progress.

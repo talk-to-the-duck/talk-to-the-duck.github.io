@@ -147,3 +147,6 @@ In this window:
 
 
 If you have any remarks on the content or the form, you can leave a comment…it is by exchanging that we progress.
+
+Author : Emmanuel Quinton
+Reviewer : Daniele Cremonini
