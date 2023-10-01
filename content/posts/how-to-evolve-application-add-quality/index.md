@@ -1,5 +1,5 @@
 +++
-title = "How to evolve an application to make it more robust and maintainable - Add a tool to assess code quality""
+title = "How to evolve an application to make it more robust and maintainable - Add a tool to assess code quality"
 description = ""
 date = 2023-05-29
 featured = false
@@ -15,7 +15,7 @@ tags = [
 ""
 ]
 series = [
-" How to evolve an application to make it more robust and maintainable"
+"How to evolve an application to make it more robust and maintainable"
 ]
 images = []
 +++
