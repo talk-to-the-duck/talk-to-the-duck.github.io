@@ -2,25 +2,31 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title> - Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
+<title>Introduction to APIs - Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
 <link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png>
 <link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png>
 <link rel=icon href=/images/icons/favicon.ico>
 <link rel=manifest href=/en/manifest.json>
 <meta name=keywords content>
-<meta name=description content><meta itemprop=name content>
-<meta itemprop=description content="render = never
-+++ title = &ldquo;Contact Us&rdquo; layout = &ldquo;contact&rdquo; [menu.footer] parent = &ldquo;support&rdquo; weight = 6 pre = &lsquo;&rsquo; +++">
-<meta itemprop=wordCount content="22">
-<meta itemprop=keywords content><meta property="og:title" content>
-<meta property="og:description" content="render = never
-+++ title = &ldquo;Contact Us&rdquo; layout = &ldquo;contact&rdquo; [menu.footer] parent = &ldquo;support&rdquo; weight = 6 pre = &lsquo;&rsquo; +++">
+<meta name=description content><meta itemprop=name content="Introduction to APIs">
+<meta itemprop=description content="This is the first article about APIs, HTTP APIs and Open API.
+I will start placing a common ground about what a generic API is, and why an API is important. Because an API is a complex artifact, it’s important to show its most important features.
+Then, I will focus on HTTP APIs and how to be represented them, and then I will explain why instead of creating your own way of documenting an API, you want to use a standard way of representing HTTP APIs which is called Open API."><meta itemprop=datePublished content="2023-07-06T20:23:00+02:00">
+<meta itemprop=dateModified content="2023-10-01T16:11:43+02:00">
+<meta itemprop=wordCount content="1458">
+<meta itemprop=keywords content=","><meta property="og:title" content="Introduction to APIs">
+<meta property="og:description" content="This is the first article about APIs, HTTP APIs and Open API.
+I will start placing a common ground about what a generic API is, and why an API is important. Because an API is a complex artifact, it’s important to show its most important features.
+Then, I will focus on HTTP APIs and how to be represented them, and then I will explain why instead of creating your own way of documenting an API, you want to use a standard way of representing HTTP APIs which is called Open API.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="/en/contact/"><meta property="article:section" content>
+<meta property="og:url" content="/en/posts/what-is-an-api/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-07-06T20:23:00+02:00">
+<meta property="article:modified_time" content="2023-10-01T16:11:43+02:00">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content>
-<meta name=twitter:description content="render = never
-+++ title = &ldquo;Contact Us&rdquo; layout = &ldquo;contact&rdquo; [menu.footer] parent = &ldquo;support&rdquo; weight = 6 pre = &lsquo;&rsquo; +++">
+<meta name=twitter:title content="Introduction to APIs">
+<meta name=twitter:description content="This is the first article about APIs, HTTP APIs and Open API.
+I will start placing a common ground about what a generic API is, and why an API is important. Because an API is a complex artifact, it’s important to show its most important features.
+Then, I will focus on HTTP APIs and how to be represented them, and then I will explain why instead of creating your own way of documenting an API, you want to use a standard way of representing HTTP APIs which is called Open API.">
 <meta name=robots content="index, follow"><link rel=stylesheet href=/css/main.min.bdac26feededc335ec4311c668376189bbfe162d3dc6063df0d592d8d855725c.css integrity="sha256-vawm/u3twzXsQxHGaDdhibv+Fi09xgY98NWS2NhVclw=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head>
 <body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
 <div class=container>
@@ -37,10 +43,10 @@ Talk To The Duck
 </button>
 </div>
 <div class=offcanvas-body>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=&url=%2fen%2fcontact%2f">
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Introduction%20to%20APIs&url=%2fen%2fposts%2fwhat-is-an-api%2f">
 <i class="fab fa-fw fa-twitter"></i> Twitter
 </a>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fen%2fcontact%2f">
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fen%2fposts%2fwhat-is-an-api%2f">
 <i class="fab fa-fw fa-facebook-f"></i> Facebook
 </a>
 </div>
@@ -164,7 +170,7 @@ English
 <div class=col-lg-8>
 <div class=container><nav class="row card component" aria-label=breadcrumb>
 <div class=card-body>
-<ol class=breadcrumb><li class=breadcrumb-item><a href=/en/>Home</a></li><li class="breadcrumb-item active"></li></ol>
+<ol class=breadcrumb><li class=breadcrumb-item><a href=/en/>Home</a></li><li class=breadcrumb-item><a href=/en/posts/>Posts</a></li><li class="breadcrumb-item active">Introduction to APIs</li></ol>
 </div>
 </nav><article class="row card component mb-4 post"><div class=post-panel-wrapper>
 <div class="d-flex flex-column component rounded post-panel">
@@ -174,12 +180,6 @@ English
 <a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler">
 <i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i>
 </a>
-<div class="post-translations nav-item dropdown dropstart action">
-<a class="nav-link p-0" data-bs-toggle=dropdown href=# role=button aria-haspopup=true aria-expanded=false aria-label="Translations dropdown menu" title=Translations>
-<i class="fas fa-fw fa-language"></i>
-</a>
-<div class=dropdown-menu><a class="dropdown-item post-translation" href=/fr/contact/>Français</a><a class="dropdown-item post-translation" href=/it/contact/>Italiano</a></div>
-</div>
 <a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright>
 <i class="fas fa-fw fa-copyright"></i>
 </a>
@@ -189,26 +189,78 @@ English
 </div>
 </div>
 <div class=card-header>
-<h1 class="card-title post-title">
+<h1 class="card-title post-title">Introduction to APIs
 </h1>
 </div>
 <div class=card-body><div class=post-meta>
-<span class=post-date title="created on 0001-01-01 00:00:00 +0000 UTC.">
-01-01-0001
+<span class=post-date title="created on 2023-10-01 14:11:43 +0000 UTC.">
+01-10-2023
 </span><span class=post-reading-time>
-1 min read
-</span><span class=post-taxonomies></span>
+7 min read
+</span><span class=post-taxonomies><a href=/en/categories/api/ class="badge rounded-pill post-taxonomy">API</a><a href=/en/series/working-with-apis/ class="badge rounded-pill post-taxonomy">Working with APIs</a></span>
 </div>
-<div class="post-content mb-3"><p>render = never</p>
-<p>+++
-title = &ldquo;Contact Us&rdquo;
-layout = &ldquo;contact&rdquo;
-[menu.footer]
-parent = &ldquo;support&rdquo;
-weight = 6
-pre = &lsquo;&rsquo;
-+++</p>
-</div><hr><div class=post-copyright id=post-copyright>
+<div class="post-content mb-3"><p>This is the first article about APIs, HTTP APIs and Open API.</p>
+<p>I will start placing a common ground about what a generic API is, and why an API is important. Because an API is a complex artifact, it’s important to show its most important features.</p>
+<p>Then, I will focus on HTTP APIs and how to be represented them, and then I will explain why instead of creating your own way of documenting an API, you want to use a standard way of representing HTTP APIs which is called Open API.</p>
+<h1 id=introduction>Introduction<a class="anchor ms-1" href=#introduction><i class="fas fa-link"></i></a></h1>
+<p>This is the first article about APIs and Open API.</p>
+<p>I will start placing a common ground about what an API is, and why an API is important. Because an API is a complex artifact, it’s important to show its most important features.</p>
+<p>Then, an API has to be represented, and I will explain why instead of creating your own way of documenting it, you want to use a standard way of representing a http API which is called Open API.</p>
+<h1 id=basic-concepts>Basic concepts<a class="anchor ms-1" href=#basic-concepts><i class="fas fa-link"></i></a></h1>
+<p>To make it possible for communication between two distinct software components a well defined way has to be defined.</p>
+<p>A service is a software program that makes its functionality available via a published technical interface, called service contract.</p>
+<p>A service contract can be broken down into a set of service capabilities. Each service capability is a function offered to other software programs called service consumers.</p>
+<p>Any piece of software that uses a service is called a service consumer. Also, the server side is called producer.</p>
+<p>Components can be deployed in the same processes, or in different processes. If they are in different processes, they can run on the same machine or on separate ones.</p>
+<p>The API we are interested in are those for components running in separate processes, separate machines. Our case of interest is distributed computing.</p>
+<h1 id=what-does-api-mean>What does API mean?<a class="anchor ms-1" href=#what-does-api-mean><i class="fas fa-link"></i></a></h1>
+<p>API is the acronym for Application Programming Interface.</p>
+<p>There isn’t an official definition of API. Still, on the internet, we can find many definitions.
+Some very important software enterprises give the API definition in their own terms.</p>
+<p>Amazon Web Services says:
+<em>APIs are mechanisms that enable two software components to communicate with each other using a set of definitions and protocols.</em></p>
+<p>IBM says:
+<em>An API, or application programming interface, is a set of defined rules that enable different applications to communicate with each other.</em></p>
+<p>Mulesoft says:
+<em>An API is a software intermediary that allows two applications to talk to each other.</em></p>
+<p>Redhat says:
+<em>An API is a set of definitions and protocols for building and integrating application software.</em>
+All the definitions agree on communicating between two pieces of software, and for a communication to become reality, computers need a protocol which is a set of well-defined rules.
+Two applications that want to communicate have to establish a common language. Adhering to an API is the same thing as signing a contract: the clearer the contract, the better.</p>
+<p>Today, the most popular APIs are REST and SOAP but you might be interested to the power of GraphQL as well.</p>
+<p>If you are into Event-Driven Architectures (EDA) you should have a look at AsyncAPI.
+AsyncAPI is an open source initiative that seeks to improve to make working with EDAs as easy as working with REST APIs.</p>
+<h1 id=why-should-we-care-about-api>Why should we care about API?<a class="anchor ms-1" href=#why-should-we-care-about-api><i class="fas fa-link"></i></a></h1>
+<p>APIs allow many systems to dialog. If the system is complex enough that it has to be distributed, then well defined APIs are key to simplifying service interconnections. Applications that dialog with other applications are the norm today.
+Also, the big majority of all the monolithic applications doesn’t work in a standalone fashion. For example a small web application that needs to authenticate users, most of the time does that via a service called Identity Provider, and such component exposes an API.</p>
+<p>Once that API is established both the producer and the consumer can be implemented in any language and independently the one from the other.</p>
+<h1 id=characteristics-of-an-api>Characteristics of an API<a class="anchor ms-1" href=#characteristics-of-an-api><i class="fas fa-link"></i></a></h1>
+<p>In no special order, an API should be:</p>
+<p><strong>Secure</strong> - Security is the foremost characteristic an API has to present. An API allows reading and/or modifying data from the data. You have to be sure that only authorized people or systems can do that. An API has to assure that data in transit cannot be read by third parties. Authentication, authorization, and encryption are key.</p>
+<p><strong>Stateless</strong> - each request has to contain all of the information necessary to be understood by the server. The server doesn’t store any details about the client session, and the client cannot make the assumption that a request depends on a previous request. The behavior is similar to the one of a function compared to the one of an object: a function called with the same set of arguments will always run with the same result. An object instead can execute the same thing every time.Robust - an API can potentially be used by many concurrent users. Performances shouldn’t vary too much with different loads.</p>
+<p><strong>Well documented</strong> - An API can be (and generally is) a complex artifact. Its use should be as easy as possible and developers should be able to understand how to use it simply by reading the documentation. Errors and their meaning should be well documented too.</p>
+<p><strong>Resilient</strong> - Errors can happen. When the backend incurs any error, the problem should be clearly explained to the caller, with well coded error messages so that, if the fault is the caller’s one, it can amend the call and try again.</p>
+<p><strong>Interoperable</strong> - an API should ease communication between two different systems. This entails that communication protocol and encoding should be clearly defined.</p>
+<p><strong>Discoverable</strong> - in an organization many APIs can be present. If an API cannot be found, it doesn’t exist. Because of this, the organization could start creating a new API (to find traces of the existing one along the way) or even give up the project.</p>
+<p><strong>Consistent</strong> - the endpoints of an API follow similar patterns. For example, the logic of reading a list of customers shouldn’t be that different from reading a list of articles.</p>
+<h1 id=how-to-represent-an-api>How to represent an API?<a class="anchor ms-1" href=#how-to-represent-an-api><i class="fas fa-link"></i></a></h1>
+<p>Nothing prevents you from creating your own API format, but you don’t want to do that because you want an API to make it possible and easy for two systems to communicate with each other.
+Communicating is hard: systems are heterogeneous, parameters and payloads have to be passed back and forth, security is a big concern. There is a massive number of possible representations of an API. Expressing neatly all the aspects of an API requires a well-defined formalism, and it’s definitely a challenge. Thus, before embarking on the creation of a language to represent an API, you want to check if a standard exists.</p>
+<p>As a matter of fact, for HTTP APIs such a standard exists, its name is Open API Specification.</p>
+<p>What is the OpenAPI Specification? From the official site:</p>
+<p>“The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to HTTP APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection.”</p>
+<p>Please note that OpenAPI covers http APIs in general, and it also includes support for REST APIs.</p>
+<p>The OpenAPI Specification is not limited to represent an HTTP API, but also has a well established ecosystem.
+Software tools can be used to translate an OpenAPI definition into browsable documentation, to generate code for the client side and the server side in many programming languages. Automatic tests can be generated as well.</p>
+<p>Depending on the functional needs you are facing, and the technical environment you are working on, you have an array of choices of API standards. Some of today&rsquo;s most widely used API protocols other than REST are SOAP and MQTT. OpenAPI covers http APIs in general, and it also includes support for REST APIs.
+OpenAPI is not the only way to model http APIs, RAML and API Blueprint are some alternatives.</p>
+<h1 id=conclusion>Conclusion<a class="anchor ms-1" href=#conclusion><i class="fas fa-link"></i></a></h1>
+<p>In this introductory article, I outlined some basic concepts about communication between software components.
+To make such communication possible, an API has to be created. A good API should have some features such as security, interoperability and consistency. After this conceptual section, I introduced the problem of how to represent an API and suggested that for HTTP APIs, a standard such as OpenAPI is a good choice. <em>RAML</em> and <em>API Blueprint</em> exist too but are less known.</p>
+<p>In the next article, I will dive into many more details about OpenAPI.</p>
+<p>If you have any comments on the content, you can leave a comment using the form&mldr; it is by exchanging that we progress.</p>
+<p>Author: Daniele Cremonini
+Reviewer: Emmanuel Quinton</p></div><hr><div class=post-copyright id=post-copyright>
 <a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en>
 <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
 CC BY-NC-ND 4.0
@@ -216,12 +268,8 @@ CC BY-NC-ND 4.0
 </div>
 <hr><div class="post-navs d-flex mb-3 justify-content-evenly">
 <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
-<a href=/en/faq/>
+<a href=/en/posts/how-to-evolve-application-cicd/>How to Evolve an Application to Make It More Robust and Maintainable - Setting Up the CICD
 </a>
-</div><div class="post-nav post-next">
-<a href=/en/offline/>Offline
-</a>
-<i class="fas fa-fw fa-chevron-right"></i>
 </div></div></div>
 </article><section class="related-posts row card component">
 <div class=card-header>
@@ -229,11 +277,6 @@ CC BY-NC-ND 4.0
 </div>
 <div class=card-body>
 <ul class=post-list><li>
-<a href=/en/posts/what-is-an-api/>Introduction to APIs
-</a>
-<span class="float-end post-date">01-10-2023
-</span>
-</li><li>
 <a href=/en/posts/how-to-evolve-application-cicd/>How to Evolve an Application to Make It More Robust and Maintainable - Setting Up the CICD
 </a>
 <span class="float-end post-date">05-06-2023
@@ -252,6 +295,11 @@ CC BY-NC-ND 4.0
 <a href=/en/posts/how-to-evolve-application-presentation/>How to Evolve an Application to Make It More Robust and Maintainable - Presentation
 </a>
 <span class="float-end post-date">15-01-2023
+</span>
+</li><li>
+<a href=/en/about/>About
+</a>
+<span class="float-end post-date">13-01-2022
 </span>
 </li></ul>
 </div>
