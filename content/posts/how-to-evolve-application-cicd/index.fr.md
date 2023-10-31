@@ -34,7 +34,7 @@ Dans cet article, nous allons
 
 ## Qu'est-ce que le CICD ?
 
-L'acronyme CICD signifie Intégration Continue Deploiement Continue.
+L'acronyme CICD signifie Continuous Integration Continuous  (intégration continue, livraison continue.
 L'acronyme CICDCD signifie Continuous Integration Continuous Delivery Continuous Deployment (intégration continue, livraison continue, déploiement continu).
 
 Lorsque nous parlons de CICD (ou CICDCD), nous faisons souvent référence aux pipelines.
