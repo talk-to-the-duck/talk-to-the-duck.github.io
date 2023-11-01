@@ -75,7 +75,7 @@ Se ti occupi di architetture basate su eventi (EDA = Event Driven Architecture),
 
 # Perché dovremmo interessarci alle API?
 
-Le API consentono a molteplici di dialogare. Se il sistema è abbastanza complesso da dover essere distribuito, le API ben definite sono fondamentali per semplificare le interconnessioni dei servizi. Le applicazioni che dialogano con altre applicazioni sono la norma oggi. Inoltre, la grande maggioranza di tutte le applicazioni monolitiche non funziona in modo autonomo. Ad esempio, una piccola applicazione web che deve autenticare gli utenti, la maggior parte delle volte lo fa tramite un servizio chiamato Identity Provider, e tale componente espone un'API.
+Le API consentono a molteplici di dialogare. Nei sistemi distribuiti, le API ben definite sono fondamentali per semplificare le interconnessioni dei servizi. Le applicazioni che dialogano con altre applicazioni sono la norma oggi. Inoltre, la grande maggioranza di tutte le applicazioni monolitiche non funziona in modo autonomo. Ad esempio, una piccola applicazione web che deve autenticare gli utenti, la maggior parte delle volte lo fa tramite un servizio chiamato Identity Provider, e tale componente espone un'API.
 
 Una volta stabilita questa API, sia il produttore che il consumatore possono essere implementati in qualsiasi linguaggio e in modo indipendente l'uno dall'altro.
 
@@ -85,7 +85,7 @@ In nessun ordine particolare, un'API dovrebbe essere:
 
 **Sicura** - la sicurezza è la caratteristica principale che un'API deve presentare. Un'API consente la lettura e/o la modifica dei dati. È di fondamentale importanza che solo persone o sistemi autorizzati possano farlo. Un'API deve garantire che i dati in transito non possano essere letti da terze parti. L'uso di autenticazione, autorizzazione e crittografia sono fondamentali per proteggere le API da accessi indesiderati.
 
-**Senza stato** - ogni richiesta deve contenere tutte le informazioni necessarie per essere compresa dal server. Il server non deve memorizzare alcun dettaglio sulla sessione del client, e il client non può presumere che una richiesta dipenda da una richiesta precedente. Il comportamento è simile a quello di una funzione rispetto a un oggetto: una funzione chiamata con lo stesso set di argomenti verrà eseguita sempre con lo stesso risultato. Un oggetto, al contrario, può eseguire la stessa cosa ogni volta.
+**Senza stato** - ogni richiesta deve contenere tutte le informazioni necessarie per essere compresa dal server. Si dice che il server è senza stato quando il server non deve memorizza alcun dettaglio sulla sessione del client. Di conseguenza il client non può presumere che una richiesta dipenda da una richiesta precedente. Il comportamento è simile a quello di una funzione rispetto a un oggetto: una funzione chiamata con lo stesso insieme di argomenti verrà eseguita sempre con lo stesso risultato. Un oggetto, al contrario, può eseguire la stessa cosa ogni volta. Attenzione: quando si parla di un sistema senza stato, in effetti il sistema ha uno stato ma questo invece di trovarsi nel processo dell'API è in una base dati.
 
 **Robusta** - un'API può essere potenzialmente utilizzata da molti utenti contemporaneamente. Le prestazioni non dovrebbero variare troppo con diverse carichi di lavoro.
 
@@ -101,15 +101,15 @@ In nessun ordine particolare, un'API dovrebbe essere:
 
 # Come rappresentare un'API?
 
-Niente impedisce di creare il proprio formato di API, ma farlo complicherebbe l'interconnessione dei sistemi. La comunicazione tra sistemi è difficile perché i sistemi sono eterogenei, i dati devono essere passati dal client al server e/o restituiti dal server al client e bisogna sempre soddisfare il requisito della sicurezza. Esiste un gran numero di possibili rappresentazioni di un'API. Esprimere in modo chiaro tutti gli aspetti di un'API richiede un formalismo ben definito ed è sicuramente una sfida. Pertanto, prima di intraprendere la creazione di un linguaggio per rappresentare un'API, è meglio verificare se esiste uno standard.
+Niente impedisce di creare il proprio formato di API, ma farlo complicherebbe l'interconnessione dei sistemi. La comunicazione tra sistemi è più difficile se i sistemi sono eterogenei perché la trasmissione di parametri di ingresso e uscita richiede conversioni di modelli e codifiche/decodifiche di dati. Esiste un gran numero di possibili rappresentazioni di un'API. Esprimere in modo chiaro tutti gli aspetti di un'API richiede un formalismo ben definito e crearlo è sicuramente una sfida. Pertanto, prima di intraprendere la creazione di un linguaggio per rappresentare un'API, è meglio verificare se esiste uno standard.
 
 Per le API HTTP esiste uno standard di fatto, chiamato _Specifica OpenAPI_.
 
 Cos'è la Specifica OpenAPI? Tradotto dal sito ufficiale:
 
-"La Specifica OpenAPI (OAS) definisce un'interfaccia standard, indipendente dal linguaggio, per le API HTTP che consente sia agli esseri umani che ai computer di scoprire e comprendere le capacità del servizio senza accesso al codice sorgente, alla documentazione o all'ispezione del traffico di rete."
+"La Specifica OpenAPI (OAS) definisce un'interfaccia standard, indipendente dal linguaggio, per le API HTTP che consente sia agli esseri umani sia ai computer di scoprire e comprendere le capacità del servizio senza accesso al codice sorgente, alla documentazione o all'ispezione del traffico di rete."
 
-Si noti che OpenAPI copre le API HTTP in generale e include anche il supporto per le API REST.
+Si noti che OpenAPI si riferisce alle API HTTP in generale di cui le API REST sono un sottoinsieme.
 
 La Specifica OpenAPI non si limita a rappresentare un'API HTTP, ma ha anche un ecosistema ben consolidato. Si possono utilizzare numerosi strumenti software per tradurre una definizione OpenAPI in documentazione consultabile, per generare codice per il lato client e il lato server in molti linguaggi di programmazione. Si possono generare anche test automatici.
 
@@ -123,5 +123,5 @@ Nel prossimo articolo, approfondirò OpenAPI.
 
 Se hai commenti sul contenuto o sulla forma, puoi lasciare un commento... è scambiando informazioni che facciamo progressi.
 
-Author: Daniele Cremonini
-Reviewer: Emmanuel Quinton
+Autore: Daniele Cremonini
+Revisore: Emmanuel Quinton
