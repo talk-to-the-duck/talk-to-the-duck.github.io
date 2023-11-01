@@ -1,28 +1,27 @@
 <!doctype html><html lang=it>
 <head>
-<meta name=generator content="Hugo 0.92.2">
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
+<title>Lavorare con le API - Serie - Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
 <link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png>
 <link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png>
 <link rel=icon href=/images/icons/favicon.ico>
 <link rel=manifest href=/it/manifest.json>
 <meta name=keywords content="Sviluppare software professionalmente,qualità del software applicata">
-<meta name=description content="Talk To The Duck - da sviluppatori a sviluppatori"><meta itemprop=name content="Talk To The Duck">
-<meta itemprop=description content="Talk To The Duck - da sviluppatori a sviluppatori"><meta property="og:title" content="Talk To The Duck">
+<meta name=description content="Talk To The Duck - da sviluppatori a sviluppatori"><meta itemprop=name content="Lavorare con le API">
+<meta itemprop=description content="Talk To The Duck - da sviluppatori a sviluppatori"><meta property="og:title" content="Lavorare con le API">
 <meta property="og:description" content="Talk To The Duck - da sviluppatori a sviluppatori">
 <meta property="og:type" content="website">
-<meta property="og:url" content="/it/">
+<meta property="og:url" content="/it/series/lavorare-con-le-api/">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="Talk To The Duck">
+<meta name=twitter:title content="Lavorare con le API">
 <meta name=twitter:description content="Talk To The Duck - da sviluppatori a sviluppatori">
-<meta name=robots content="index, follow"><link rel=alternate type=application/rss+xml href=/it/index.xml title="Talk To The Duck"><link rel=stylesheet href=/css/main.min.bdac26feededc335ec4311c668376189bbfe162d3dc6063df0d592d8d855725c.css integrity="sha256-vawm/u3twzXsQxHGaDdhibv+Fi09xgY98NWS2NhVclw=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head>
+<meta name=robots content="index, follow"><link rel=alternate type=application/rss+xml href=/it/series/lavorare-con-le-api/index.xml title="Talk To The Duck"><link rel=stylesheet href=/css/main.min.bdac26feededc335ec4311c668376189bbfe162d3dc6063df0d592d8d855725c.css integrity="sha256-vawm/u3twzXsQxHGaDdhibv+Fi09xgY98NWS2NhVclw=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head>
 <body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
 <div class=container>
 <button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
 <i class="fas fa-bars"></i>
-</button><a class="navbar-brand me-3 active" href=/it/><img class=logo alt=Logo src=/images/ttd-logo.webp loading=lazy width=136 height=136>
+</button><a class="navbar-brand me-3" href=/it/><img class=logo alt=Logo src=/images/ttd-logo.webp loading=lazy width=136 height=136>
 Talk To The Duck
 </a>
 <div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare>
@@ -33,10 +32,10 @@ Talk To The Duck
 </button>
 </div>
 <div class=offcanvas-body>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Talk%20To%20The%20Duck&url=%2fit%2f">
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Lavorare%20con%20le%20API&url=%2fit%2fseries%2flavorare-con-le-api%2f">
 <i class="fab fa-fw fa-twitter"></i> Twitter
 </a>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fit%2f">
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fit%2fseries%2flavorare-con-le-api%2f">
 <i class="fab fa-fw fa-facebook-f"></i> Facebook
 </a>
 </div>
@@ -158,7 +157,11 @@ Italiano
 <main role=main class=container>
 <div class="row content">
 <div class=col-lg-8>
-<div class=container><div class="posts mb-4"><article class="row card post component"><div class=card-header>
+<div class=container><nav class="row card component" aria-label=breadcrumb>
+<div class=card-body>
+<ol class=breadcrumb><li class=breadcrumb-item><a href=/it/>Pagina principale</a></li><li class=breadcrumb-item><a href=/it/series/>Serie</a></li><li class="breadcrumb-item active">Lavorare Con Le API</li></ol>
+</div>
+</nav><div class="posts mb-4"><article class="row card post component"><div class=card-header>
 <h2 class="card-title post-title">
 <a href=/it/posts/cosa-e-una-api/>Introduzione Alle API
 </a>
@@ -175,26 +178,6 @@ Italiano
 <div class=post-summary>
 <p>Questo è il primo articolo sulle API in genere e più specificatamente sulle API HTTP e lo standard Open API.</p>
 <p>Inizierò creando una base comune su cosa sia un&rsquo;API generica e perché sia importante. Poiché un&rsquo;API è un artefatto complesso, è importante mostrare le sue caratteristiche più importanti. …</p>
-</div>
-</div>
-</article><article class="row card post component"><div class=card-header>
-<h2 class="card-title post-title">
-<a href=/it/posts/cosa-e-la-formattazione-del-codice-e-perche-e-importante/>Cos’è La Formattazione Del Codice E Perché È Importante?
-</a>
-</h2>
-</div>
-<div class=card-body>
-<div class=post-meta>
-<span class=post-date title="created on 2023-01-16 20:19:04 +0000 UTC.">
-16/01/2023
-</span><span class=post-reading-time>
-7 min di lettura
-</span><span class=post-taxonomies><a href=/it/series/strumenti-per-java/ class="badge rounded-pill post-taxonomy">Strumenti per Java</a></span>
-</div>
-<div class=post-summary>
-<p>Può uno strumento di formattazione automatica aumentare la produttività?</p>
-<p>La risposta è sì.</p>
-<p>Nel libro “The Pragmatic Programmer” si parla di entropia del codice. L’entropia è una grandezza fisica legata al disordine molecolare. Questa è forse l&rsquo;unica grandezza fisica che possiamo ritrovare nel software. Più è …</p>
 </div>
 </div>
 </article></div><div class="row table-responsive mb-3"></div>
