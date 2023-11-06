@@ -101,6 +101,7 @@ For some APIs such as
 ### SonarLint
 SonarLint is a tool that can be used to analyze source code.
 
+
 #### Configuration 
 * Add a SonarLint plugin to IntelliJ
 * Open the SonarLint settings in Tools/SonarLint menu
@@ -120,6 +121,8 @@ SonarLint is a tool that can be used to analyze source code.
 ![sonarlint-sonarcloud-connexion-token.png](sonarlint-sonarcloud-connexion-token.png)
 
 * Select your organization
+
+By default, your organization is your GitHub account
 
 ![sonarlint-sonarcloud-organization-choice.png](sonarlint-sonarcloud-organization-choice.png)
 
