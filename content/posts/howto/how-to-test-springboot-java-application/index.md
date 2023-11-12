@@ -36,20 +36,23 @@ L'objectif de ce post est de définir :
 Dans un précédent article, nous avions vu les différents types de tests qui pouvait être couramment utilisés. 
 À savoir :
 - les tests unitaires
-- les tests d'intégration
-- les tests system ou test d'API
+- les tests d'intégration qui se divise en 2 catégories (cf. [Martin Fowler site](https://martinfowler.com/articles/microservice-testing/#testing-integration-diagram)) : 
+  - les tests  au niveau controller (gatway integration tests)
+  - les tests au niveau des repository (ou des adpater dans l'architecture hexagonale) en relations avec la base de données.
+- les tests system ou test d'API qui testent l'ensemble
+
 
 Plus de détails se trouvent dans cet [article](../../how-to-evolve-application-tests)
 
 
 Pour ce post, on partira du postulat que l'on travaille sur une application/API en java Springboot. 
-L'application est organisée en architecture hexagonale et contient comme composants :
+L'application peut être organisée en layer ou en architecture hexagonale. Dans les deux cas, nous retrouvons comme composants :
 
 - des controllers avec des DTO
-- Un domaine avec des services et des models
-- des repository pour la persistance en base de données et des entités. 
+- Des services et des models (qui appartiennent au domain dans l'architecture hexagonale)
+- des repositories pour la persistance en base de données et des entités.
 
-
+>TODO: Pour le cas des apdatpers dans l'architecutre hexagonale, à quelle niveau doit on les tester ? unitairement ou intégration
 
 ## Quel type de tests pour quel type de composant
 
