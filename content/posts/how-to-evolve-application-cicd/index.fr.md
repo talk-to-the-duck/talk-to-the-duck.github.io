@@ -29,8 +29,8 @@ Dans le dernier article, nous avons décrit les tests ajoutés à notre projet.
 Ces tests sont utiles pour vérifier notre développement localement puisque nous utilisons le TDD. Mais ils sont aussi utiles pour vérifier s'il y a des régressions.
 Dans cet article, nous allons
 
-* définir ce qu'est le CICD
-* Comment ajouter les paramètres CICD à notre projet
+* Définir ce qu'est le CICD.
+* Montrer comment ajouter les paramètres CICD à notre projet.
 
 ## Qu'est-ce que le CICD ?
 
@@ -66,15 +66,15 @@ Dans ce billet, nous allons détailler ces solutions mais nous n'en implémenter
 
 ### Notre pipeline souhaité
 
-A travers notre premier pipeline nous voulons valider :
+A travers notre premier pipeline, nous voulons valider :
 
-* construire l'application
-* vérifier que le code est formaté
+* construire l'application.
+* vérifier que le code est formaté.
 * vérifier la non-régression du code par l'exécution de tests.
 
 
-Nous voulons également que le pipeline soit exécuté à chaque commit sur la branche develop et les branches ci (avec le préfixe ci_).
-Nous pourrions ajouter d'autres types de branches : feature(feat_), fix (fix_), documentation (doc_)
+Nous voulons également que le pipeline soit exécuté à chaque commit sur la branche _develop_ et les branches CI (avec le préfixe ci_).
+Nous pourrions ajouter d'autres types de branches : feature(feat/), fix (fix/), documentation (docs/)
 
 ### Implémentation avec CircleCI
 
@@ -102,10 +102,10 @@ Il y a trois possibilités pour lier votre projet avec votre futur CI :
 
 CircleCI définit des "jobs" qui sont des tâches exécutables ; chaque job peut être divisé en étapes
 Dans la première version de notre CI (cf. code ci-dessous) nous voulons :
-* construire le fichier jar
-* Exécuter les tests unitaires
-* Exécuter les tests d'intégration
-  Exécuter les tests d'intégration * Exécuter les tests système
+* construire le fichier jar.
+* Exécuter les tests unitaires.
+* Exécuter les tests d'intégration.
+* Exécuter les tests système.
 
 
 
@@ -323,7 +323,7 @@ Dans le code ci-dessus :
 Le premier objectif de cet article était de tester trois moteurs CICD (GitLab, CircleCi et GitHub Actions), mettant en oeuvre des pipelines similaires.
 En essayant d'implémenter le CICD sur ces moteurs, nous avons rapidement rencontré quelques limitations pour les deux premiers CICD :
 
-* pousser le rapport de l'IC Gitlab vers GitHub n'est pas possible.
+* Pousser le rapport de la CI Gitlab vers GitHub n'est pas possible.
 * Sur CircleCi, l'espace maximum disponible pour les artefacts et leur temps de rétention n'étaient pas compatibles avec nos objectifs.
   https://app.circleci.com/settings/plan/github/talk-to-the-duck/overview?return-to=https%3A%2F%2Fapp.circleci.com%2Fprojects%2Fproject-dashboard%2Fgithub%2Ftalk-to-the-duck%2F
   Dans ce cas, seule l'action GitHub est complètement utile.
