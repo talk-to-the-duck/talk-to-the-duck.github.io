@@ -21,21 +21,23 @@ series = [
 images = []
 +++
 
-Ceci est le premier article sur les API, les API HTTP et l'Open API.
+Ceci est le premier article sur les API génériques, les API HTTP et l'Open API.
 
-Je vais commencer par établir une base commune sur ce qu'est une API générique et pourquoi une API est importante. Comme une API est un artefact complexe, il est important de montrer ses caractéristiques les plus importantes.
+Je vais commencer par établir une base commune sur ce qu'est une API générique et pourquoi une API est importante.
+Dans un premier temps comme une API est un artefact complexe, je vais montrer ses caractéristiques principales.
 
-Ensuite, je vais me concentrer sur les API HTTP et comment les représenter, puis j'expliquerai pourquoi, au lieu de créer votre propre méthode de documentation pour une API, vous devriez utiliser une méthode standard pour représenter les API HTTP, appelée Open API.
+Par la suite, je vais me concentrer sur les API basées spécifiquement sur HTTP et comment les représenter, puis j'expliquerai pourquoi, au lieu de créer votre propre méthode de documentation pour une API, vous devriez utiliser une méthode standard pour représenter les API HTTP, appelée Open API.
 
 <!--more-->
 
 # Introduction
 
-Ceci est le premier article sur les API, les API HTTP et l'Open API.
+Ceci est le premier article sur les API génériques, les API HTTP et l'Open API.
 
-Je vais commencer par établir une base commune sur ce qu'est une API générique et pourquoi une API est importante. Comme une API est un artefact complexe, il est important de montrer ses caractéristiques les plus importantes.
+Je vais commencer par établir une base commune sur ce qu'est une API générique et pourquoi une API est importante.
+Dans un premier temps comme une API est un artefact complexe, je vais montrer ses caractéristiques principales.
 
-Ensuite, je vais me concentrer sur les API HTTP et comment les représenter, puis j'expliquerai pourquoi, au lieu de créer votre propre méthode de documentation pour une API, vous devriez utiliser une méthode standard pour représenter les API HTTP, appelée Open API.
+Par la suite, je vais me concentrer sur les API basées spécifiquement sur HTTP et comment les représenter, puis j'expliquerai pourquoi, au lieu de créer votre propre méthode de documentation pour une API, vous devriez utiliser une méthode standard pour représenter les API HTTP, appelée Open API.
 
 # Concepts de base
 
@@ -71,7 +73,7 @@ Redhat dit :
 
 Toutes ces définitions s'accordent sur la communication entre deux morceaux de logiciel, et pour que la communication devienne réalité, les ordinateurs ont besoin d'un protocole, qui est un ensemble de règles bien définies. Deux applications qui souhaitent communiquer entre elles doivent établir un langage commun. Adhérer à une API revient à signer un contrat : plus le contrat est clair, mieux c'est.
 
-Aujourd'hui, les API les plus populaires sont REST et SOAP, mais vous pourriez également être intéressé par la puissance de GraphQL. Si vous êtes intéressé par les architectures basées sur les événements (en anglais EDA = Event Driven Architecture), vous devriez jeter un coup d'œil à AsyncAPI. AsyncAPI est une initiative open source visant à faciliter le travail avec les EDA autant que OpenAPI avec les API REST.
+Aujourd'hui, les API les plus populaires sont REST et SOAP, mais vous pourriez également être intéressé par la puissance de GraphQL. Si vous voulez approfondir les architectures basées sur les événements (en anglais EDA = Event Driven Architecture), vous devriez jeter un coup d'œil à AsyncAPI. AsyncAPI est une initiative open source visant à faciliter le travail avec les EDA autant que OpenAPI avec les API REST.
 
 # Pourquoi devrions-nous nous soucier des API ?
 
