@@ -259,7 +259,7 @@ Ce CI est accessible depuis le bouton Action dans une barre d'outils
 ![github_action_menu.png](github_action_menu.png)
 
 Lors du premier accès, GithUb Actions affiche une proposition de workflow en fonction de votre projet.
-Dans notre cas, nous avons sélectionné le workflow java avec gradle.
+Dans notre cas, nous avons sélectionné le workflow Java avec gradle.
 
 ![github_action_gradle.png](github_action_gradle.png)
 
