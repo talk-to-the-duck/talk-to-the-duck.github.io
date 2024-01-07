@@ -34,7 +34,7 @@ Dans cet article, nous allons
 
 ## Qu'est-ce que le CICD ?
 
-L'acronyme CICD signifie Continuous Integration Continuous  (intégration continue, livraison continue.
+L'acronyme CICD signifie Continuous Integration Continuous Delivery (intégration continue, livraison continue).
 L'acronyme CICDCD signifie Continuous Integration Continuous Delivery Continuous Deployment (intégration continue, livraison continue, déploiement continu).
 
 Lorsque nous parlons de CICD (ou CICDCD), nous faisons souvent référence aux pipelines.
@@ -50,8 +50,7 @@ Il existe quelques outils pour exécuter le CICD ; nous pouvons citer :
 * Jenkins
 
 Pour les projets open source comme le nôtre, il est plus facile d'utiliser un outil de CICD intégré dans un service d'hébergement et de gestion de développement logiciel comme GitLab ou GitHub.
-C'est pourquoi nous préférons utiliser GitLab, CircleCi ou GitHub Actions.
-car Jenkins nécessite un déploiement, une gestion et des ressources matérielles distincts.
+C'est pourquoi nous préférons utiliser GitLab, CircleCi ou GitHub Actions, car Jenkins nécessite un déploiement, une gestion et des ressources matérielles distincts.
 
 Nous souhaitons également utiliser un service gratuit, c'est pourquoi nous n'utilisons pas de CI Gitlab ; car nous ne pouvons plus pousser le rapport de Gitlab vers Github avec l'offre gratuite.
 
@@ -100,16 +99,16 @@ Il y a trois possibilités pour lier votre projet avec votre futur CI :
 
 #### Création d'un job
 
-CircleCI définit des "jobs" qui sont des tâches exécutables ; chaque job peut être divisé en étapes
+CircleCI définit des "jobs" qui sont des tâches exécutables ; chaque job peut être divisé en étapes. 
 Dans la première version de notre CI (cf. code ci-dessous) nous voulons :
-* construire le fichier jar.
+* Construire le fichier jar.
 * Exécuter les tests unitaires.
 * Exécuter les tests d'intégration.
 * Exécuter les tests système.
 
+Voici le fichier `.circleci/config.yml` :
 
-
-````
+```
 # Java Gradle CircleCI 2.0 configuration file
 # See: https://circleci.com/docs/2.0/language-java/
 version: 2.1
@@ -118,12 +117,12 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-assemble:
-# Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-# See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-docker:
-# specify the version you desire here
-- image: cimg/openjdk:17.0.5
+  assemble:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    docker:
+      # specify the version you desire here
+      - image: cimg/openjdk:17.0.5
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -163,9 +162,9 @@ docker:
       - store_artifacts:
           path: ~/happraisal/build/libs
 
-unit-tests:
-docker:
-- image: cimg/openjdk:17.0.5
+  unit-tests:
+    docker:
+      - image: cimg/openjdk:17.0.5
 
     working_directory: ~/happraisal
     steps:
@@ -185,9 +184,9 @@ docker:
 
 
 
-integration-tests:
-docker:
-- image: cimg/openjdk:17.0.5
+  integration-tests:
+    docker:
+      - image: cimg/openjdk:17.0.5
 
     working_directory: ~/happraisal
     steps:
@@ -204,9 +203,9 @@ docker:
             key: v1-dependencies-{{ checksum "build.gradle" }}
 
 
-system-tests:
-docker:
-- image: cimg/openjdk:17.0.5
+  system-tests:
+    docker:
+      - image: cimg/openjdk:17.0.5
 
     working_directory: ~/happraisal
     steps:
@@ -223,21 +222,21 @@ docker:
             key: v1-dependencies-{{ checksum "build.gradle" }}
 
 workflows:
-version: 2.1
-microservice:
-jobs:
-- assemble
-- unit-tests:
-requires:
-- assemble
-- integration-tests:
-requires:
-- assemble
-- system-tests:
-requires:
-- assemble
+  version: 2.1
+  microservice:
+    jobs:
+      - assemble
+      - unit-tests:
+          requires:
+            - assemble
+      - integration-tests:
+          requires:
+            - assemble
+      - system-tests:
+          requires:
+            - assemble
 
-````
+```
 
 
 
@@ -247,8 +246,8 @@ requires:
 
 #### Terminologie
 
-Un flux de travail : Dans la documentation officielle, un workflow est défini comme "un processus automatisé configurable qui exécutera un ou plusieurs travaux".
-Il est configuré via un fichier yaml. cf. https://docs.github.com/fr/actions/using-workflows/about-workflows
+Un flux de travail : dans la documentation officielle, un workflow est défini comme "un processus automatisé configurable qui exécutera un ou plusieurs travaux".
+Il est configuré via un fichier yaml cf. https://docs.github.com/fr/actions/using-workflows/about-workflows
 
 Action : "Les actions sont des tâches individuelles que vous pouvez combiner pour créer des tâches et personnaliser votre flux de travail." cf. https://docs.github.com/fr/actions/creating-actions/about-custom-actions
 
@@ -334,4 +333,5 @@ En conclusion, je pense que pour mettre en place un CICD libre, il est préféra
 
 Si vous avez des remarques sur le fond ou la forme, vous pouvez laisser un commentaire...c'est en échangeant que l'on progresse.
 
-Traduit avec www.DeepL.com/Translator (version gratuite)
+Écrit par : Emmanuel Quinton
+Revue par : Daniele Cremonini
