@@ -312,7 +312,7 @@ jobs:
 
 Dans le code ci-dessus :
 
-* nous créons le job assemble qui est basé sur ubuntu-latest
+* Nous créons le job assemble qui est basé sur ubuntu-latest
 * Nous utilisons deux actions pour vérifier le code et configurer le compilateur Java.
 * Nous exécutons la tâche gradle assemble.
 
