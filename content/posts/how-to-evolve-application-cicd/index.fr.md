@@ -324,7 +324,6 @@ En essayant d'implémenter le CICD sur ces moteurs, nous avons rapidement rencon
 
 * Pousser le rapport de la CI Gitlab vers GitHub n'est pas possible.
 * Sur CircleCi, l'espace maximum disponible pour les artefacts et leur temps de rétention n'étaient pas compatibles avec nos objectifs.
-  https://app.circleci.com/settings/plan/github/talk-to-the-duck/overview?return-to=https%3A%2F%2Fapp.circleci.com%2Fprojects%2Fproject-dashboard%2Fgithub%2Ftalk-to-the-duck%2F
   Dans ce cas, seule l'action GitHub est complètement utile.
 
 
