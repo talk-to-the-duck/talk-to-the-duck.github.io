@@ -1,0 +1,297 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Sonarqube - Categories - Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
+<link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png>
+<link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png>
+<link rel=icon href=/images/icons/favicon.ico>
+<link rel=manifest href=/en/manifest.json>
+<meta name=keywords content="Developing software professionally,applied software quality">
+<meta name=description content="Talk To The Duck - from developers for developers"><meta itemprop=name content="Sonarqube">
+<meta itemprop=description content="Talk To The Duck - from developers for developers"><meta property="og:title" content="Sonarqube">
+<meta property="og:description" content="Talk To The Duck - from developers for developers">
+<meta property="og:type" content="website">
+<meta property="og:url" content="/en/categories/sonarqube/">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Sonarqube">
+<meta name=twitter:description content="Talk To The Duck - from developers for developers">
+<meta name=robots content="index, follow"><link rel=alternate type=application/rss+xml href=/en/categories/sonarqube/index.xml title="Talk To The Duck"><link rel=stylesheet href=/css/main.min.bdac26feededc335ec4311c668376189bbfe162d3dc6063df0d592d8d855725c.css integrity="sha256-vawm/u3twzXsQxHGaDdhibv+Fi09xgY98NWS2NhVclw=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head>
+<body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+<div class=container>
+<button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/en/><img class=logo alt=Logo src=/images/ttd-logo.webp loading=lazy width=136 height=136>
+Talk To The Duck
+</a>
+<div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Share</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class=offcanvas-body>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Sonarqube&url=%2fen%2fcategories%2fsonarqube%2f">
+<i class="fab fa-fw fa-twitter"></i> Twitter
+</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fen%2fcategories%2fsonarqube%2f">
+<i class="fab fa-fw fa-facebook-f"></i> Facebook
+</a>
+</div>
+</div>
+<button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i>
+</button>
+<div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Settings</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class="offcanvas-body d-flex flex-column"><section class=setting>
+<form class=row>
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-language"></i> Language</label>
+</div>
+<div class="col-auto ms-auto">
+<div class=dropdown>
+<a class="btn btn-sm btn-outline-primary dropdown-toggle" href=# id=languageDropdown role=button data-bs-toggle=dropdown aria-expanded=false>
+English
+</a>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby=languageDropdown><li><a class=dropdown-item href=/fr/>Français</a></li><li><a class=dropdown-item href=/it/>Italiano</a></li></ul>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+</div>
+<div class="col-auto ms-auto">
+<div class="form-check form-switch">
+<input class=form-check-input type=checkbox id=modeSwitcher>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class="font-size-switcher-form row">
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label>
+</div>
+<div class="col-auto ms-auto">
+<input type=range class=form-range min=-2 max=2 id=fontSize>
+</div>
+</form>
+</section>
+<section class="setting palettes">
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-palette"></i> Palette</label>
+</div>
+<div class="col-auto ms-auto">
+<a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker>
+<i class="fas fa-eye-dropper"></i>
+</a>
+</div>
+</form>
+<div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow>
+</button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+<a role=button class="action action-reload-page">
+<span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+</a>
+<a role=button class="action action-copy-url">
+<span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copy URL
+</a><a class="action action-social-share" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<span class=action-icon><i class="fas fa-2x fa-share-alt"></i></span> Share
+</a></section>
+</div>
+</div>
+<div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent>
+<form class="search-bar my-1" action=/en/search>
+<div class="input-group input-group-sm">
+<span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search>
+</div>
+</form>
+<ul class="navbar-nav ms-auto"><li class=nav-item>
+<a class=nav-link href=/en/series/>
+<i class="fas fa-fw fa-columns"></i>Series
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/en/archives/>
+<i class="fas fa-fw fa-file-archive"></i>Archives
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/en/categories/>
+<i class="fas fa-fw fa-folder"></i>Categories
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/en/tags/>
+<i class="fas fa-fw fa-tags"></i>Tags
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/>
+</a>
+</li></ul>
+</div>
+</div>
+</nav>
+</header>
+<main role=main class=container>
+<div class="row content">
+<div class=col-lg-8>
+<div class=container><nav class="row card component" aria-label=breadcrumb>
+<div class=card-body>
+<ol class=breadcrumb><li class=breadcrumb-item><a href=/en/>Home</a></li><li class=breadcrumb-item><a href=/en/categories/>Categories</a></li><li class="breadcrumb-item active">Sonarqube</li></ol>
+</div>
+</nav><div class="posts mb-4"><article class="row card post component"><div class=card-header>
+<h2 class="card-title post-title">
+<a href=/en/posts/how-to-evolve-application-add-quality/>How to Evolve an Application to Make It More Robust and Maintainable - Add a Tool to Assess Code Quality
+</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=post-meta>
+<span class=post-date title="created on 2024-01-21 10:58:33 +0000 UTC.">
+21-01-2024
+</span><span class=post-reading-time>
+2 min read
+</span><span class=post-taxonomies><a href=/en/categories/quality/ class="badge rounded-pill post-taxonomy">quality</a><a href=/en/categories/test/ class="badge rounded-pill post-taxonomy">test</a><a href=/en/categories/cicd/ class="badge rounded-pill post-taxonomy">CICD</a><a href=/en/categories/sonarqube/ class="badge rounded-pill post-taxonomy">Sonarqube</a><a href=/en/categories/owasp/ class="badge rounded-pill post-taxonomy">Owasp</a><a href=/en/categories/gradle/ class="badge rounded-pill post-taxonomy">Gradle</a><a href=/en/series/how-to-evolve-an-application-to-make-it-more-robust-and-maintainable/ class="badge rounded-pill post-taxonomy">How to evolve an application to make it more robust and maintainable</a></span>
+</div>
+<div class=post-summary>
+</div>
+</div>
+</article><article class="row card post component"><div class=card-header>
+<h2 class="card-title post-title">
+<a href=/en/posts/howto/how-to-use-sonarcloud/>How-To: Use Sonarcloud
+</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=post-meta>
+<span class=post-date title="created on 2024-01-21 10:58:33 +0000 UTC.">
+21-01-2024
+</span><span class=post-reading-time>
+2 min read
+</span><span class=post-taxonomies><a href=/en/categories/how-to/ class="badge rounded-pill post-taxonomy">How-To</a><a href=/en/categories/quality/ class="badge rounded-pill post-taxonomy">quality</a><a href=/en/categories/sonarqube/ class="badge rounded-pill post-taxonomy">Sonarqube</a><a href=/en/series/how-to/ class="badge rounded-pill post-taxonomy">How-To</a><a href=/en/tags/how-to/ class="badge rounded-pill post-taxonomy">How-To</a></span>
+</div>
+<div class=post-summary>
+</div>
+</div>
+</article></div><div class="row table-responsive mb-3"></div>
+</div>
+</div><aside class="col-lg-4 sidebar d-flex">
+<div class=container>
+<section class="card row text-center profile component">
+<div class=card-body>
+<div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Talk To The Duck" src=/images/duck_120x120_square.png loading=lazy width=120 height=120>
+</div>
+<div class="col-12 profile-meta"><div class=profile-name>Talk To The Duck</div><div class=profile-bio>Explain to the Duck, you will understand.</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Paris, France</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/en/about/>About</a></div><div class=profile-contact><i class="fas fa-fw fa-question-circle"></i><a href=/en/contact/></a></div></div>
+</div>
+</section>
+<section class="recent-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Recent Posts</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/en/posts/how-to-evolve-application-add-quality/>How to Evolve an Application to Make It More Robust and Maintainable - Add a Tool to Assess Code Quality
+</a>
+</li><li>
+<a href=/en/posts/howto/how-to-use-sonarcloud/>How-To: Use Sonarcloud
+</a>
+</li><li>
+<a href=/en/posts/what-is-an-api/>Introduction to APIs
+</a>
+</li><li>
+<a href=/en/posts/how-to-evolve-application-cicd/>How to Evolve an Application to Make It More Robust and Maintainable - Setting Up the CICD
+</a>
+</li><li>
+<a href=/en/posts/what-is-code-formatting-and-why-does-it-matter/>What Is Code Formatting and Why Does It Matter
+</a>
+</li></ul>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/en/categories>Categories</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/en/categories/quality/ class="badge rounded post-taxonomy" title=quality>
+quality
+</a><a href=/en/categories/test/ class="badge rounded post-taxonomy" title=test>
+test
+</a><a href=/en/categories/cicd/ class="badge rounded post-taxonomy" title=CICD>
+CICD
+</a><a href=/en/categories/sonarqube/ class="badge rounded post-taxonomy" title=Sonarqube>
+Sonarqube
+</a><a href=/en/categories/api/ class="badge rounded post-taxonomy" title=API>
+API
+</a><a href=/en/categories/gradle/ class="badge rounded post-taxonomy" title=Gradle>
+Gradle
+</a><a href=/en/categories/how-to/ class="badge rounded post-taxonomy" title=How-To>
+How-To
+</a><a href=/en/categories/owasp/ class="badge rounded post-taxonomy" title=Owasp>
+Owasp
+</a></div>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/en/series>Series</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/en/series/how-to-evolve-an-application-to-make-it-more-robust-and-maintainable/ class="badge rounded post-taxonomy" title="How to evolve an application to make it more robust and maintainable">
+How to evolve an application to make it more robust and maintainable
+</a><a href=/en/series/how-to/ class="badge rounded post-taxonomy" title=How-To>
+How-To
+</a><a href=/en/series/tools-for-java/ class="badge rounded post-taxonomy" title="Tools for Java">
+Tools for Java
+</a><a href=/en/series/working-with-apis/ class="badge rounded post-taxonomy" title="Working with APIs">
+Working with APIs
+</a></div>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/en/tags>Tags</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/en/tags/how-to/ class="badge rounded post-taxonomy" title=How-To>
+How-To
+</a></div>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+<a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/><img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png></a><br>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+Copyright © 2021-2024 Talk To The Duck. All Rights Reserved.
+</div>
+</footer>
+<script src=/js/main.min.d1ef5819d5055b58eaa52e77fc1c87e27b1a006bc5169ce78255477ef0bb2281.js integrity="sha256-0e9YGdUFW1jqpS53/ByH4nsaAGvFFpznglVHfvC7IoE=" crossorigin=anonymous defer></script><script src=/js/icons.min.a35670f2f90c398e5ee5c8e509b428fae75aa2746854cee10b60794633076859.js integrity="sha256-o1Zw8vkMOY5e5cjlCbQo+udaonRoVM7hC2B5RjMHaFk=" crossorigin=anonymous defer></script>
+<script>'serviceWorker'in navigator&&window.addEventListener('load',()=>{navigator.serviceWorker.register('/service-worker.js').then(function(a){console.log('Successfully registered service worker',a)}).catch(function(a){console.warn('Error whilst registering service worker',a)})})</script><script src=/js/viewer.min.4dba52a0a790f909408b7385316651299158381686401d50ff1f04dda6476473.js integrity="sha256-TbpSoKeQ+QlAi3OFMWZRKZFYOBaGQB1Q/x8E3aZHZHM=" crossorigin=anonymous defer></script>
+</body>
+</html>
