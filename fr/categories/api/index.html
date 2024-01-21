@@ -2,21 +2,21 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>Recherche - Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
+<title>API - Catégories - Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
 <link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png>
 <link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png>
 <link rel=icon href=/images/icons/favicon.ico>
 <link rel=manifest href=/fr/manifest.json>
 <meta name=keywords content="Développeur logiciel professionellement,qualité du logiciel appliquée">
-<meta name=description content="Talk To The Duck - de développeurs pour développeurs"><meta itemprop=name content="Recherche">
-<meta itemprop=description content="Talk To The Duck - de développeurs pour développeurs"><meta property="og:title" content="Recherche">
+<meta name=description content="Talk To The Duck - de développeurs pour développeurs"><meta itemprop=name content="API">
+<meta itemprop=description content="Talk To The Duck - de développeurs pour développeurs"><meta property="og:title" content="API">
 <meta property="og:description" content="Talk To The Duck - de développeurs pour développeurs">
 <meta property="og:type" content="website">
-<meta property="og:url" content="/fr/search/">
+<meta property="og:url" content="/fr/categories/api/">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="Recherche">
+<meta name=twitter:title content="API">
 <meta name=twitter:description content="Talk To The Duck - de développeurs pour développeurs">
-<meta name=robots content="index, follow"><link rel=alternate type=application/rss+xml href=/fr/search/index.xml title="Talk To The Duck"><meta data-name=search-index content="/fr/index.json"><link rel=stylesheet href=/css/main.min.bdac26feededc335ec4311c668376189bbfe162d3dc6063df0d592d8d855725c.css integrity="sha256-vawm/u3twzXsQxHGaDdhibv+Fi09xgY98NWS2NhVclw=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head>
+<meta name=robots content="index, follow"><link rel=alternate type=application/rss+xml href=/fr/categories/api/index.xml title="Talk To The Duck"><link rel=stylesheet href=/css/main.min.bdac26feededc335ec4311c668376189bbfe162d3dc6063df0d592d8d855725c.css integrity="sha256-vawm/u3twzXsQxHGaDdhibv+Fi09xgY98NWS2NhVclw=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head>
 <body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
 <div class=container>
 <button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
@@ -32,10 +32,10 @@ Talk To The Duck
 </button>
 </div>
 <div class=offcanvas-body>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Recherche&url=%2ffr%2fsearch%2f">
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=API&url=%2ffr%2fcategories%2fapi%2f">
 <i class="fab fa-fw fa-twitter"></i> Twitter
 </a>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2ffr%2fsearch%2f">
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2ffr%2fcategories%2fapi%2f">
 <i class="fab fa-fw fa-facebook-f"></i> Facebook
 </a>
 </div>
@@ -156,47 +156,94 @@ Français
 </header>
 <main role=main class=container>
 <div class="row content">
-<div class="search container">
-<div class=container>
-<div class=row>
-<form id=searchForm class="search-form mb-3 p-0">
-<div class="input-group input-group-lg">
-<span class="btn btn-search disabled position-absolute left-0" type=submit aria-label=submit><i class="fas fa-fw fa-search"></i></span>
-<input class="form-control rounded ps-5" name=q type=search aria-label=Search>
+<div class=col-lg-8>
+<div class=container><nav class="row card component" aria-label=breadcrumb>
+<div class=card-body>
+<ol class=breadcrumb><li class=breadcrumb-item><a href=/fr/>Accueil</a></li><li class=breadcrumb-item><a href=/fr/categories/>Catégories</a></li><li class="breadcrumb-item active">API</li></ol>
 </div>
-</form>
-<div class="search-stat mb-3 p-0">
-<i id=loadingSpinner class="fas fa-fw fa-spin fa-spinner"></i>
-<span id=searchStat></span>
-</div>
-</div>
-</div>
-<div id=searchResults class="search-results container mb-3"></div>
-<div class="text-center mb-3">
-<button class="btn btn-block btn-outline-primary d-none" type=button id=btnLoadMore>Voir plus</button>
-</div>
-</div>
-<script type=text/html id=templateResult><div class="search-result row card component" id={{id}}>
-<div class=card-header>
-<h2 class="card-title search-result-title">
-<a href={{permalink}}>{{title}}</a>
+</nav><div class="posts mb-4"><article class="row card post component"><div class=card-header>
+<h2 class="card-title post-title">
+<a href=/fr/posts/c-est-quoi-une-api/>Introduction Aux APIs
+</a>
 </h2>
 </div>
 <div class=card-body>
-<div class="post-meta mb-3">
-<span class=post-date>{{date}}</span>{{#series}}
-<a href=/fr/series/{{#url}}{{.}}{{/url}}/ class="badge rounded-pill post-taxonomy">{{.}}</a>
-{{/series}}{{#categories}}
-<a href=/fr/categories/{{#url}}{{.}}{{/url}}/ class="badge rounded-pill post-taxonomy">{{.}}</a>
-{{/categories}}{{#tags}}
-<a href=/fr/tags/{{#url}}{{.}}{{/url}}/ class="badge rounded-pill post-taxonomy">{{.}}</a>
-{{/tags}}</div>
-<div class="search-result-content mb-3">{{{#img}}}<img src={{{img}}}>{{{/img}}}{{{content}}}</div>
+<div class=post-meta>
+<span class=post-date title="created on 2024-01-21 10:47:03 +0000 UTC.">
+21-01-2024
+</span><span class=post-reading-time>
+8 min de lecture
+</span><span class=post-taxonomies><a href=/fr/categories/api/ class="badge rounded-pill post-taxonomy">API</a><a href=/fr/series/travailler-avec-les-apis/ class="badge rounded-pill post-taxonomy">Travailler avec les APIs</a></span>
 </div>
-</div></script>
-<script type=text/html id=templateMissingKeywords>Merci de saisir les mots clés</script>
-<script type=text/html id=templateNoResults>Aucun résultat trouvé</script>
-<script type=text/html id=templateStat><span class=text-accent>{{total}}</span> résultats trouvés</script>
+<div class=post-summary>
+<p>Ceci est le premier article sur les API génériques, les API HTTP et l&rsquo;Open API.</p>
+<p>Je vais commencer par établir une base commune sur ce qu&rsquo;est une API générique et pourquoi une API est importante.
+Dans un premier temps comme une API est un artefact complexe, je vais montrer ses caractéristiques principales. …</p>
+</div>
+</div>
+</article></div><div class="row table-responsive mb-3"></div>
+</div>
+</div><aside class="col-lg-4 sidebar d-flex">
+<div class=container>
+<section class="card row text-center profile component">
+<div class=card-body>
+<div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Talk To The Duck" src=/images/duck_120x120_square.png loading=lazy width=120 height=120>
+</div>
+<div class="col-12 profile-meta"><div class=profile-name>Talk To The Duck</div><div class=profile-bio>Explain to the Duck, you will understand.</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Paris, France</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/fr/about/>About</a></div><div class=profile-contact><i class="fas fa-fw fa-question-circle"></i><a href=/fr/contact/></a></div></div>
+</div>
+</section>
+<section class="recent-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Articles Récents</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/fr/posts/c-est-quoi-une-api/>Introduction Aux APIs
+</a>
+</li><li>
+<a href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
+</a>
+</li><li>
+<a href=/fr/posts/comment-faire-evoluer-application-presentation/>Comment Faire Évoluer Une API Pour La Rendre Plus Robuste Et Maintenable - Presentation
+</a>
+</li><li>
+<a href=/fr/posts/comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests/>Comment Faire Évoluer Une Application Pour La Rendre Plus Robuste Et Maintenable - Mise en Place De Tests
+</a>
+</li></ul>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/fr/categories>Catégories</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/fr/categories/qualit%C3%A9/ class="badge rounded post-taxonomy" title=qualité>
+qualité
+</a><a href=/fr/categories/api/ class="badge rounded post-taxonomy" title=API>
+API
+</a><a href=/fr/categories/test/ class="badge rounded post-taxonomy" title=test>
+test
+</a></div>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/fr/series>Séries</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/fr/series/comment-faire-%C3%A9voluer-une-application-pour-la-rendre-plus-robuste-et-maintenable/ class="badge rounded post-taxonomy" title="Comment faire évoluer une application pour la rendre plus robuste et maintenable">
+Comment faire évoluer une application pour la rendre plus robuste et maintenable
+</a><a href=/fr/series/outils-pour-java/ class="badge rounded post-taxonomy" title="Outils pour Java">
+Outils pour Java
+</a><a href=/fr/series/travailler-avec-les-apis/ class="badge rounded post-taxonomy" title="Travailler avec les APIs">
+Travailler avec les APIs
+</a></div>
+</div>
+</section>
+</div>
+</aside>
 </div>
 </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
 <div class="copyright mb-2">
@@ -206,5 +253,5 @@ Copyright © 2021-2024 Talk To The Duck. All Rights Reserved.
 </footer>
 <script src=/js/main.min.d1ef5819d5055b58eaa52e77fc1c87e27b1a006bc5169ce78255477ef0bb2281.js integrity="sha256-0e9YGdUFW1jqpS53/ByH4nsaAGvFFpznglVHfvC7IoE=" crossorigin=anonymous defer></script><script src=/js/icons.min.a35670f2f90c398e5ee5c8e509b428fae75aa2746854cee10b60794633076859.js integrity="sha256-o1Zw8vkMOY5e5cjlCbQo+udaonRoVM7hC2B5RjMHaFk=" crossorigin=anonymous defer></script>
 <script>'serviceWorker'in navigator&&window.addEventListener('load',()=>{navigator.serviceWorker.register('/service-worker.js').then(function(a){console.log('Successfully registered service worker',a)}).catch(function(a){console.warn('Error whilst registering service worker',a)})})</script><script src=/js/viewer.min.4dba52a0a790f909408b7385316651299158381686401d50ff1f04dda6476473.js integrity="sha256-TbpSoKeQ+QlAi3OFMWZRKZFYOBaGQB1Q/x8E3aZHZHM=" crossorigin=anonymous defer></script>
-<script>window.searchResultContentWordCount=parseInt('240'),window.searchPaginate=parseInt('5'),window.fuseOptions=JSON.parse('{\u0022ignoreLocation\u0022:true,\u0022includeMatches\u0022:true,\u0022includeScore\u0022:true,\u0022keys\u0022:[{\u0022name\u0022:\u0022title\u0022,\u0022weight\u0022:0.8},{\u0022name\u0022:\u0022content\u0022,\u0022weight\u0022:0.5},{\u0022name\u0022:\u0022tags\u0022,\u0022weight\u0022:0.3},{\u0022name\u0022:\u0022categories\u0022,\u0022weight\u0022:0.3},{\u0022name\u0022:\u0022series\u0022,\u0022weight\u0022:0.3}],\u0022threshold\u0022:0.1}')</script><script src=/js/search.4c1137cf2a52bd43aa4e73b1dc280a777389dc910d936d5edfc31981753d83bf.js integrity="sha256-TBE3zypSvUOqTnOx3CgKd3OJ3JENk21e38MZgXU9g78=" crossorigin=anonymous></script></body>
+</body>
 </html>

@@ -1,0 +1,385 @@
+<!doctype html><html lang=fr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Introduction aux APIs - Talk To The Duck</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
+<link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png>
+<link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png>
+<link rel=icon href=/images/icons/favicon.ico>
+<link rel=manifest href=/fr/manifest.json>
+<meta name=keywords content>
+<meta name=description content><meta itemprop=name content="Introduction aux APIs">
+<meta itemprop=description content="Ceci est le premier article sur les API génériques, les API HTTP et l&rsquo;Open API.
+Je vais commencer par établir une base commune sur ce qu&rsquo;est une API générique et pourquoi une API est importante.
+Dans un premier temps comme une API est un artefact complexe, je vais montrer ses caractéristiques principales.
+Par la suite, je vais me concentrer sur les API basées spécifiquement sur HTTP et comment les représenter, puis j&rsquo;expliquerai pourquoi, au lieu de créer votre propre méthode de documentation pour une API, vous devriez utiliser une méthode standard pour représenter les API HTTP, appelée Open API."><meta itemprop=datePublished content="2023-07-06T20:23:00+02:00">
+<meta itemprop=dateModified content="2024-01-21T11:47:03+01:00">
+<meta itemprop=wordCount content="1553">
+<meta itemprop=keywords content=","><meta property="og:title" content="Introduction aux APIs">
+<meta property="og:description" content="Ceci est le premier article sur les API génériques, les API HTTP et l&rsquo;Open API.
+Je vais commencer par établir une base commune sur ce qu&rsquo;est une API générique et pourquoi une API est importante.
+Dans un premier temps comme une API est un artefact complexe, je vais montrer ses caractéristiques principales.
+Par la suite, je vais me concentrer sur les API basées spécifiquement sur HTTP et comment les représenter, puis j&rsquo;expliquerai pourquoi, au lieu de créer votre propre méthode de documentation pour une API, vous devriez utiliser une méthode standard pour représenter les API HTTP, appelée Open API.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/fr/posts/c-est-quoi-une-api/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-07-06T20:23:00+02:00">
+<meta property="article:modified_time" content="2024-01-21T11:47:03+01:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Introduction aux APIs">
+<meta name=twitter:description content="Ceci est le premier article sur les API génériques, les API HTTP et l&rsquo;Open API.
+Je vais commencer par établir une base commune sur ce qu&rsquo;est une API générique et pourquoi une API est importante.
+Dans un premier temps comme une API est un artefact complexe, je vais montrer ses caractéristiques principales.
+Par la suite, je vais me concentrer sur les API basées spécifiquement sur HTTP et comment les représenter, puis j&rsquo;expliquerai pourquoi, au lieu de créer votre propre méthode de documentation pour une API, vous devriez utiliser une méthode standard pour représenter les API HTTP, appelée Open API.">
+<meta name=robots content="index, follow"><link rel=stylesheet href=/css/main.min.bdac26feededc335ec4311c668376189bbfe162d3dc6063df0d592d8d855725c.css integrity="sha256-vawm/u3twzXsQxHGaDdhibv+Fi09xgY98NWS2NhVclw=" crossorigin=anonymous><link rel=stylesheet href=/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css integrity="sha256-PSKHlLztu/oEEr64+8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin=anonymous></head>
+<body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+<div class=container>
+<button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+</button><a class="navbar-brand me-3" href=/fr/><img class=logo alt=Logo src=/images/ttd-logo.webp loading=lazy width=136 height=136>
+Talk To The Duck
+</a>
+<div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Share</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class=offcanvas-body>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Introduction%20aux%20APIs&url=%2ffr%2fposts%2fc-est-quoi-une-api%2f">
+<i class="fab fa-fw fa-twitter"></i> Twitter
+</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2ffr%2fposts%2fc-est-quoi-une-api%2f">
+<i class="fab fa-fw fa-facebook-f"></i> Facebook
+</a>
+</div>
+</div>
+<button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i>
+</button>
+<div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings>
+<div class=offcanvas-header>
+<h3 class=offcanvas-title>Réglages</h3>
+<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class="offcanvas-body d-flex flex-column"><section class=setting>
+<form class=row>
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-language"></i> Language</label>
+</div>
+<div class="col-auto ms-auto">
+<div class=dropdown>
+<a class="btn btn-sm btn-outline-primary dropdown-toggle" href=# id=languageDropdown role=button data-bs-toggle=dropdown aria-expanded=false>
+Français
+</a>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby=languageDropdown><li><a class=dropdown-item href=/en/>English</a></li><li><a class=dropdown-item href=/it/>Italiano</a></li></ul>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+</div>
+<div class="col-auto ms-auto">
+<div class="form-check form-switch">
+<input class=form-check-input type=checkbox id=modeSwitcher>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
+<form class="font-size-switcher-form row">
+<div class=col-auto>
+<label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Taille de la Police</label>
+</div>
+<div class="col-auto ms-auto">
+<input type=range class=form-range min=-2 max=2 id=fontSize>
+</div>
+</form>
+</section>
+<section class="setting palettes">
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-palette"></i> Palette</label>
+</div>
+<div class="col-auto ms-auto">
+<a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker>
+<i class="fas fa-eye-dropper"></i>
+</a>
+</div>
+</form>
+<div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Bleu class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gris" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Marron class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Vert class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Rose class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Mauve class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Rouge class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label="Bleu Turquoise" class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Jaune class="btn btn-sm palette" data-palette=yellow>
+</button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+<a role=button class="action action-reload-page">
+<span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+</a>
+<a role=button class="action action-copy-url">
+<span class=action-icon><i class="fas fa-2x fa-link"></i></span> Copier URL
+</a><a class="action action-social-share" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
+<span class=action-icon><i class="fas fa-2x fa-share-alt"></i></span> Share
+</a></section>
+</div>
+</div>
+<div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent>
+<form class="search-bar my-1" action=/fr/search>
+<div class="input-group input-group-sm">
+<span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search>
+</div>
+</form>
+<ul class="navbar-nav ms-auto"><li class=nav-item>
+<a class=nav-link href=/fr/series/>
+<i class="fas fa-fw fa-columns"></i>Séries
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/fr/archives/>
+<i class="fas fa-fw fa-file-archive"></i>Archives
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/fr/categories/>
+<i class="fas fa-fw fa-folder"></i>Catégories
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/fr/tags/>
+<i class="fas fa-fw fa-tags"></i>Tags
+</a>
+</li><li class=nav-item>
+<a class=nav-link href=/>
+</a>
+</li></ul>
+</div>
+</div>
+</nav>
+</header>
+<main role=main class=container>
+<div class="row content">
+<div class=col-lg-8>
+<div class=container><nav class="row card component" aria-label=breadcrumb>
+<div class=card-body>
+<ol class=breadcrumb><li class=breadcrumb-item><a href=/fr/>Accueil</a></li><li class=breadcrumb-item><a href=/fr/posts/>Articles</a></li><li class="breadcrumb-item active">Introduction Aux APIs</li></ol>
+</div>
+</nav><article class="row card component mb-4 post"><div class=post-panel-wrapper>
+<div class="d-flex flex-column component rounded post-panel">
+<a class="action action-panel-toggler" role=button title="Panel toggler">
+<i class="fas fa-fw fa-chevron-circle-down"></i>
+</a>
+<a id=sidebarToggler class="action d-none d-lg-block" role=button title="Sidebar toggler">
+<i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i>
+</a>
+<div class="post-translations nav-item dropdown dropstart action">
+<a class="nav-link p-0" data-bs-toggle=dropdown href=# role=button aria-haspopup=true aria-expanded=false aria-label="Translations dropdown menu" title=Translations>
+<i class="fas fa-fw fa-language"></i>
+</a>
+<div class=dropdown-menu><a class="dropdown-item post-translation" href=/en/posts/what-is-an-api/>English</a><a class="dropdown-item post-translation" href=/it/posts/cosa-e-una-api/>Italiano</a></div>
+</div>
+<a class=action href=#post-copyright role=button aria-label=Copyright title=Copyright>
+<i class="fas fa-fw fa-copyright"></i>
+</a>
+<a class=action href=#post-comments role=button aria-label=Comments title=Comments>
+<i class="fas fa-fw fa-comments"></i>
+</a>
+</div>
+</div>
+<div class=card-header>
+<h1 class="card-title post-title">Introduction Aux APIs
+</h1>
+</div>
+<div class=card-body><div class=post-meta>
+<span class=post-date title="created on 2024-01-21 10:47:03 +0000 UTC.">
+21-01-2024
+</span><span class=post-reading-time>
+8 min de lecture
+</span><span class=post-taxonomies><a href=/fr/categories/api/ class="badge rounded-pill post-taxonomy">API</a><a href=/fr/series/travailler-avec-les-apis/ class="badge rounded-pill post-taxonomy">Travailler avec les APIs</a></span>
+</div>
+<div class="post-content mb-3"><p>Ceci est le premier article sur les API génériques, les API HTTP et l&rsquo;Open API.</p>
+<p>Je vais commencer par établir une base commune sur ce qu&rsquo;est une API générique et pourquoi une API est importante.
+Dans un premier temps comme une API est un artefact complexe, je vais montrer ses caractéristiques principales.</p>
+<p>Par la suite, je vais me concentrer sur les API basées spécifiquement sur HTTP et comment les représenter, puis j&rsquo;expliquerai pourquoi, au lieu de créer votre propre méthode de documentation pour une API, vous devriez utiliser une méthode standard pour représenter les API HTTP, appelée Open API.</p>
+<h1 id=introduction>Introduction<a class="anchor ms-1" href=#introduction><i class="fas fa-link"></i></a></h1>
+<p>Ceci est le premier article sur les API génériques, les API HTTP et l&rsquo;Open API.</p>
+<p>Je vais commencer par établir une base commune sur ce qu&rsquo;est une API générique et pourquoi une API est importante.
+Dans un premier temps comme une API est un artefact complexe, je vais montrer ses caractéristiques principales.</p>
+<p>Par la suite, je vais me concentrer sur les API basées spécifiquement sur HTTP et comment les représenter, puis j&rsquo;expliquerai pourquoi, au lieu de créer votre propre méthode de documentation pour une API, vous devriez utiliser une méthode standard pour représenter les API HTTP, appelée Open API.</p>
+<h1 id=concepts-de-base>Concepts de base<a class="anchor ms-1" href=#concepts-de-base><i class="fas fa-link"></i></a></h1>
+<p>Pour permettre la communication entre deux composants logiciels distincts, il faut définir précisément comme le dialogue doit se passer.</p>
+<p>Un service est une application qui met sa fonctionnalité à disposition via une interface technique publiée, appelée contrat de service.</p>
+<p>Un contrat de service peut être décomposé en un ensemble de capacités de service. Chaque capacité de service est une fonction offerte à d&rsquo;autres applications appelées consommatrices de service.</p>
+<p>Tout logiciel utilisant un service est appelé un consommateur de service. De plus, le côté serveur est appelé producteur.</p>
+<p>Les composants peuvent être déployés dans le même processus ou dans des processus différents. S&rsquo;ils sont dans des processus différents, ils peuvent s&rsquo;exécuter sur la même machine ou sur des machines séparées.</p>
+<p>Les APIs qui nous intéressent sont celles destinées aux composants s&rsquo;exécutant dans des processus séparés, sur des machines séparées. Notre cas d&rsquo;intérêt est le calcul distribué.</p>
+<h1 id=que-signifie-api->Que signifie API ?<a class="anchor ms-1" href=#que-signifie-api-><i class="fas fa-link"></i></a></h1>
+<p>API est l&rsquo;acronyme du nom anglais Application Programming Interface (en français Interface de Programmation d&rsquo;Application).</p>
+<p>Il n&rsquo;existe pas de définition officielle de l&rsquo;API. Cependant, sur Internet, on peut trouver de nombreuses définitions. Certaines grandes entreprises de logiciels fournissent leur propre définition de l&rsquo;API.</p>
+<p>Amazon Web Services dit :
+&ldquo;Les API sont des mécanismes qui permettent à deux composants logiciels de communiquer entre eux à l&rsquo;aide d&rsquo;un ensemble de définitions et de protocoles.&rdquo;</p>
+<p>IBM dit :
+&ldquo;Une API, ou interface de programmation d&rsquo;application, est un ensemble de règles définies qui permettent à différentes applications de communiquer entre elles.&rdquo;</p>
+<p>Mulesoft dit :
+&ldquo;Une API est un intermédiaire logiciel qui permet à deux applications de communiquer entre elles.&rdquo;</p>
+<p>Redhat dit :
+&ldquo;Une API est un ensemble de définitions et de protocoles pour la construction et l&rsquo;intégration de logiciels d&rsquo;application.&rdquo;</p>
+<p>Toutes ces définitions s&rsquo;accordent sur la communication entre deux morceaux de logiciel, et pour que la communication devienne réalité, les ordinateurs ont besoin d&rsquo;un protocole, qui est un ensemble de règles bien définies. Deux applications qui souhaitent communiquer entre elles doivent établir un langage commun. Adhérer à une API revient à signer un contrat : plus le contrat est clair, mieux c&rsquo;est.</p>
+<p>Aujourd&rsquo;hui, les API les plus populaires sont REST et SOAP, mais vous pourriez également être intéressé par la puissance de GraphQL. Si vous voulez approfondir les architectures basées sur les événements (en anglais EDA = Event Driven Architecture), vous devriez jeter un coup d&rsquo;œil à AsyncAPI. AsyncAPI est une initiative open source visant à faciliter le travail avec les EDA autant que OpenAPI avec les API REST.</p>
+<h1 id=pourquoi-devrions-nous-nous-soucier-des-api->Pourquoi devrions-nous nous soucier des API ?<a class="anchor ms-1" href=#pourquoi-devrions-nous-nous-soucier-des-api-><i class="fas fa-link"></i></a></h1>
+<p>Les API permettent à de nombreux systèmes de dialoguer. Dans les systèmes distribués, des API bien définies sont essentielles pour simplifier les interconnexions de services. Les applications qui communiquent avec d&rsquo;autres applications sont aujourd&rsquo;hui la norme. De plus, la grande majorité de toutes les applications monolithiques ne fonctionne pas de manière autonome. Par exemple, une petite application web qui doit authentifier les utilisateurs le fait le plus souvent via un service appelée Identity Provider, et ce composant aussi expose une API.</p>
+<p>Une fois que cette API est établie, le producteur et le consommateur peuvent être mis en œuvre dans n&rsquo;importe quel langage et indépendamment l&rsquo;un de l&rsquo;autre.</p>
+<h1 id=caractéristiques-dune-api>Caractéristiques d&rsquo;une API<a class="anchor ms-1" href=#caractéristiques-dune-api><i class="fas fa-link"></i></a></h1>
+<p>Dans aucun ordre particulier, une API doit être :</p>
+<p><strong>Sécurisée</strong> - La sécurité est la caractéristique la plus importante qu&rsquo;une API doit présenter. Une API permet de lire et/ou de modifier des données. Vous devez vous assurer que seules les personnes ou les systèmes autorisés peuvent le faire. Une API doit garantir que les données en transit ne peuvent pas être lues par des tiers. L&rsquo;authentification, l&rsquo;autorisation et le chiffrement sont essentiels.</p>
+<p><strong>Sans état</strong> - chaque demande doit contenir toutes les informations nécessaires pour être comprises par le serveur. On dit qu&rsquo;un service est sans état si le serveur ne stocke pas de détails sur la session du client. En raison de cela le client ne peut pas supposer qu&rsquo;une demande dépend d&rsquo;une demande précédente. Le comportement est similaire à celui d&rsquo;une fonction par rapport à celui d&rsquo;un objet : une fonction appelée avec le même ensemble d&rsquo;arguments donnera toujours le même résultat. Un objet, en revanche, peut exécuter la même opération à chaque fois. Attention : quant on parle d&rsquo;un système sans état, en fait le système a bien un état mais ceci au lieu de se trouver dans le processus de l&rsquo;API est dans une base de données.</p>
+<p><strong>Bien documentée</strong> - Une API peut être (et l&rsquo;est généralement) un artefact complexe. Son utilisation doit être aussi simple que possible et les développeurs doivent pouvoir comprendre comment l&rsquo;utiliser simplement en lisant la documentation. Les erreurs et leur signification doivent également être bien documentées.</p>
+<p><strong>Résiliente</strong> - Les erreurs peuvent survenir. Lorsque le backend rencontre une erreur, le problème doit être clairement expliqué à l&rsquo;appelant, avec des messages d&rsquo;erreur bien codés, de sorte que, si la faute incombe à l&rsquo;appelant, il puisse corriger l&rsquo;appel et réessayer.</p>
+<p><strong>Interopérable</strong> - une API doit faciliter la communication entre deux systèmes différents. Cela suppose que le protocole de communication et le codage doivent être clairement définis.</p>
+<p><strong>Découvrable</strong> - dans une organisation, de nombreuses API peuvent être présentes. Si une API ne peut pas être trouvée, elle n&rsquo;existe pas. Pour cette raison, l&rsquo;organisation pourrait commencer à créer une nouvelle API (pour trouver des traces de l&rsquo;existence de l&rsquo;API existante en cours de route) ou même abandonner le projet.</p>
+<p><strong>Cohérente</strong> - les points de terminaison d&rsquo;une API devraient suivre des modèles similaires. Par exemple, la logique de lecture d&rsquo;une liste de clients ne devrait pas être très différente de la lecture d&rsquo;une liste d&rsquo;articles.</p>
+<h1 id=comment-représenter-une-api->Comment représenter une API ?<a class="anchor ms-1" href=#comment-représenter-une-api-><i class="fas fa-link"></i></a></h1>
+<p>Rien ne vous empêche de créer votre propre format d&rsquo;API, mais en le faisant vous compliqueriez la communication entre deux systèmes. La communication entre deux systèmes est plus difficile si les systèmes sont hétérogènes, car la transmission de paramètres entrants et sortants exigent conversions de modèle et encodage/décodage de données. Il existe un grand nombre de représentations possibles d&rsquo;une API. Pour exprimer clairement tous les aspects d&rsquo;une API, il faut un formalisme bien défini, et le créer c&rsquo;est certainement un défi. Ainsi, avant de vous lancer dans la création d&rsquo;un langage pour représenter une API, il vaut mieux vérifier si une norme existe.</p>
+<p>En fait, pour les API HTTP, une norme existe, elle s&rsquo;appelle <em>spécification OpenAPI</em>.</p>
+<p>Qu&rsquo;est-ce que la spécification OpenAPI ? Selon le site officiel :</p>
+<p>&ldquo;La spécification OpenAPI (OAS) définit une interface standard, indépendante du langage, pour les API HTTP, qui permet aux humains et aux ordinateurs de découvrir et de comprendre les capacités du service sans avoir accès au code source, à la documentation, ou à l&rsquo;inspection du trafic réseau.&rdquo;</p>
+<p>Veuillez noter que OpenAPI couvre les API HTTP en général dont les APIs REST sont un sous-ensemble.</p>
+<p>La spécification OpenAPI ne se limite pas à la représentation d&rsquo;une API HTTP, mais elle dispose également d&rsquo;un écosystème bien établi. Des outils logiciels peuvent être utilisés pour traduire une définition OpenAPI en documentation consultable, pour générer du code côté client et serveur dans de nombreux langages de programmation. Des tests automatiques peuvent aussi être générés.</p>
+<p>En fonction des besoins fonctionnels auxquels vous êtes confronté et de l&rsquo;environnement technique dans lequel vous travaillez, vous avez un choix de normes API. En plus des protocoles API les plus largement utilisés aujourd&rsquo;hui, tels que REST et SOAP, il existe d&rsquo;autres alternatives telles que RAML et API Blueprint.</p>
+<h1 id=conclusion>Conclusion<a class="anchor ms-1" href=#conclusion><i class="fas fa-link"></i></a></h1>
+<p>Dans cet article introductif, j&rsquo;ai présenté quelques concepts de base sur la communication entre les composants logiciels. Pour rendre une telle communication possible, une API doit être créée. Une bonne API devrait avoir des caractéristiques telles que la sécurité, l&rsquo;interopérabilité et la cohérence. Après cette section conceptuelle, j&rsquo;ai abordé le problème de la représentation d&rsquo;une API et suggéré que, pour les API HTTP, un standard tel que OpenAPI est un bon choix. RAML et API Blueprint existent également, mais ils sont moins connus.</p>
+<p>Dans l&rsquo;article suivant, je plongerai dans de nombreux autres détails sur OpenAPI.</p>
+<p>Si vous avez des remarques sur le contenu ou la forme vous pouvez laisser un commentaire&mldr; c’est en échangeant qu’on progresse.</p>
+<p>Author: Daniele Cremonini
+Reviewer: Emmanuel Quinton</p></div><hr><div class=post-copyright id=post-copyright>
+<a class="d-flex align-items-center flex-column" target=_blank rel="license noopener noreferrer" href=https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en>
+<span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+CC BY-NC-ND 4.0
+</a>
+</div>
+<hr><div class="post-navs d-flex mb-3 justify-content-evenly">
+<div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
+</a>
+</div></div></div>
+</article><section class="related-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Articles en Relations</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/fr/posts/comment-faire-evoluer-application-presentation/>Comment Faire Évoluer Une API Pour La Rendre Plus Robuste Et Maintenable - Presentation
+</a>
+<span class="float-end post-date">15-01-2023
+</span>
+</li><li>
+<a href=/fr/posts/comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests/>Comment Faire Évoluer Une Application Pour La Rendre Plus Robuste Et Maintenable - Mise en Place De Tests
+</a>
+<span class="float-end post-date">15-01-2023
+</span>
+</li><li>
+<a href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
+</a>
+<span class="float-end post-date">16-01-2023
+</span>
+</li><li>
+<a href=/fr/about/>About
+</a>
+<span class="float-end post-date">13-01-2022
+</span>
+</li><li>
+<a href=/fr/contact/>
+</a>
+<span class="float-end post-date">01-01-0001
+</span>
+</li></ul>
+</div>
+</section><div class="card component row post-comments" id=post-comments>
+<div class=card-header>
+<h2 class=card-title>Commentaires</h2>
+</div>
+<div class=card-body></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+<div class=container>
+<section class="card row text-center profile component">
+<div class=card-body>
+<div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Talk To The Duck" src=/images/duck_120x120_square.png loading=lazy width=120 height=120>
+</div>
+<div class="col-12 profile-meta"><div class=profile-name>Talk To The Duck</div><div class=profile-bio>Explain to the Duck, you will understand.</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Paris, France</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/fr/about/>About</a></div><div class=profile-contact><i class="fas fa-fw fa-question-circle"></i><a href=/fr/contact/></a></div></div>
+</div>
+</section>
+<section class="recent-posts row card component">
+<div class=card-header>
+<h2 class=card-title>Articles Récents</h2>
+</div>
+<div class=card-body>
+<ul class=post-list><li>
+<a href=/fr/posts/c-est-quoi-une-api/>Introduction Aux APIs
+</a>
+</li><li>
+<a href=/fr/posts/qu-est-ce-que-la-mise-en-page-du-code-et-pourquoi-est-ce-important/>Qu'est-Ce Que La Mise en Page Du Code Et Pourquoi Est-Ce Important
+</a>
+</li><li>
+<a href=/fr/posts/comment-faire-evoluer-application-presentation/>Comment Faire Évoluer Une API Pour La Rendre Plus Robuste Et Maintenable - Presentation
+</a>
+</li><li>
+<a href=/fr/posts/comment-faire-evoluer-une-application-pour-la-rendre-plus-robuste-et-maintenable-mise-en-place-de-tests/>Comment Faire Évoluer Une Application Pour La Rendre Plus Robuste Et Maintenable - Mise en Place De Tests
+</a>
+</li></ul>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/fr/categories>Catégories</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/fr/categories/qualit%C3%A9/ class="badge rounded post-taxonomy" title=qualité>
+qualité
+</a><a href=/fr/categories/api/ class="badge rounded post-taxonomy" title=API>
+API
+</a><a href=/fr/categories/test/ class="badge rounded post-taxonomy" title=test>
+test
+</a></div>
+</div>
+</section><section class="taxonomies row card component">
+<div class=card-header>
+<h2 class=card-title>
+<a href=/fr/series>Séries</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=py-2><a href=/fr/series/comment-faire-%C3%A9voluer-une-application-pour-la-rendre-plus-robuste-et-maintenable/ class="badge rounded post-taxonomy" title="Comment faire évoluer une application pour la rendre plus robuste et maintenable">
+Comment faire évoluer une application pour la rendre plus robuste et maintenable
+</a><a href=/fr/series/outils-pour-java/ class="badge rounded post-taxonomy" title="Outils pour Java">
+Outils pour Java
+</a><a href=/fr/series/travailler-avec-les-apis/ class="badge rounded post-taxonomy" title="Travailler avec les APIs">
+Travailler avec les APIs
+</a></div>
+</div>
+</section>
+</div>
+</aside>
+</div>
+</main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+<a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/><img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png></a><br>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+Copyright © 2021-2024 Talk To The Duck. All Rights Reserved.
+</div>
+</footer>
+<script src=/js/main.min.d1ef5819d5055b58eaa52e77fc1c87e27b1a006bc5169ce78255477ef0bb2281.js integrity="sha256-0e9YGdUFW1jqpS53/ByH4nsaAGvFFpznglVHfvC7IoE=" crossorigin=anonymous defer></script><script src=/js/icons.min.a35670f2f90c398e5ee5c8e509b428fae75aa2746854cee10b60794633076859.js integrity="sha256-o1Zw8vkMOY5e5cjlCbQo+udaonRoVM7hC2B5RjMHaFk=" crossorigin=anonymous defer></script>
+<script>'serviceWorker'in navigator&&window.addEventListener('load',()=>{navigator.serviceWorker.register('/service-worker.js').then(function(a){console.log('Successfully registered service worker',a)}).catch(function(a){console.warn('Error whilst registering service worker',a)})})</script><script src=/js/viewer.min.4dba52a0a790f909408b7385316651299158381686401d50ff1f04dda6476473.js integrity="sha256-TbpSoKeQ+QlAi3OFMWZRKZFYOBaGQB1Q/x8E3aZHZHM=" crossorigin=anonymous defer></script>
+</body>
+</html>
