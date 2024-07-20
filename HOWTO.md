@@ -38,7 +38,7 @@ If you wish to execute Hugo with Docker, run the script below:
 docker run --rm -it \
     -v $(pwd):/src \
     -p 1313:1313 \
-    klakegg/hugo:0.92.2 \
+    klakegg/hugo:0.111.3-ext-ubuntu-onbuild \
     server
 ```
 
@@ -48,7 +48,7 @@ If you wish to see the draft articles then you can use the command below:
 docker run --rm -it \
     -v $(pwd):/src \
     -p 1313:1313 \
-    klakegg/hugo:0.92.2 \
+    klakegg/hugo:0.111.3-ext-ubuntu-onbuild \
     server -D
 ```
 
