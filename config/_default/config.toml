@@ -1,4 +1,4 @@
-baseURL = "https://talk-to-the-duck.github.io/"
+baseURL = "https://talk-to-the-duck.dev/"
 title = "Talk To The Duck"
 theme = "hugo-theme-bootstrap"
 copyright = "Copyright © 2021-{year} Talk To The Duck. All Rights Reserved."
