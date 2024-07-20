@@ -31,7 +31,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.128.0
+      # Use 0.111.0 to avoid the error --> calling Paginate: pagination not supported for this page: kind: "page"
+      HUGO_VERSION: 0.111.0
     steps:
       - name: Install Hugo CLI
         run: |
