@@ -99,7 +99,7 @@ graph TB
 - Junit5
 - Mockito
 - Mockito-inline
-- Wiremock
+
 
 ### Description d'une classe de test unitaire type
 
@@ -118,6 +118,7 @@ En plus de celles présentes au niveau des tests unitaires. On peut ajouter
 
 - TestContainer
 - SpringbootTest
+- Wiremock
 
 
 ### Description d'un test d'integration type
@@ -141,11 +142,11 @@ Dans la classe de test d'un controller
 - L'annotation @SQL peut être utilisée pour initialiser la base de données
 
 
-## Details sur les tests d'intégrations
+## Details sur les tests systems
 
 
-Les test systems ont pour objectif de tester une feature dans son intégralité; d'une endpoint à la base de données.
-Pour ce faire on peut utilisé Karaté. La description du test se fait alors en Girkin dans des fichiers '.features' qui seront 
+Les tests systems ont pour objectif de tester une feature dans son intégralité; d'un endpoint à la base de données.
+Pour ce faire, on peut utiliser Karaté. La description du test se fait alors en Girkin dans des fichiers '.features' qui seront 
 exécutés par une classe java dont les méthodes sont annoté par '@karate.test'
 
 ### Dépendances utilisées
