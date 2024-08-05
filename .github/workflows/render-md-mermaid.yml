@@ -1,0 +1,30 @@
+name: Mermaid
+
+on:
+  # Upon push to action.yml in the main branch
+  push:
+    branches: [ main ]
+    paths:
+      - action.yml
+  # Or upon manual trigger
+  workflow_dispatch:
+
+jobs:
+  mermaid:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Get Mermaid diagram for the action repository this workflow runs in
+      # Use `nwo` option to change the action repository
+      - name: Get Mermaid diagram
+        id: mermaid
+        uses: imjohnbo/action-to-mermaid@v0
+
+      # Do something with Mermaid diagram, e.g. update README, output to separate file, etc.
+      - name: Echo Mermaid diagram
+        env:
+          MERMAID: ${{ steps.mermaid.outputs.mermaid }}
+        run: |-
+          echo "$MERMAID"

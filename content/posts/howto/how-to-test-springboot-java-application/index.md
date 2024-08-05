@@ -26,7 +26,7 @@ images = []
   </script>
 {{ end }}
 
-## Foreword
+## Avant-propos
 
 L'objectif de ce post est de définir :
 - Quel type de test faire en fonction de ce que l'on veut tester (service, controller, repository, adapter...)
@@ -52,7 +52,6 @@ L'application peut être organisée en layer ou en architecture hexagonale. Dans
 - Des services et des models (qui appartiennent au domain dans l'architecture hexagonale)
 - des repositories pour la persistance en base de données et des entités.
 
->TODO: Pour le cas des apdatpers dans l'architecutre hexagonale, à quelle niveau doit on les tester ? unitairement ou intégration
 
 ## Quel type de tests pour quel type de composant
 
