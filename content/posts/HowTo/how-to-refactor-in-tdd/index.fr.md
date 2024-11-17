@@ -84,6 +84,6 @@ D - Principe d'inversion de la dépendance : ne dépend que des abstractions/int
 Une fois le code écrit et le test passant, vient la phase de refactorisation. pour cela on peut s'appuyer sur:
 * Les règles de priorités de transformations (Transformation priority premise) établies par Robert C.Martin  dans l'article https://blog.cleancoder.com/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html
   https://vimeo.com/97516288
-* Les patterns de refactorisations établis par Martin Fowler
+* Les patterns de refactorisations établis par Martin Fowler (https://refactoring.com/catalog/)
 * Les objets calisthenic établies par Jeff Bay à partir des règles du clean code
 
