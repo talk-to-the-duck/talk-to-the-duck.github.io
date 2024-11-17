@@ -34,7 +34,7 @@ L'objectif de ce poste est de présenter différentes règles permettant de refa
 ## Rappel sur le TDD
 
 Le TDD ou test driven development est une pratique institut (todo: trouver meilleur mot) la création de test avant tout développement. (todo à clarifier)
-Cette pratque est constituée de 3 phase:
+git statusCette pratique est constituée de 3 phase:
 * la création d'un test qui échoue (phase rouge)
 * Création du code pour que le test n'échoue plus (phase verte)
 * refactorisation du code qui à pour but de rendre le code plus lisible et le plus simple possible
@@ -44,9 +44,9 @@ Cette pratque est constituée de 3 phase:
 La création du code permettant à un test doît être le plus simple possible et le plus lisible possible ; pour cela, on pdéjà s'appuyer sur certains principes:
 
 ### Le clean code
-Le livre de Robet C;Martin présente un ensemble de règles simples permettant de mettre en place un code propre telque:
+Le livre de Robert C;Martin présente un ensemble de règles simples permettant de mettre en place un code propre tel que :
 * Eviter les commentaires 
-* Utiliser un nom qui a du sen
+* Utiliser un nom qui a du sens
   Utiliser un nom révélateur d'intention 
   * Utiliser des noms prononçables 
   * Utiliser un nom qui peut être recherché (éviter les nombres magiques) 
