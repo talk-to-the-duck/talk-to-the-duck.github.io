@@ -42,21 +42,25 @@ graph TD
     classDef conditionStyle fill:#D9E8FB,stroke:#1E88E5,stroke-width:2,shape:diamond;
 A[Début] --> B{La logique métier est-elle simple ?}
 B -->|Oui| TS[Transaction Script]
-B -->|Non| C{La logique métier est-elle  fortement couplée à la base de données ?}
+B -->|Non| C{La logique métier est-elle <br>  fortement couplée <br/> à la base de données ?}
 C -->|Oui| AR[Active Record]
-C -->|Non| D{Le découplage des dépendances techniques est-il une priorité ?}
+C -->|Non| D{Le découplage des dépendances <br/>techniques  est-il une priorité ?}
 D -->|Non| Monolithic[Architecture monolithique classique]
-D -->|Oui| E{Le domaine métier est-il complexe ou critique ?}
+D -->|Oui| E{Le domaine métier <br/> est-il complexe ou critique ?}
 E -->|Oui| DDD_Hexa[Architecture hexagonale avec DDD]
 E -->|Non| Hexa[Architecture hexagonale sans DDD]
-DDD_Hexa --> F{La séparation lecture/écriture est-elle nécessaire ?}
+DDD_Hexa --> F{La séparation lecture/écriture <br/> est-elle nécessaire ?}
 Hexa --> F
 F -->|Oui| CQRS[Command Query Responsibility Segregation]
-F -->|Non| G{Le système est-il basé sur des événements ?}
+F -->|Non| G{Le système est-il <br/>basé sur des événements ?}
 G -->|Oui| ES[Event Sourcing]
-G -->|Non| Complete[Architecture choisie]
-
+G --> |Non| Complete[Architecture choisie]
+ES --> Complete
 ```
 -how-to-choose-an-application-architecture
 
 
+`#`
+
+
+Event sourcing  => asynchrone ou découplé  event sourcing
