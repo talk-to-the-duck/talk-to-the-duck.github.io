@@ -152,3 +152,12 @@ exécutés par une classe java dont les méthodes sont annoté par '@karate.test
 En plus de celles présentes au niveau des tests d'intégration. On peut ajouter
 
 - Karate-junit5
+
+
+## Résumé
+Dans ce billet, nous avons vu
+* quels types de tests pouvaient être fait et sur quel composant Spring
+* quels technologies (java) utiliséer pour tests
+
+
+Si vous avez des remarques sur le contenu ou la forme, vous pouvez laisser un commentaire...c'est en échangeant que nous progressons.
