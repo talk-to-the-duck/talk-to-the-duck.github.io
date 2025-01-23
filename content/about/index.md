@@ -13,7 +13,7 @@ Have you ever gotten stuck while writing a particularly complicated piece of cod
 
 Explain your code to a duck (if it's made of rubber, it will always remain handy on your desk) and your ideas will catch on quickly.
 
-It may seem strange but if instead of reading the code over and over, you tell someone about it, your brain often reveals the mystery. The idea of ​​explaining the code to a rubber duck was popularized by the book "The Pragmatic Programmer". The method works. This explains the logo.
+It may seem strange but if instead of reading the code over and over, you tell someone about it, your brain often reveals the mystery. The idea of explaining the code to a rubber duck was popularized by the book "The Pragmatic Programmer". The method works. This explains the logo.
 
 But, what prompted us to create a site that encourages you to talk to a duck?
 We made several observations:
@@ -25,5 +25,6 @@ The main idea of this site is therefore to present articles and methodologies wh
 
 By extension, the idea is also to present articles about our job as developers and maybe even to present some books that we particularly liked.
 
-The arguments reflect only our opinions and our way of doing but it is always our point of view and we are willing to change them because to progress you need to know how to listen and understand the opinion of others and accept that there are different ways of doing.
+The arguments reflect only our opinions and our way of doing but it is always our point of view, and we are willing to change them because to progress you need to know how to listen and understand the opinion of others and accept that there are different ways of doing.
 
+Daniele Cremonini and Emmanuel Quinton

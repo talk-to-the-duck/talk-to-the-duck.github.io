@@ -38,3 +38,5 @@ L'idée première de ce site est donc de présenter des articles et des méthodo
 Par extensions, l'idée est également de présenter des articles autour de notre métier de développeur; peut être de présenter des livres qui nous auront interpellés.
 
 Dans tous les cas les sujets ne seront qu'un reflet de ce que nous pensons, notre savoir faire mais en aucun cas se ne sont des points de vus fermés car pour progresser il faut savoir entendre l'avis des autres et accepter qu'il y a différentes façons de faire.
+
+Daniele Cremonini et Emmanuel Quinton
