@@ -37,3 +37,5 @@ L’idea principale di questo sito è quindi quella di presentare degli articoli
 Per estensione, l’idea è anche quella di presentare degli articoli riguardo il nostro mestiere di sviluppatori e magari anche di presentare dei libri che ci sono particolarmente piaciuti.
 
 Gli argomenti riflettono unicamente le nostre opinioni e il nostro modo di fare ma si tratta sempre del nostro punto di vista e siamo ben disposti a cambiarli perché per progredire bisogna sapere ascoltare e capire l’opinione degli altri ed accettare che esistono diversi modi di fare.
+
+Daniele Cremonini e Emmanuel Quinton
